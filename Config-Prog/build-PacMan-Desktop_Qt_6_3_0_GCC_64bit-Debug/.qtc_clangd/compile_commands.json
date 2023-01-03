@@ -3,7 +3,7 @@
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -18,9 +18,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -47,16 +47,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/game.cpp"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/game.cpp"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/game.cpp"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/game.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -71,9 +71,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -100,16 +100,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/gridmanagement.cpp"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/gridmanagement.cpp"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/gridmanagement.cpp"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/gridmanagement.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -124,9 +124,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -153,16 +153,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/params.cpp"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/params.cpp"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/params.cpp"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/params.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -177,9 +177,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -206,16 +206,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/main.cpp"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/main.cpp"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/main.cpp"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/main.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -230,9 +230,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -259,16 +259,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/game.h"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/game.h"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/game.h"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/game.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -283,9 +283,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -312,16 +312,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/gridmanagement.h"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/gridmanagement.h"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/gridmanagement.h"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/gridmanagement.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -336,9 +336,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -365,16 +365,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/params.h"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/params.h"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/params.h"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/params.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-KIBlkW/clang-uiheader-HUgRoV",
+        "/tmp/QtCreator-XhYSrU/clang-uiheader-CqiLMQ",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -389,9 +389,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan",
         "-I",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -418,9 +418,9 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/type.h"
+        "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/type.h"
     ],
-    "directory": "/amuhome/d22011515/Programmation/prog13_03_1_23/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/Programmation/prog13_03_1_23/PacMan/Correc_Prof/type.h"
+    "directory": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/Correc_Prof/type.h"
 }
 ]
