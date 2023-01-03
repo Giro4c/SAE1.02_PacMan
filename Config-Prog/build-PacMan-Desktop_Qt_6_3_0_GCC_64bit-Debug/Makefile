@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DQT_QML_DEBUG
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC $(DEFINES)
-INCPATH       = -I../../PacMan-Jeu/PacMan -I. -I/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../PacMan-Jeu/PacMan -I. -I../../PacMan-Jeu/PacMan/MinGL2/include -I/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt-6.3/6.3.0/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = PacMan1.0.0
 DISTDIR = /amuhome/g22008933/SAE1.02/SAE1.02_PacMan/Config-Prog/build-PacMan-Desktop_Qt_6_3_0_GCC_64bit-Debug/.tmp/PacMan1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS)    
+LIBS          = $(SUBLIBS) -lglut -lsfml-audio -lGLU -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -55,11 +55,45 @@ OBJECTS_DIR   = ./
 SOURCES       = ../../PacMan-Jeu/PacMan/Correc_Prof/game.cpp \
 		../../PacMan-Jeu/PacMan/Correc_Prof/gridmanagement.cpp \
 		../../PacMan-Jeu/PacMan/Correc_Prof/params.cpp \
-		../../PacMan-Jeu/PacMan/main.cpp 
+		../../PacMan-Jeu/PacMan/main.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/audio/audioengine.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/exception/cexception.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/mingl.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/event/event_manager.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/circle.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/line.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/rectangle.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/triangle.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/shape.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/graphics/rgbacolor.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/graphics/vec2d.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/gui/glut_font.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/gui/sprite.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/gui/text.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_contract.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_engine.cpp 
 OBJECTS       = game.o \
 		gridmanagement.o \
 		params.o \
-		main.o
+		main.o \
+		audioengine.o \
+		cexception.o \
+		mingl.o \
+		event_manager.o \
+		circle.o \
+		line.o \
+		rectangle.o \
+		triangle.o \
+		shape.o \
+		rgbacolor.o \
+		vec2d.o \
+		glut_font.o \
+		sprite.o \
+		text.o \
+		transition.o \
+		transition_contract.o \
+		transition_engine.o
 DIST          = ../../PacMan-Jeu/PacMan/Nos_fichiers/config.yaml \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/common/unix.conf \
@@ -197,6 +231,7 @@ DIST          = ../../PacMan-Jeu/PacMan/Nos_fichiers/config.yaml \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/default_pre.prf \
+		../../PacMan-Jeu/PacMan/MinGL2/mingl.pri \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/resolve_config.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/default_post.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/qml_debug.prf \
@@ -210,10 +245,54 @@ DIST          = ../../PacMan-Jeu/PacMan/Nos_fichiers/config.yaml \
 		../../PacMan-Jeu/PacMan/PacMan.pro Correc_Prof/game.h \
 		Correc_Prof/gridmanagement.h \
 		Correc_Prof/params.h \
-		Correc_Prof/type.h ../../PacMan-Jeu/PacMan/Correc_Prof/game.cpp \
+		Correc_Prof/type.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/audio/audioengine.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.hpp \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/errcode.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/mingl.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/event/event.hpp \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/event/event_manager.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/circle.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/line.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/rectangle.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/triangle.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/shape.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/glut_font.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/sprite.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/text.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ifonctorunaire.hpp \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_contract.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_engine.h \
+		/amuhome/g22008933/SAE1.02/SAE1.02_PacMan/PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_types.h ../../PacMan-Jeu/PacMan/Correc_Prof/game.cpp \
 		../../PacMan-Jeu/PacMan/Correc_Prof/gridmanagement.cpp \
 		../../PacMan-Jeu/PacMan/Correc_Prof/params.cpp \
-		../../PacMan-Jeu/PacMan/main.cpp
+		../../PacMan-Jeu/PacMan/main.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/audio/audioengine.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/exception/cexception.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/mingl.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/event/event_manager.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/circle.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/line.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/rectangle.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/triangle.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/shape/shape.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/graphics/rgbacolor.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/graphics/vec2d.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/gui/glut_font.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/gui/sprite.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/gui/text.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_contract.cpp \
+		../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_engine.cpp
 QMAKE_TARGET  = PacMan
 DESTDIR       = 
 TARGET        = PacMan
@@ -361,6 +440,7 @@ Makefile: ../../PacMan-Jeu/PacMan/PacMan.pro /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/li
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/default_pre.prf \
+		../../PacMan-Jeu/PacMan/MinGL2/mingl.pri \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/resolve_config.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/default_post.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/qml_debug.prf \
@@ -509,6 +589,7 @@ Makefile: ../../PacMan-Jeu/PacMan/PacMan.pro /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/li
 /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/default_pre.prf:
+../../PacMan-Jeu/PacMan/MinGL2/mingl.pri:
 /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/resolve_config.prf:
 /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/default_post.prf:
 /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/qml_debug.prf:
@@ -581,6 +662,142 @@ params.o: ../../PacMan-Jeu/PacMan/Correc_Prof/params.cpp ../../PacMan-Jeu/PacMan
 main.o: ../../PacMan-Jeu/PacMan/main.cpp ../../PacMan-Jeu/PacMan/Correc_Prof/game.h \
 		../../PacMan-Jeu/PacMan/Correc_Prof/type.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../PacMan-Jeu/PacMan/main.cpp
+
+audioengine.o: ../../PacMan-Jeu/PacMan/MinGL2/src/audio/audioengine.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/audio/audioengine.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/errcode.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o audioengine.o ../../PacMan-Jeu/PacMan/MinGL2/src/audio/audioengine.cpp
+
+cexception.o: ../../PacMan-Jeu/PacMan/MinGL2/src/exception/cexception.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/errcode.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cexception.o ../../PacMan-Jeu/PacMan/MinGL2/src/exception/cexception.cpp
+
+mingl.o: ../../PacMan-Jeu/PacMan/MinGL2/src/mingl.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/mingl.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/event/event_manager.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/event/event.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mingl.o ../../PacMan-Jeu/PacMan/MinGL2/src/mingl.cpp
+
+event_manager.o: ../../PacMan-Jeu/PacMan/MinGL2/src/event/event_manager.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/event/event_manager.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/event/event.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o event_manager.o ../../PacMan-Jeu/PacMan/MinGL2/src/event/event_manager.cpp
+
+circle.o: ../../PacMan-Jeu/PacMan/MinGL2/src/shape/circle.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/circle.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/shape.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o circle.o ../../PacMan-Jeu/PacMan/MinGL2/src/shape/circle.cpp
+
+line.o: ../../PacMan-Jeu/PacMan/MinGL2/src/shape/line.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/line.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/shape.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o line.o ../../PacMan-Jeu/PacMan/MinGL2/src/shape/line.cpp
+
+rectangle.o: ../../PacMan-Jeu/PacMan/MinGL2/src/shape/rectangle.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/rectangle.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/shape.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rectangle.o ../../PacMan-Jeu/PacMan/MinGL2/src/shape/rectangle.cpp
+
+triangle.o: ../../PacMan-Jeu/PacMan/MinGL2/src/shape/triangle.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/triangle.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/shape.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o triangle.o ../../PacMan-Jeu/PacMan/MinGL2/src/shape/triangle.cpp
+
+shape.o: ../../PacMan-Jeu/PacMan/MinGL2/src/shape/shape.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/shape/shape.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shape.o ../../PacMan-Jeu/PacMan/MinGL2/src/shape/shape.cpp
+
+rgbacolor.o: ../../PacMan-Jeu/PacMan/MinGL2/src/graphics/rgbacolor.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rgbacolor.o ../../PacMan-Jeu/PacMan/MinGL2/src/graphics/rgbacolor.cpp
+
+vec2d.o: ../../PacMan-Jeu/PacMan/MinGL2/src/graphics/vec2d.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vec2d.o ../../PacMan-Jeu/PacMan/MinGL2/src/graphics/vec2d.cpp
+
+glut_font.o: ../../PacMan-Jeu/PacMan/MinGL2/src/gui/glut_font.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/glut_font.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o glut_font.o ../../PacMan-Jeu/PacMan/MinGL2/src/gui/glut_font.cpp
+
+sprite.o: ../../PacMan-Jeu/PacMan/MinGL2/src/gui/sprite.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/sprite.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/errcode.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/exception/cexception.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sprite.o ../../PacMan-Jeu/PacMan/MinGL2/src/gui/sprite.cpp
+
+text.o: ../../PacMan-Jeu/PacMan/MinGL2/src/gui/text.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/text.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/gui/glut_font.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/idrawable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/tools/ieditable.hpp \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/graphics/vec2d.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o text.o ../../PacMan-Jeu/PacMan/MinGL2/src/gui/text.cpp
+
+transition.o: ../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_contract.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transition.o ../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition.cpp
+
+transition_contract.o: ../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_contract.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_contract.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transition_contract.o ../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_contract.cpp
+
+transition_engine.o: ../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_engine.cpp ../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_engine.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_contract.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/itransitionable.h \
+		../../PacMan-Jeu/PacMan/MinGL2/include/mingl/transition/transition_types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transition_engine.o ../../PacMan-Jeu/PacMan/MinGL2/src/transition/transition_engine.cpp
 
 ####### Install
 
