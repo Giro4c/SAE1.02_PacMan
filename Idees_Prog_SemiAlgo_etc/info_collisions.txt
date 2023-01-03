@@ -1,0 +1,8 @@
+Collision Pac / BP
+    (Si Plateau est représenté en matrice)
+si timelapse > 3 second
+    combo = 0
+ Si MatriceBP [PosPacMan.first] [PosPacMan.second] == true
+    MatriceBP [PosPacMan.first] [PosPacMan.second] = false
+    ++combo
+
