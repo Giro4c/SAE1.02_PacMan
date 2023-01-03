@@ -17,4 +17,5 @@ HEADERS += \
     Correc_Prof/gridmanagement.h \
     Correc_Prof/params.h \
     Correc_Prof/type.h \
-    Correc_Prof/type.h
+
+include(../../MinGL2/mingl.pri)
