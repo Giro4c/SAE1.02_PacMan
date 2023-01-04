@@ -57,10 +57,82 @@ void dessiner(MinGL & window)
     // N'hésitez pas a lire la doc pour plus de détails.
     */
 
-    // PacMan
-    window << nsShape::Circle(nsGraphics::Vec2D(330, 330), 200, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(330, 330), nsGraphics::Vec2D(560, 270), nsGraphics::Vec2D(560, 400), nsGraphics::KBlack);
-    window << nsShape::Circle(nsGraphics::Vec2D(400, 210), 20, nsGraphics::KBlack);
+    // PacMan Right
+    window << nsShape::Circle(nsGraphics::Vec2D(50, 50), 25, nsGraphics::KYellow);
+    window << nsShape::Triangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(75, 30), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
+    // PacMan Left
+    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);
+    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 30), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
+    // PacMan Up
+    window << nsShape::Circle(nsGraphics::Vec2D(150, 50), 25, nsGraphics::KYellow);
+    window << nsShape::Triangle(nsGraphics::Vec2D(150, 50), nsGraphics::Vec2D(135, 25), nsGraphics::Vec2D(165, 25), nsGraphics::KBlack);
+    // PacMan Down
+    window << nsShape::Circle(nsGraphics::Vec2D(200, 50), 25, nsGraphics::KYellow);
+    window << nsShape::Triangle(nsGraphics::Vec2D(200, 50), nsGraphics::Vec2D(185, 75), nsGraphics::Vec2D(215, 75), nsGraphics::KBlack);
+    // Boule point petit
+    window << nsShape::Circle(nsGraphics::Vec2D(250, 50), 5, nsGraphics::KWhite);
+    // Boule point grand
+    window << nsShape::Circle(nsGraphics::Vec2D(300, 50), 10, nsGraphics::KWhite);
+    // Fantôme Bleu
+    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+    window << nsShape::Rectangle(nsGraphics::Vec2D(350, 75), nsGraphics::Vec2D(350,200), nsGraphics::KBlue);
+    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KBlue);
+    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
+    /*
+    // Fantôme Rouge
+    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+    window << nsShape::Rectangle(nsGraphics::Vec2D(350, 75), nsGraphics::Vec2D(350,200), nsGraphics::KRed);
+    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KRed);
+    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
+    // Fantôme Vert
+    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+    window << nsShape::Rectangle(nsGraphics::Vec2D(350, 75), nsGraphics::Vec2D(350,200), nsGraphics::KGreen);
+    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KGreen);
+    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
+    */
+/*
+vector<unsigned> plateau({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                          0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                           0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                           0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,2,2,2,2,2,2,0
+                           0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+                           0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+                           0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+                           0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,0
+                           0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0
+                           0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0
+                           0,1,1,1,1,1,1,0,0,1,1,1,1,0,0,2,2,2,2,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,0,1,0,0,0,0,0,1,1,2,2,0,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,0,1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,0,1,0,0,0,0,2,2,2,2,1,1,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,8,1,8,0,0,0,3,3,3,0,0,4,0,0,0,0,2,0,0,0,0,0,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0
+                           0,0,0,0,0,0 1,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,0,0,3,3,3,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,3,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,8,8,0,8,8,8,8,8,3,0,0,0,0,3,0
+                           0,0,0,0,0,8,1,0,0,0,0,0,0,1,2,3,4,5,6,7,8,3,8,0,3,3,3,0
+                           0,0,0,0,0,8,1,8,0,0,0,0,0,8,8,8,8,8,0,8,8,3,8,0,3,0,0,0
+                           0,8,8,0,8,8,1,8,0,0,0,0,0,0,0,0,0,0,0,0,8,3,8,8,3,8,8,0
+                           8,1,1,1,1,1,1,8,0,0,0,0,0,0,0,0,0,0,0,0,8,3,3,3,3,16,17,8
+                           8,1,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,18,8
+                           8,1,8,8,8,8,8,8,8,8,8,8,0,8,8,0,8,8,8,8,8,8,8,8,8,8,19,8
+                           8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8
+                           0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0
+                           0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                           0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+*/
 
 }
 int main()
@@ -69,7 +141,7 @@ int main()
 
         vector <unsigned> V;
         // Initialise le système
-        MinGL window("Histogramme", nsGraphics::Vec2D(800, 800), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
+        MinGL window("PacMan", nsGraphics::Vec2D(1400, 800), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
         window.initGlut();
         window.initGraphic();
 
