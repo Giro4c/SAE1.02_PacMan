@@ -1,8 +1,42 @@
 Collision Pac / BP
-    (Si Plateau est représenté en matrice)
-si timelapse > 3 second
-    combo = 0
- Si MatriceBP [PosPacMan.first] [PosPacMan.second] == true
-    MatriceBP [PosPacMan.first] [PosPacMan.second] = false
-    ++combo
 
+Procedure modifie map contenant une partie des données de MapBP (Toutes les BP suceptibles d'être percutées) en fonction de la directionPac
+Paramètres :
+- Map 
+- Map PossibleCollision_BP
+- directionPac
+
+procedure BP possible collision
+{
+    clear Map PossibleCollision_BP
+    tailleBP = Map_Sprites.find("BP")->second
+    tailleBP = tailleBP.Size
+    taillePac = Map_Sprites.find("Pac")->second
+    taillePac = taillePac.Size
+    // Colonne allignée avec le pacman 
+    if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoUp || DirectionPac == ParamPac (de type CParamPlayEntity) .GoDown )
+        for ( pair <CPosition, bool> BP : Map_BP )
+            if (BP.CenterPos/first/.first <= Pac.CenterPos.first + taillePac && BP.CenterPos/first/.first <= Pac.CenterPos.first - taillePac)
+                Map_BP[BP.first] = BP.second
+    
+    // Ligne allignée avec le pacman
+    if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoLeft || DirectionPac == ParamPac (de type CParamPlayEntity) .GoRight )
+    for ( pair <CPosition, bool> BP : Map_BP )
+        if (BP.CenterPos/first/.second <= Pac.CenterPos.first + taillePac && BP.CenterPos/first/.second <= Pac.CenterPos.first - taillePac)
+            Map_BP[BP.first] = BP.second
+
+}
+
+Fonction pair <bool, unsigned>  bool(collision ou non)   unsigned(combo actualisé en fonction)
+Paramètres :
+- Map des sprites
+- Direction Pac (inclu dans map sprites)
+- combo
+- timelapse
+- 
+Fonction collision_Pac-BP
+while (true){
+    si timelapse > 3 second
+        combo = 0
+
+}
