@@ -1,4 +1,6 @@
 #define FPS_LIMIT 60
+//#include "params.h"
+//#include "game.h"
 #include <iostream>
 #include <thread>
 #include "mingl/mingl.h"
@@ -33,12 +35,12 @@ struct GhostSprite
     nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
 };
 
-struct PacMan {
-    unsigned diametre = 50;
-    unsigned rayon = 25;
-    nsShape::Circle cercle = {nsGraphics::Vec2D(diametre, diametre), rayon, nsGraphics::KYellow};
-    nsShape::Triangle triangle = {nsGraphics::Vec2D(diametre, diametre), nsGraphics::Vec2D(diametre + rayon, rayon), nsGraphics::Vec2D(diametre + rayon, diametre + rayon - 10), nsGraphics::KBlack};
-};
+//struct PacMan {
+//    unsigned diametre = 50;
+//    unsigned rayon = 25;
+//    nsShape::Circle cercle = {nsGraphics::Vec2D(diametre, diametre), rayon, nsGraphics::KYellow};
+//    nsShape::Triangle triangle = {nsGraphics::Vec2D(diametre, diametre), nsGraphics::Vec2D(diametre + rayon, rayon), nsGraphics::Vec2D(diametre + rayon, diametre + rayon - 10), nsGraphics::KBlack};
+//};
 
 //struct forMap {
 //    unsigned posX --> Cposition.first;
@@ -46,6 +48,30 @@ struct PacMan {
 
 //};
 //pour l'appeler : //bpMap[(posX, posY)] = false;
+
+//void LoadParams (CMyParam & Param)
+//{
+//    ifstream ifs("config.yaml");
+//    pair <unsigned, unsigned> line;
+//    while(true)
+//    {
+//        //cin >> str;
+//        if (ifs.eof()) break;
+//        getline(ifs,line);
+
+//        // cout << str << '\n';
+
+//        // extraire param et val
+//        string param ;
+//        string val;
+//        size_t pos = line.find(":");
+//        param = line.substr(0,pos - 1);
+//        val = line.substr(pos + 1);
+//        cout << param << " : " << val << endl;
+//        // enregistrer dans la struct
+//    }
+//}
+
 /**
  * @brief CPosition : a pair gathering the coordinates in the grid
  */
@@ -118,7 +144,7 @@ struct PacMan {
 
 int main()
 {
-    PacMan pacLeft;
+//    PacMan pacLeft;
     GhostSprite Fantome;
     GhostSprite Fantome2;
 
@@ -148,8 +174,8 @@ int main()
 //            window << Fantome.head;
 //            window << Fantome.body;
 
-            Fantome2.YCenter = Fantome.YCenter + 100;
-            Fantome2.XCenter = Fantome.XCenter + 100;
+            Fantome2.YCenter = Fantome.YCenter + 1;
+            Fantome2.XCenter = Fantome.XCenter + 1;
 
             Fantome2.body = Fantome2.body;
 
@@ -157,8 +183,8 @@ int main()
             cout << Fantome.YCenter;
             window << Fantome2.head;
             window << Fantome2.body;
-            window << pacLeft.cercle;
-            window << pacLeft.triangle;
+//            window << pacLeft.cercle;
+//            window << pacLeft.triangle;
 
             dessiner(window);
 
