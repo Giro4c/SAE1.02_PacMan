@@ -29,6 +29,8 @@
             Collision PacMan/Mur 
 
             Algorithme comportement Fantome (Algorithme A*)
-            
+
+
+            Téléportation de la droite vers la gauche (vice versa)            
 
 

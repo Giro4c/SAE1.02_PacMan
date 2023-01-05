@@ -53,6 +53,7 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../Sprites/main.cpp \
+		../Sprites/sprites_et_map_bp-intersection.cpp \
 		../Sprites/MinGL2/src/audio/audioengine.cpp \
 		../Sprites/MinGL2/src/exception/cexception.cpp \
 		../Sprites/MinGL2/src/mingl.cpp \
@@ -71,6 +72,7 @@ SOURCES       = ../Sprites/main.cpp \
 		../Sprites/MinGL2/src/transition/transition_contract.cpp \
 		../Sprites/MinGL2/src/transition/transition_engine.cpp 
 OBJECTS       = main.o \
+		sprites_et_map_bp-intersection.o \
 		audioengine.o \
 		cexception.o \
 		mingl.o \
@@ -262,6 +264,7 @@ DIST          = /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h \
 		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h \
 		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h ../Sprites/main.cpp \
+		../Sprites/sprites_et_map_bp-intersection.cpp \
 		../Sprites/MinGL2/src/audio/audioengine.cpp \
 		../Sprites/MinGL2/src/exception/cexception.cpp \
 		../Sprites/MinGL2/src/mingl.cpp \
@@ -630,8 +633,39 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../Sprites/main.cpp 
+main.o: ../Sprites/main.cpp ../Sprites/MinGL2/include/mingl/mingl.h \
+		../Sprites/MinGL2/include/mingl/graphics/idrawable.h \
+		../Sprites/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../Sprites/MinGL2/include/mingl/tools/ieditable.h \
+		../Sprites/MinGL2/include/mingl/tools/ieditable.hpp \
+		../Sprites/MinGL2/include/mingl/graphics/vec2d.h \
+		../Sprites/MinGL2/include/mingl/event/event_manager.h \
+		../Sprites/MinGL2/include/mingl/event/event.hpp \
+		../Sprites/MinGL2/include/mingl/shape/rectangle.h \
+		../Sprites/MinGL2/include/mingl/shape/shape.h \
+		../Sprites/MinGL2/include/mingl/transition/itransitionable.h \
+		../Sprites/MinGL2/include/mingl/shape/circle.h \
+		../Sprites/MinGL2/include/mingl/shape/line.h \
+		../Sprites/MinGL2/include/mingl/shape/triangle.h \
+		../Sprites/MinGL2/include/mingl/gui/sprite.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Sprites/main.cpp
+
+sprites_et_map_bp-intersection.o: ../Sprites/sprites_et_map_bp-intersection.cpp ../Sprites/MinGL2/include/mingl/mingl.h \
+		../Sprites/MinGL2/include/mingl/graphics/idrawable.h \
+		../Sprites/MinGL2/include/mingl/graphics/rgbacolor.h \
+		../Sprites/MinGL2/include/mingl/tools/ieditable.h \
+		../Sprites/MinGL2/include/mingl/tools/ieditable.hpp \
+		../Sprites/MinGL2/include/mingl/graphics/vec2d.h \
+		../Sprites/MinGL2/include/mingl/event/event_manager.h \
+		../Sprites/MinGL2/include/mingl/event/event.hpp \
+		../Sprites/MinGL2/include/mingl/shape/rectangle.h \
+		../Sprites/MinGL2/include/mingl/shape/shape.h \
+		../Sprites/MinGL2/include/mingl/transition/itransitionable.h \
+		../Sprites/MinGL2/include/mingl/shape/circle.h \
+		../Sprites/MinGL2/include/mingl/shape/line.h \
+		../Sprites/MinGL2/include/mingl/shape/triangle.h \
+		../Sprites/MinGL2/include/mingl/gui/sprite.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sprites_et_map_bp-intersection.o ../Sprites/sprites_et_map_bp-intersection.cpp
 
 audioengine.o: ../Sprites/MinGL2/src/audio/audioengine.cpp ../Sprites/MinGL2/include/mingl/audio/audioengine.h \
 		../Sprites/MinGL2/include/mingl/exception/cexception.h \
