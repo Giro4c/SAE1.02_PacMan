@@ -28,6 +28,7 @@
 
             Collision PacMan/Mur 
 
-            Algorithme comportement Fantome
+            Algorithme comportement Fantome (Algorithme A*)
+            
 
 
