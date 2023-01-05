@@ -10,6 +10,7 @@
 #include <algorithm>
 #include "mingl/gui/sprite.h"
 #include <map>
+#include <utility>
 
 //using namespace std;
 //using namespace nsShape;
@@ -29,8 +30,26 @@ struct GhostSprite
     nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KBlue};
 
 };
-
-
+//struct forMap {
+//    unsigned posX;
+//    unsigned posY;
+//};
+/**
+ * @brief CPosition : a pair gathering the coordinates in the grid
+ */
+typedef std::pair <unsigned, unsigned> CPosition;
+CPosition stockage = {50, 50};
+map <CPosition, bool> bpMap;
+bpMap[stockage] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
+bpMap[50,50] = false;
 void dessiner(MinGL & window)
 {
     // PacMan Right
@@ -107,6 +126,9 @@ int main()
 
             Fantome2.YCenter = Fantome.YCenter + 100;
             Fantome2.XCenter = Fantome.XCenter + 100;
+
+            Fantome2.body = Fantome2.body;
+
 
             cout << Fantome.YCenter;
             window << Fantome2.head;
