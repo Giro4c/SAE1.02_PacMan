@@ -8,6 +8,7 @@
 #include "mingl/shape/triangle.h"
 #include <vector>
 #include <algorithm>
+#include "mingl/gui/sprite.h"
 
 using namespace std;
 using namespace nsShape;
@@ -96,18 +97,18 @@ void dessiner(MinGL & window)
     window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
     window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
     */
-
 }
 int main()
 {
         srand (time(nullptr));
-
         vector <unsigned> V;
         // Initialise le système
-        MinGL window("PacMan", nsGraphics::Vec2D(1400, 800), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
+        MinGL window("PacMan", nsGraphics::Vec2D(800, 1010), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
         window.initGlut();
         window.initGraphic();
 
+        // Instancie le sprite
+            nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
         // Variable qui tient le temps de frame
         chrono::microseconds frameTime = chrono::microseconds::zero();
 
@@ -122,6 +123,7 @@ int main()
 
             // On dessine les formes géométriques
             dessiner(window);
+            window << doggo;
 
             // On finit la frame en cours
             window.finishFrame();
@@ -137,3 +139,10 @@ int main()
         }
          return 0;
 }
+
+/*
+python3 img2si.py map.png map.si2
+Source image: .png
+Output image: .si2
+Image size is 224x282
+*/
