@@ -9,55 +9,30 @@
 #include <vector>
 #include <algorithm>
 #include "mingl/gui/sprite.h"
+#include <map>
+
+//using namespace std;
+//using namespace nsShape;
+//using namespace nsGraphics;
 
 using namespace std;
-using namespace nsShape;
-using namespace nsGraphics;
 
-using namespace std;
+struct GhostSprite
+{
+    unsigned XCenter = 100;
+    unsigned YCenter = 100;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
+    unsigned largeur_Rayon = 25;
+    unsigned longueur = 65;
+    // Penser à mettre variable couleur
+    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KBlue};
+    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KBlue};
+
+};
+
 
 void dessiner(MinGL & window)
 {
-    /*
-    //window << nsShape::Rectangle(nsGraphics::Vec2D(30, 30), nsGraphics::Vec2D(160, 160), nsGraphics::KPurple);
-    // Pour dessiner quelque chose avec minGL 2, vous pouvez soit instancier l'objet dans une variable et l'injecter dans la fenêtre...
-    nsShape::Rectangle rect1(nsGraphics::Vec2D(20, 20), nsGraphics::Vec2D(120, 120), nsGraphics::KBlue);
-    window << rect1;
-
-    // ...ou l'injecter directement dans la fenêtre!
-    //Exo 1 Rectangles
-    window << nsShape::Rectangle(nsGraphics::Vec2D(30, 30), nsGraphics::Vec2D(160, 160), nsGraphics::KPurple);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(180, 180), nsGraphics::KGreen);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(80, 80), nsGraphics::Vec2D(200, 200), nsGraphics::KBlue);
-    // 2 triangles
-    window << nsShape::Triangle(nsGraphics::Vec2D(200, 620), nsGraphics::Vec2D(400, 620), nsGraphics::Vec2D(300, 420), nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(400, 620), nsGraphics::Vec2D(600, 620), nsGraphics::Vec2D(500, 420), nsGraphics::KYellow);
-
-    // (Vous voyez par ailleurs que l'ordre d'affichage est important, le rectangle violet masque maintenant une partie du rectangle bleu.)
-    // Vous pouvez combiner les différentes formes disponibles pour faire des choses plus complexes.
-
-    // Voilà un bouton de fermeture.
-    // 3 cercles
-    window << nsShape::Circle(nsGraphics::Vec2D(100, 320), 50, nsGraphics::KRed);
-    window << nsShape::Circle(nsGraphics::Vec2D(200, 320), 50, nsGraphics::KRed);
-    window << nsShape::Circle(nsGraphics::Vec2D(300, 320), 50, nsGraphics::KRed);
-
-    //1 carré
-    window << nsShape::Rectangle(nsGraphics::Vec2D(500, 500), nsGraphics::Vec2D(120, 120), nsGraphics::KBlue);
-
-    window << nsShape::Line(nsGraphics::Vec2D(70, 290), nsGraphics::Vec2D(130, 350), nsGraphics::KWhite, 3.f);
-    window << nsShape::Line(nsGraphics::Vec2D(130, 290), nsGraphics::Vec2D(70, 350), nsGraphics::KWhite, 3.f);
-
-    // Et voilà la triforce.
-
-    window << nsShape::Triangle(nsGraphics::Vec2D(200, 620), nsGraphics::Vec2D(400, 620), nsGraphics::Vec2D(300, 420), nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(400, 620), nsGraphics::Vec2D(600, 620), nsGraphics::Vec2D(500, 420), nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(300, 420), nsGraphics::Vec2D(500, 420), nsGraphics::Vec2D(400, 220), nsGraphics::KYellow);
-
-
-    // N'hésitez pas a lire la doc pour plus de détails.
-    */
-
     // PacMan Right
     window << nsShape::Circle(nsGraphics::Vec2D(50, 50), 25, nsGraphics::KYellow);
     window << nsShape::Triangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(75, 30), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
@@ -78,31 +53,33 @@ void dessiner(MinGL & window)
     window << nsShape::Circle(nsGraphics::Vec2D(300, 50), 10, nsGraphics::KWhite);
     // Fantôme Bleu
     window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(350, 75), nsGraphics::Vec2D(350,200), nsGraphics::KBlue);
     window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KBlue);
     window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
     window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
     window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
-    /*
-    // Fantôme Rouge
-    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(350, 75), nsGraphics::Vec2D(350,200), nsGraphics::KRed);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KRed);
-    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
-    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
-    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
-    // Fantôme Vert
-    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(350, 75), nsGraphics::Vec2D(350,200), nsGraphics::KGreen);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KGreen);
-    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
-    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
-    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
-    */
+
+//    // Fantôme Rouge
+//    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+//    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KRed);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
+//    // Fantôme Vert
+//    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+//    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KGreen);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
+
+
 }
+
 int main()
 {
-        srand (time(nullptr));
+    GhostSprite Fantome;
+    GhostSprite Fantome2;
+
+    srand (time(nullptr));
         vector <unsigned> V;
         // Initialise le système
         MinGL window("PacMan", nsGraphics::Vec2D(800, 1010), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
@@ -125,6 +102,16 @@ int main()
             // Instancie le sprite
             nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
             window << doggo;
+//            window << Fantome.head;
+//            window << Fantome.body;
+
+            Fantome2.YCenter = Fantome.YCenter + 100;
+            Fantome2.XCenter = Fantome.XCenter + 100;
+
+            cout << Fantome.YCenter;
+            window << Fantome2.head;
+            window << Fantome2.body;
+
             dessiner(window);
 
             // On finit la frame en cours
