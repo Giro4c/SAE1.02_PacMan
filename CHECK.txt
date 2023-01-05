@@ -1,0 +1,33 @@
+            Sprite des Entités
+                Inclue : 
+                - CentrerPos (type CPosition): Centre de la figure, les formes sont crées à partir de ces coordonnées
+                - Size (type unsigned int) : Largeur/Longueur/Rayon selon entité, les formes sont crées en fonction de cette valeur
+                - Color (type string) : Couleur principale de l'entité
+                - Formes des Entités : les cercles rectangles carrés triangle etc...
+
+            Map des BP
+                Inclue :
+                - coordonnées des BP (Clé de type CPosition)
+                - Mangée ou non (Val de type bool, initialisée à false pour tt les BP au debut du programme)
+
+            Vector des Intersection (Inclue les co de chaque intersection sur le plateau)
+
+            Paramètres load
+                Inclue :
+                - 
+            Mouvement en fonction de la touche préssée 
+                (Attention le PacMan doit continuer d'aller dans la direction indiquée jusqu'à ce qu'une nouvelle touche de direction SPECIFIQUE à PacMan soit pressée donc change direction)
+
+            Upgrade: Mouvement Vitesse selon combo > 0
+
+            Animation de mouvement
+
+            Collision PacMan/BP
+
+            Collision PacMan/Fantome
+
+            Collision PacMan/Mur 
+
+            Algorithme comportement Fantome
+
+
