@@ -28,36 +28,59 @@ struct GhostSprite
     // Penser à mettre variable couleur
     nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KBlue};
     nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KBlue};
-
+    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
+    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
+    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
 };
+
+struct PacMan {
+    unsigned diametre = 50;
+    unsigned rayon = 25;
+    nsShape::Circle cercle = {nsGraphics::Vec2D(diametre, diametre), rayon, nsGraphics::KYellow};
+    nsShape::Triangle triangle = {nsGraphics::Vec2D(diametre, diametre), nsGraphics::Vec2D(diametre + rayon, rayon), nsGraphics::Vec2D(diametre + rayon, diametre + rayon - 10), nsGraphics::KBlack};
+};
+
 //struct forMap {
-//    unsigned posX;
-//    unsigned posY;
+//    unsigned posX --> Cposition.first;
+//    unsigned posY --> Cposition.second;
+
 //};
+//pour l'appeler : //bpMap[(posX, posY)] = false;
 /**
  * @brief CPosition : a pair gathering the coordinates in the grid
  */
-typedef std::pair <unsigned, unsigned> CPosition;
-CPosition stockage = {50, 50};
-map <CPosition, bool> bpMap;
-bpMap[stockage] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-bpMap[50,50] = false;
-void dessiner(MinGL & window)
+//pair <unsigned, unsigned> bp1 (50,50);
+//pair <unsigned, unsigned> bp2 (100,50);
+//pair <unsigned, unsigned> bp3 (150,50);
+//pair <unsigned, unsigned> bp4 (200,50);
+//pair <unsigned, unsigned> bp5 (250,50);
+//pair <unsigned, unsigned> bp6 (300,50);
+//pair <unsigned, unsigned> bp7 (350,50);
+//pair <unsigned, unsigned> bp8 (400,50);
+//pair <unsigned, unsigned> bp9 (450,50);
+//pair <unsigned, unsigned> bp10 (500,50);
+////typedef std::pair <unsigned, unsigned> CPosition;
+////CPosition stockage = {50, 50};
+//map<pair<unsigned, unsigned>, bool> bpMap;
+//bpMap[bp1] = false;
+//bpMap[bp2] = false;
+//bpMap[bp3] = false;
+//bpMap[bp4] = false;
+//bpMap[bp5] = false;
+//bpMap[bp6] = false;
+//bpMap[bp7] = false;
+//bpMap[bp8] = false;
+//bpMap[bp9] = false;
+//bpMap[bp10] = false;
+
+ void dessiner(MinGL & window)
 {
     // PacMan Right
     window << nsShape::Circle(nsGraphics::Vec2D(50, 50), 25, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(75, 30), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
     // PacMan Left
     window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 30), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
+    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
     // PacMan Up
     window << nsShape::Circle(nsGraphics::Vec2D(150, 50), 25, nsGraphics::KYellow);
     window << nsShape::Triangle(nsGraphics::Vec2D(150, 50), nsGraphics::Vec2D(135, 25), nsGraphics::Vec2D(165, 25), nsGraphics::KBlack);
@@ -95,6 +118,7 @@ void dessiner(MinGL & window)
 
 int main()
 {
+    PacMan pacLeft;
     GhostSprite Fantome;
     GhostSprite Fantome2;
 
@@ -133,6 +157,8 @@ int main()
             cout << Fantome.YCenter;
             window << Fantome2.head;
             window << Fantome2.body;
+            window << pacLeft.cercle;
+            window << pacLeft.triangle;
 
             dessiner(window);
 
