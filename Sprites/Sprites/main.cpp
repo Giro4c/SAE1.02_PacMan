@@ -70,6 +70,8 @@ void dessiner(MinGL & window)
     // PacMan Down
     window << nsShape::Circle(nsGraphics::Vec2D(200, 50), 25, nsGraphics::KYellow);
     window << nsShape::Triangle(nsGraphics::Vec2D(200, 50), nsGraphics::Vec2D(185, 75), nsGraphics::Vec2D(215, 75), nsGraphics::KBlack);
+    // PacMan Rond
+    window << nsShape::Circle(nsGraphics::Vec2D(450, 50), 25, nsGraphics::KYellow);
     // Boule point petit
     window << nsShape::Circle(nsGraphics::Vec2D(250, 50), 5, nsGraphics::KWhite);
     // Boule point grand
@@ -107,8 +109,6 @@ int main()
         window.initGlut();
         window.initGraphic();
 
-        // Instancie le sprite
-            nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
         // Variable qui tient le temps de frame
         chrono::microseconds frameTime = chrono::microseconds::zero();
 
@@ -122,8 +122,10 @@ int main()
             window.clearScreen();
 
             // On dessine les formes géométriques
-            dessiner(window);
+            // Instancie le sprite
+            nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
             window << doggo;
+            dessiner(window);
 
             // On finit la frame en cours
             window.finishFrame();
