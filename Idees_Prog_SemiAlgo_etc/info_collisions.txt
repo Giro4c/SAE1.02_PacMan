@@ -15,19 +15,18 @@ procedure BP possible collision
     taillePac = taillePac.Size
     // Colonne allignée avec le pacman 
     if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoUp || DirectionPac == ParamPac (de type CParamPlayEntity) .GoDown )
-        for ( pair <CPosition, bool> BP : Map_BP )
+        for ( pair <CPosition, bool> & BP : Map_BP )
             if (BP.CenterPos/first/.first <= Pac.CenterPos.first + taillePac && BP.CenterPos/first/.first <= Pac.CenterPos.first - taillePac)
                 Map_BP[BP.first] = BP.second
     
     // Ligne allignée avec le pacman
     if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoLeft || DirectionPac == ParamPac (de type CParamPlayEntity) .GoRight )
-    for ( pair <CPosition, bool> BP : Map_BP )
+    for ( pair <CPosition, bool> & BP : Map_BP )
         if (BP.CenterPos/first/.second <= Pac.CenterPos.first + taillePac && BP.CenterPos/first/.second <= Pac.CenterPos.first - taillePac)
             Map_BP[BP.first] = BP.second
-
 }
 
-Fonction pair <bool, unsigned>  bool(collision ou non)   unsigned(combo actualisé en fonction)
+Fonction pair <bool, CPosition>  bool(collision ou non)   CPosition(co de la BP en contact si existe)
 Paramètres :
 - Map des sprites
 - Direction Pac (inclu dans map sprites)
@@ -35,8 +34,52 @@ Paramètres :
 - timelapse
 - 
 Fonction collision_Pac-BP
-while (true){
-    si timelapse > 3 second
-        combo = 0
 
+while (true){
+    map <CPosition, bool> Map_PossibleCollision_BP
+//    si timelapse > 3 second
+//        combo = 0
+//    Peut sera effectué après verif
+    unsigned numberExtremityPac
+    unsigned numberExtremityBP_Min
+    unsigned numberExtremityBP_Max
+    bool collisionPacBP (numberExtremityPac <= numberExtremityBP_Max && numberExtremityPac >= numberExtremityBP_Min)
+    for (<CPosition, bool> & BP_Possible : Map_PossibleCollision_BP)
+        // En fonction direction
+        if (Pac.directionPac == Pac.GoUp) 
+            numberExtremityPac = Pac.CenterPos.second - Pac.Size
+            numberExtremityBP_Min = BP_Possible.first.second - BP.Size
+            numberExtremityBP_Max = BP_Possible.first.second + BP.Size
+            /* Explications :
+            PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée y = PacCo y min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus haut de PacMan. 
+            Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les Y des PointMax et PointMin d'une BP de la map des BP avec risque de collision
+            */
+        if (Pac.directionPac == Pac.GoDown) 
+            numberExtremityPac = Pac.CenterPos.second + Pac.Size
+            numberExtremityBP_Min = BP_Possible.first.second - BP.Size
+            numberExtremityBP_Max = BP_Possible.first.second + BP.Size
+            /* Explications :
+            PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée y = PacCo y max (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus bas de PacMan. 
+            Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les Y des PointMax et PointMin d'une BP de la map des BP avec risque de collision
+            */
+        if (Pac.directionPac == Pac.GoLeft) 
+            numberExtremityPac = Pac.CenterPos.first - Pac.Size
+            numberExtremityBP_Min = BP_Possible.first.first - BP.Size
+            numberExtremityBP_Max = BP_Possible.first.first + BP.Size
+            /* Explications :
+            PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée x = PacCo x min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus à gauche de PacMan. 
+            Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les X des PointMax et PointMin d'une BP de la map des BP avec risque de collision
+            */
+        if (Pac.directionPac == Pac.GoRight) 
+            numberExtremityPac = Pac.CenterPos.first + Pac.Size
+            numberExtremityBP_Min = BP_Possible.first.first - BP.Size
+            numberExtremityBP_Max = BP_Possible.first.first + BP.Size
+            /* Explications :
+            PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée x = PacCo x min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus à droite de PacMan. 
+            Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les X des PointMax et PointMin d'une BP de la map des BP avec risque de collision
+            */
+        
+        if (collisionPacBP == true && BP_Possible.second == false)
+            pair <bool, CPosition> resultCollision = {true, BP_Possible.first}
+            return (resultCollision);
 }
