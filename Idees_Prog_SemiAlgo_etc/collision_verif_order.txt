@@ -1,0 +1,21 @@
+En tout début de boucle
+if (BP_Left == 0)
+    FinPartie = vrai
+    break;
+if (FinPartie == vrai) break;
+if (timelapseCombo > 2sec)
+    combo = 0
+
+
+if (CollisionMur () == true) // Alors no movement 
+    continue; // Retour en haut de la boucle jusqu'à ce que changement direction 
+Mouvement z s q d;
+if (CollisionFantome () == true) // Alors fin partie
+    FinPartie = true
+    continue;
+if (CollisionBP ().first == true) // Alors combo, score, upt map
+    ++combo
+    score = score + 10 * (1 + float(Combo) * 0.1)
+    Map_BP[CollisionBP().second] = true
+    --BP_Left
+

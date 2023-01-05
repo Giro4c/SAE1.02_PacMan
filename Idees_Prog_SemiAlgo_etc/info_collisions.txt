@@ -83,3 +83,6 @@ while (true){
             pair <bool, CPosition> resultCollision = {true, BP_Possible.first}
             return (resultCollision);
 }
+
+Après resultCollision renvoyé dans ActionMouvement, 
+voir collision_verif_order.txt
