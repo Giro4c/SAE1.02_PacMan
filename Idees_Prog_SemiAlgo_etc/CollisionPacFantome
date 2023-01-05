@@ -1,0 +1,8 @@
+Collision Pac / Fantome
+
+Fonction bool  bool(collision ou non)
+Paramètres :
+- Map des sprites
+- Direction Pac (inclu dans map sprites)
+- combo
+- timelapse
