@@ -37,6 +37,7 @@ Fonction collision_Pac-BP
 
 while (true){
     map <CPosition, bool> Map_PossibleCollision_BP
+    BP possible collision ();
 //    si timelapse > 3 second
 //        combo = 0
 //    Peut sera effectué après verif
@@ -69,7 +70,7 @@ while (true){
             /* Explications :
             PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée x = PacCo x min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus à gauche de PacMan. 
             Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les X des PointMax et PointMin d'une BP de la map des BP avec risque de collision
-            */
+            */ 
         if (Pac.directionPac == Pac.GoRight) 
             numberExtremityPac = Pac.CenterPos.first + Pac.Size
             numberExtremityBP_Min = BP_Possible.first.first - BP.Size
