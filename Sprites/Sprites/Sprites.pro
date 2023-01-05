@@ -4,6 +4,5 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp \
-        sprites_et_map_bp-intersection.cpp
+        main.cpp
 include(MinGL2/mingl.pri)
