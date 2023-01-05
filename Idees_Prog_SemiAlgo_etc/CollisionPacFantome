@@ -15,7 +15,7 @@ for (<unsigned, CPosition> & Fantome : Map_Ghost)
         unsigned numberExtremityGhost = Fantome.CenterPos.second - largeur_Rayon
         unsigned numberExtremityPac_Min = Pac.CenterPos.second - Pac.Size
         unsigned numberExtremityPac_Max = Pac.CenterPos.second + Pac.Size
-        /* Explications :
+        /* Explications : 
         PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée y = PacCo y min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus haut de PacMan. 
         Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les Y des PointMax et PointMin d'une BP de la map des BP avec risque de collision
         */
