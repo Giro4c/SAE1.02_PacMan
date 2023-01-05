@@ -28,7 +28,8 @@
 
             Collision PacMan/Mur 
 
-            Algorithme comportement Fantome (Algorithme A*)
+            Algorithme comportement Fantome (Algorithme A*)                         check
+            Implémentation de A* dans le comportement des fantômes
 
 
             Téléportation de la droite vers la gauche (vice versa)            
