@@ -89,21 +89,47 @@ struct GhostSprite
 ////    CPosition bp8 {400,50};
 ////    CPosition bp9{450,50};
 ////    CPosition bp10 {500,50};
-//    pair <unsigned, unsigned> bp1 (50,105);
-//    pair <unsigned, unsigned> bp2 (100,105);
-//    pair <unsigned, unsigned> bp3 (185,105);
-//    pair <unsigned, unsigned> bp4 (225,105);
-//    pair <unsigned, unsigned> bp5 (275,105);
-//    pair <unsigned, unsigned> bp6 (300,105);
-//    pair <unsigned, unsigned> bp7 (350,105);
-//    pair <unsigned, unsigned> bp8 (400,105);
-//    pair <unsigned, unsigned> bp9 (450,105);
-//    pair <unsigned, unsigned> bp10 (500,105);
-//    pair <unsigned, unsigned> bp11 (550,105);
-//    pair <unsigned, unsigned> bp12 (615,105);
-//    pair <unsigned, unsigned> bp13 (650,105);
-//    pair <unsigned, unsigned> bp14 (700,105);
-//    pair <unsigned, unsigned> bp15 (750,105);
+////  bp ligne 1
+//    pair <unsigned, unsigned> bp1 (75,75);
+//    pair <unsigned, unsigned> bp2 (125,75);
+//    pair <unsigned, unsigned> bp3 (175,75);
+//    pair <unsigned, unsigned> bp4 (225,75);
+//    pair <unsigned, unsigned> bp5 (325,75);
+//    pair <unsigned, unsigned> bp6 (375,75);
+//    pair <unsigned, unsigned> bp7 (425,75);
+//    pair <unsigned, unsigned> bp8 (425,75);
+//    pair <unsigned, unsigned> bp9 (475,75);
+//    pair <unsigned, unsigned> bp10 (525,75);
+//    pair <unsigned, unsigned> bp11 (575,75);
+//    pair <unsigned, unsigned> bp12 (625,75);
+//    pair <unsigned, unsigned> bp13 (675,75);
+//    pair <unsigned, unsigned> bp14 (775,75);
+//    pair <unsigned, unsigned> bp15 (825,75);
+//    pair <unsigned, unsigned> bp16 (875,75);
+//    pair <unsigned, unsigned> bp17 (925,75);
+//    pair <unsigned, unsigned> bp18 (975,75);
+//    pair <unsigned, unsigned> bp19 (1025,75);
+////  bp ligne 2
+//    pair <unsigned, unsigned> bp20 (75,125);
+//    pair <unsigned, unsigned> bp21 (225,125);
+//    pair <unsigned, unsigned> bp22 (325,125);
+//    pair <unsigned, unsigned> bp23 (775,125);
+//    pair <unsigned, unsigned> bp24 (875,125);
+//    pair <unsigned, unsigned> bp25 (1025,125);
+////  bp ligne 3
+//    pair <unsigned, unsigned> bp7 (425,175);
+//    pair <unsigned, unsigned> bp8 (425,175);
+//    pair <unsigned, unsigned> bp9 (4125,175);
+//    pair <unsigned, unsigned> bp10 (525,175);
+//    pair <unsigned, unsigned> bp11 (5125,175);
+//    pair <unsigned, unsigned> bp12 (625,175);
+//    pair <unsigned, unsigned> bp13 (6125,175);
+//    pair <unsigned, unsigned> bp14 (725,175);
+//    pair <unsigned, unsigned> bp15 (825,175);
+//    pair <unsigned, unsigned> bp16 (8125,175);
+//    pair <unsigned, unsigned> bp17 (925,175);
+//    pair <unsigned, unsigned> bp18 (9125,175);
+//    pair <unsigned, unsigned> bp19 (1025,175);
 
 //    // Initialisation de la map
 //    bpMap[bp1] = false;
@@ -217,7 +243,7 @@ void afficheMap(MinGL &window, vector<string> &vectMap) {
                 window << nsShape::Circle(nsGraphics::Vec2D(j * 50 + 25, i * 50 + 25), 8, nsGraphics::KWhite);
                 break;
             case 'n':
-                window << nsShape::Rectangle(nsGraphics::Vec2D(j * 50,i * 50), nsGraphics::Vec2D(j * 50+50, i * 50 + 50), nsGraphics::KBlack);
+                window << nsShape::Rectangle(nsGraphics::Vec2D(j * 50,i * 50), nsGraphics::Vec2D(j * 50 + 50, i * 50 + 50), nsGraphics::KBlack);
             }
         }
     }
