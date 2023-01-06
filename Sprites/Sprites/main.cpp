@@ -89,16 +89,22 @@ void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
 //    CPosition bp8 {400,50};
 //    CPosition bp9{450,50};
 //    CPosition bp10 {500,50};
-    pair <unsigned, unsigned> bp1 (50,50);
-    pair <unsigned, unsigned> bp2 (100,50);
-    pair <unsigned, unsigned> bp3 (150,50);
-    pair <unsigned, unsigned> bp4 (200,50);
-    pair <unsigned, unsigned> bp5 (250,50);
-    pair <unsigned, unsigned> bp6 (300,50);
-    pair <unsigned, unsigned> bp7 (350,50);
-    pair <unsigned, unsigned> bp8 (400,50);
-    pair <unsigned, unsigned> bp9 (450,50);
-    pair <unsigned, unsigned> bp10 (500,50);
+    pair <unsigned, unsigned> bp1 (50,105);
+    pair <unsigned, unsigned> bp2 (100,105);
+    pair <unsigned, unsigned> bp3 (185,105);
+    pair <unsigned, unsigned> bp4 (225,105);
+    pair <unsigned, unsigned> bp5 (275,105);
+    pair <unsigned, unsigned> bp6 (300,105);
+    pair <unsigned, unsigned> bp7 (350,105);
+    pair <unsigned, unsigned> bp8 (400,105);
+    pair <unsigned, unsigned> bp9 (450,105);
+    pair <unsigned, unsigned> bp10 (500,105);
+    pair <unsigned, unsigned> bp11 (550,105);
+    pair <unsigned, unsigned> bp12 (615,105);
+    pair <unsigned, unsigned> bp13 (650,105);
+    pair <unsigned, unsigned> bp14 (700,105);
+    pair <unsigned, unsigned> bp15 (750,105);
+
     // Initialisation de la map
     bpMap[bp1] = false;
     bpMap[bp2] = false;
@@ -110,6 +116,12 @@ void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
     bpMap[bp8] = false;
     bpMap[bp9] = false;
     bpMap[bp10] = false;
+    bpMap[bp11] = false;
+    bpMap[bp12] = false;
+    bpMap[bp13] = false;
+    bpMap[bp14] = false;
+    bpMap[bp15] = false;
+
 }
 
 template <class T, class U>
@@ -124,41 +136,82 @@ void ShowMap (map <pair <unsigned, unsigned>, bool>bpMap)
     cout << endl;
 }
 
+//void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
+//{
+//    unsigned nbLine(26);
+//    for (const pair <CPosition,bool> & Bp : MapBp)
+//    {
+//        unsigned posY = Bp.first.second;
+//        if (Bp.second == false)
+//        {
+//            window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
+//            for (unsigned i (0); i < nbLine; ++i)
+//            {
+//                posY = posY + 36;
+//                window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
+//            }
+//        }
+//    }
+//}
+
 void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
 {
     for (const pair <CPosition,bool> & Bp : MapBp)
     {
+        unsigned posX = Bp.first.first;
+        unsigned posY = Bp.first.second;
         if (Bp.second == false)
-            window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, Bp.first.second), sizeBp, nsGraphics::KWhite);
+        {
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 50), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 110), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 160), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 200), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 250), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 290), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 330), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 370), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 410), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 450), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 490), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 535), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 575), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 620), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 660), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 705), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 750), sizeBp, nsGraphics::KWhite);
+            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 800), sizeBp, nsGraphics::KWhite);
+        }
     }
 }
+
 
 void dessiner(MinGL & window)
 {
     // PacMan Right
     window << nsShape::Circle(nsGraphics::Vec2D(50, 50), 25, nsGraphics::KYellow);
     window << nsShape::Triangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
-    // PacMan Left
-    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
-    // PacMan Up
-    window << nsShape::Circle(nsGraphics::Vec2D(150, 50), 25, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(150, 50), nsGraphics::Vec2D(135, 25), nsGraphics::Vec2D(165, 25), nsGraphics::KBlack);
-    // PacMan Down
-    window << nsShape::Circle(nsGraphics::Vec2D(200, 50), 25, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(200, 50), nsGraphics::Vec2D(185, 75), nsGraphics::Vec2D(215, 75), nsGraphics::KBlack);
-    // PacMan Rond
-    window << nsShape::Circle(nsGraphics::Vec2D(450, 50), 25, nsGraphics::KYellow);
-    // Boule point petit
-    window << nsShape::Circle(nsGraphics::Vec2D(250, 50), 5, nsGraphics::KWhite);
-    // Boule point grand
-    window << nsShape::Circle(nsGraphics::Vec2D(300, 50), 10, nsGraphics::KWhite);
-    // Fantôme Bleu>
-    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
-    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KBlue);
-    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
-    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
-    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
+//    // PacMan Left
+//    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
+//    // PacMan Up
+//    window << nsShape::Circle(nsGraphics::Vec2D(150, 50), 25, nsGraphics::KYellow);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(150, 50), nsGraphics::Vec2D(135, 25), nsGraphics::Vec2D(165, 25), nsGraphics::KBlack);
+//    // PacMan Down
+//    window << nsShape::Circle(nsGraphics::Vec2D(200, 50), 25, nsGraphics::KYellow);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(200, 50), nsGraphics::Vec2D(185, 75), nsGraphics::Vec2D(215, 75), nsGraphics::KBlack);
+//    // PacMan Rond
+//    window << nsShape::Circle(nsGraphics::Vec2D(450, 50), 25, nsGraphics::KYellow);
+//    // Boule point petit
+//    window << nsShape::Circle(nsGraphics::Vec2D(250, 50), 5, nsGraphics::KWhite);
+//    // Boule point grand
+//    window << nsShape::Circle(nsGraphics::Vec2D(300, 50), 10, nsGraphics::KWhite);
+//    // Fantôme Bleu>
+//    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+//    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KBlue);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
 
 //    // Fantôme Rouge
 //    window << nsShape>::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
