@@ -27,8 +27,8 @@ struct GhostSprite
     unsigned XCenter = 550;
     unsigned YCenter = 250;
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
-    unsigned largeur_Rayon = 25;
-    unsigned longueur = 65;
+    unsigned largeur_Rayon = 12;
+    unsigned longueur = 25;
     // Penser à mettre variable couleur
     nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KRed};
     nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KRed};
@@ -226,7 +226,7 @@ void afficheMap(MinGL &window, vector<string> &vectMap) {
 void dessiner(MinGL & window)
 {
     // PacMan Right
-    window << nsShape::Circle(nsGraphics::Vec2D(75, 75), 25, nsGraphics::KYellow);
+    window << nsShape::Circle(nsGraphics::Vec2D(75, 75), 15, nsGraphics::KYellow);
     window << nsShape::Triangle(nsGraphics::Vec2D(75, 75), nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(100, 91), nsGraphics::KBlack);
 //    // PacMan Left
 //    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);

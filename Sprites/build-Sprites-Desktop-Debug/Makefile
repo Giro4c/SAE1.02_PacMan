@@ -53,8 +53,6 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../Sprites/main.cpp \
-		../Sprites/MinGL2/include/mingl/game.cpp \
-		../Sprites/MinGL2/include/mingl/params.cpp \
 		../Sprites/MinGL2/src/audio/audioengine.cpp \
 		../Sprites/MinGL2/src/exception/cexception.cpp \
 		../Sprites/MinGL2/src/mingl.cpp \
@@ -73,8 +71,6 @@ SOURCES       = ../Sprites/main.cpp \
 		../Sprites/MinGL2/src/transition/transition_contract.cpp \
 		../Sprites/MinGL2/src/transition/transition_engine.cpp 
 OBJECTS       = main.o \
-		game.o \
-		params.o \
 		audioengine.o \
 		cexception.o \
 		mingl.o \
@@ -234,12 +230,10 @@ DIST          = ../Sprites/configmap.yaml \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.hpp \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/errcode.h \
-		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/game.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/macros.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/mingl.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/event/event.hpp \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/event/event_manager.h \
-		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/params.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/circle.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/line.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/rectangle.h \
@@ -258,10 +252,7 @@ DIST          = ../Sprites/configmap.yaml \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h \
 		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h \
-		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h \
-		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/type.h ../Sprites/main.cpp \
-		../Sprites/MinGL2/include/mingl/game.cpp \
-		../Sprites/MinGL2/include/mingl/params.cpp \
+		/home/sokhna/Documents/Programmation/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h ../Sprites/main.cpp \
 		../Sprites/MinGL2/src/audio/audioengine.cpp \
 		../Sprites/MinGL2/src/exception/cexception.cpp \
 		../Sprites/MinGL2/src/mingl.cpp \
@@ -626,17 +617,6 @@ main.o: ../Sprites/main.cpp ../Sprites/MinGL2/include/mingl/mingl.h \
 		../Sprites/MinGL2/include/mingl/shape/triangle.h \
 		../Sprites/MinGL2/include/mingl/gui/sprite.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Sprites/main.cpp
-
-game.o: ../Sprites/MinGL2/include/mingl/game.cpp ../Sprites/MinGL2/include/mingl/game.h \
-		../Sprites/MinGL2/include/mingl/type.h \
-		../Sprites/MinGL2/include/mingl/params.h \
-		../Sprites/MinGL2/include/mingl/gridmanagement.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o game.o ../Sprites/MinGL2/include/mingl/game.cpp
-
-params.o: ../Sprites/MinGL2/include/mingl/params.cpp ../Sprites/MinGL2/include/mingl/params.h \
-		../Sprites/MinGL2/include/mingl/type.h \
-		../Sprites/MinGL2/include/mingl/game.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o params.o ../Sprites/MinGL2/include/mingl/params.cpp
 
 audioengine.o: ../Sprites/MinGL2/src/audio/audioengine.cpp ../Sprites/MinGL2/include/mingl/audio/audioengine.h \
 		../Sprites/MinGL2/include/mingl/exception/cexception.h \
