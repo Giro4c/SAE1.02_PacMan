@@ -24,14 +24,14 @@ typedef pair <unsigned, unsigned> CPosition;
 
 struct GhostSprite
 {
-    unsigned XCenter = 100;
-    unsigned YCenter = 100;
+    unsigned XCenter = 550;
+    unsigned YCenter = 250;
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
     unsigned largeur_Rayon = 25;
     unsigned longueur = 65;
     // Penser à mettre variable couleur
-    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KBlue};
-    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KBlue};
+    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KRed};
+    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KRed};
     nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
     nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
     nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
@@ -73,124 +73,161 @@ struct GhostSprite
 //}
 
 
-void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
-{
-    // Création de paires
-    /**
-//     * @brief CPosition : a pair gathering the coordinates in the grid
-//     */
-//    CPosition bp1 {50,50};
-//    CPosition bp2 {100,50};
-//    CPosition bp3 {150,50};
-//    CPosition bp4 {200,50};
-//    CPosition bp5 {250,50};
-//    CPosition bp6 {300,50};
-//    CPosition bp7 {350,50};
-//    CPosition bp8 {400,50};
-//    CPosition bp9{450,50};
-//    CPosition bp10 {500,50};
-    pair <unsigned, unsigned> bp1 (50,105);
-    pair <unsigned, unsigned> bp2 (100,105);
-    pair <unsigned, unsigned> bp3 (185,105);
-    pair <unsigned, unsigned> bp4 (225,105);
-    pair <unsigned, unsigned> bp5 (275,105);
-    pair <unsigned, unsigned> bp6 (300,105);
-    pair <unsigned, unsigned> bp7 (350,105);
-    pair <unsigned, unsigned> bp8 (400,105);
-    pair <unsigned, unsigned> bp9 (450,105);
-    pair <unsigned, unsigned> bp10 (500,105);
-    pair <unsigned, unsigned> bp11 (550,105);
-    pair <unsigned, unsigned> bp12 (615,105);
-    pair <unsigned, unsigned> bp13 (650,105);
-    pair <unsigned, unsigned> bp14 (700,105);
-    pair <unsigned, unsigned> bp15 (750,105);
+//void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
+//{
+//    // Création de paires
+//    /**
+////     * @brief CPosition : a pair gathering the coordinates in the grid
+////     */
+////    CPosition bp1 {50,50};
+////    CPosition bp2 {100,50};
+////    CPosition bp3 {150,50};
+////    CPosition bp4 {200,50};
+////    CPosition bp5 {250,50};
+////    CPosition bp6 {300,50};
+////    CPosition bp7 {350,50};
+////    CPosition bp8 {400,50};
+////    CPosition bp9{450,50};
+////    CPosition bp10 {500,50};
+//    pair <unsigned, unsigned> bp1 (50,105);
+//    pair <unsigned, unsigned> bp2 (100,105);
+//    pair <unsigned, unsigned> bp3 (185,105);
+//    pair <unsigned, unsigned> bp4 (225,105);
+//    pair <unsigned, unsigned> bp5 (275,105);
+//    pair <unsigned, unsigned> bp6 (300,105);
+//    pair <unsigned, unsigned> bp7 (350,105);
+//    pair <unsigned, unsigned> bp8 (400,105);
+//    pair <unsigned, unsigned> bp9 (450,105);
+//    pair <unsigned, unsigned> bp10 (500,105);
+//    pair <unsigned, unsigned> bp11 (550,105);
+//    pair <unsigned, unsigned> bp12 (615,105);
+//    pair <unsigned, unsigned> bp13 (650,105);
+//    pair <unsigned, unsigned> bp14 (700,105);
+//    pair <unsigned, unsigned> bp15 (750,105);
 
-    // Initialisation de la map
-    bpMap[bp1] = false;
-    bpMap[bp2] = false;
-    bpMap[bp3] = false;
-    bpMap[bp4] = false;
-    bpMap[bp5] = false;
-    bpMap[bp6] = false;
-    bpMap[bp7] = false;
-    bpMap[bp8] = false;
-    bpMap[bp9] = false;
-    bpMap[bp10] = false;
-    bpMap[bp11] = false;
-    bpMap[bp12] = false;
-    bpMap[bp13] = false;
-    bpMap[bp14] = false;
-    bpMap[bp15] = false;
+//    // Initialisation de la map
+//    bpMap[bp1] = false;
+//    bpMap[bp2] = false;
+//    bpMap[bp3] = false;
+//    bpMap[bp4] = false;
+//    bpMap[bp5] = false;
+//    bpMap[bp6] = false;
+//    bpMap[bp7] = false;
+//    bpMap[bp8] = false;
+//    bpMap[bp9] = false;
+//    bpMap[bp10] = false;
+//    bpMap[bp11] = false;
+//    bpMap[bp12] = false;
+//    bpMap[bp13] = false;
+//    bpMap[bp14] = false;
+//    bpMap[bp15] = false;
 
-}
+//}
 
-template <class T, class U>
-void ShowMap (map <pair <unsigned, unsigned>, bool>bpMap)
-{
-    InitMap(bpMap);
-    for (const pair <T,U> & val : bpMap)
-    {
-        cout << "Clé : " << val.first << " "
-            << "Valeur : " << val.second << endl;
-    }
-    cout << endl;
-}
+//template <class T, class U>
+//void ShowMap (map <pair <unsigned, unsigned>, bool>bpMap)
+//{
+//    InitMap(bpMap);
+//    for (const pair <T,U> & val : bpMap)
+//    {
+//        cout << "Clé : " << val.first << " "
+//            << "Valeur : " << val.second << endl;
+//    }
+//    cout << endl;
+//}
+
+////void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
+////{
+////    unsigned nbLine(26);
+////    for (const pair <CPosition,bool> & Bp : MapBp)
+////    {
+////        unsigned posY = Bp.first.second;
+////        if (Bp.second == false)
+////        {
+////            window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
+////            for (unsigned i (0); i < nbLine; ++i)
+////            {
+////                posY = posY + 36;
+////                window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
+////            }
+////        }
+////    }
+////}
 
 //void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
 //{
-//    unsigned nbLine(26);
 //    for (const pair <CPosition,bool> & Bp : MapBp)
 //    {
+//        unsigned posX = Bp.first.first;
 //        unsigned posY = Bp.first.second;
 //        if (Bp.second == false)
 //        {
-//            window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
-//            for (unsigned i (0); i < nbLine; ++i)
-//            {
-//                posY = posY + 36;
-//                window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
-//            }
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 50), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 110), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 160), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 200), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 250), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 290), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 330), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 370), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 410), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 450), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 490), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 535), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 575), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 620), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 660), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 705), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 750), sizeBp, nsGraphics::KWhite);
+//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 800), sizeBp, nsGraphics::KWhite);
 //        }
 //    }
 //}
 
-void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
+void initMap (vector<string> & vectMap)
 {
-    for (const pair <CPosition,bool> & Bp : MapBp)
-    {
-        unsigned posX = Bp.first.first;
-        unsigned posY = Bp.first.second;
-        if (Bp.second == false)
-        {
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 50), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 110), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 160), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 200), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 250), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 290), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 330), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 370), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 410), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 450), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 490), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 535), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 575), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 620), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 660), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 705), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 750), sizeBp, nsGraphics::KWhite);
-            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 800), sizeBp, nsGraphics::KWhite);
+    vectMap = {
+    "xxxxxxxxxxxxxxxxxxxxxx",
+    "xo...x.........ox....x",
+    "x.xx.x.xxxxxxxx.x.xx.x",
+    "x.x................x.x",
+    "x.x.xx.xxxnnxxx.xx.x.x",
+    "..x....xnnnnnnx....x.o",
+    "x...xx.xxxxxxxx.xx...x",
+    "x.x................x.x",
+    "x.x.xx.xxxxxxxx.xx.x.x",
+    "x.x................x.x",
+    "x.xx.x.xxxxxxxx.x.xx.x",
+    "x...ox..........x...oxx",
+    "xxxxxxxxxxxxxxxxxxxxxx"};
+}
+
+void afficheMap(MinGL &window, vector<string> &vectMap) {
+    for (size_t i(0); i < vectMap.size(); ++i) {
+        for (size_t j(0); j < vectMap[0].size(); ++j) {
+            switch (vectMap[i][j]) {
+            case 'x':
+                window << nsShape::Rectangle(nsGraphics::Vec2D(j * 50,i * 50), nsGraphics::Vec2D(j * 50 + 50, i * 50+50), nsGraphics::KBlue);
+                break;
+            case '.':
+                window << nsShape::Circle(nsGraphics::Vec2D(j * 50 + 25, i * 50+25), 3, nsGraphics::KWhite);
+                break;
+            case 'o':
+                window << nsShape::Circle(nsGraphics::Vec2D(j * 50 + 25, i * 50 + 25), 8, nsGraphics::KWhite);
+                break;
+            case 'n':
+                window << nsShape::Rectangle(nsGraphics::Vec2D(j * 50,i * 50), nsGraphics::Vec2D(j * 50+50, i * 50 + 50), nsGraphics::KBlack);
+            }
         }
     }
 }
 
-
 void dessiner(MinGL & window)
 {
     // PacMan Right
-    window << nsShape::Circle(nsGraphics::Vec2D(50, 50), 25, nsGraphics::KYellow);
-    window << nsShape::Triangle(nsGraphics::Vec2D(50, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
+    window << nsShape::Circle(nsGraphics::Vec2D(75, 75), 25, nsGraphics::KYellow);
+    window << nsShape::Triangle(nsGraphics::Vec2D(75, 75), nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(100, 91), nsGraphics::KBlack);
 //    // PacMan Left
 //    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
@@ -236,7 +273,7 @@ int main()
 
     srand (time(nullptr));
     vector <unsigned> V;
-    MinGL window("PacMan", nsGraphics::Vec2D(800, 1010), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
+    MinGL window("PacMan", nsGraphics::Vec2D(1100,650), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
     window.initGlut();
     window.initGraphic();
 
@@ -244,8 +281,8 @@ int main()
     chrono::microseconds frameTime = chrono::microseconds::zero();
 
     // initMap
-    map <pair <unsigned, unsigned>, bool> bpMap;
-    InitMap(bpMap);
+    vector <string> vectMap;
+    initMap(vectMap);
 
     // On fait tourner la boucle tant que la fenêtre est ouverte
     while (window.isOpen())
@@ -259,9 +296,9 @@ int main()
         // On dessine les formes géométriques
         // Instancie le sprite
         // Importation de la map
-        nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
-        // Dessin de la map
-        window << doggo;
+//        nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
+//        // Dessin de la map
+//        window << doggo;
 //      window << Fantome.head;
 //      window << Fantome.body;
 
@@ -270,15 +307,15 @@ int main()
 
         Fantome2.body = Fantome2.body;
 
-
-        cout << Fantome.YCenter;
-        window << Fantome2.head;
-        window << Fantome2.body;
 //      window << pacLeft.cercle;
 //      window << pacLeft.triangle;
         // dessin de la fenêtre
         dessiner(window);
-        dessinerBp(window, bpMap, 5);
+        afficheMap(window, vectMap);
+        cout << Fantome.YCenter;
+        window << Fantome2.head;
+        window << Fantome2.body;
+//      dessinerBp(window, bpMap, 5);
 
         // On finit la frame en cours
         window.finishFrame();
