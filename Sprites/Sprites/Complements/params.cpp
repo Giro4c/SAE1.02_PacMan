@@ -91,7 +91,6 @@ void LoadParams (CMyParam & Param)
     }
 }
 */
-/*
 void LoadParams (CMyParam & Param)
 {
     ifstream ifs ("../prog12_PacMan/Nos_fichiers/config.yaml");
@@ -108,4 +107,3 @@ void LoadParams (CMyParam & Param)
        if (find(KAuthorizedKey.VParamChar.begin(), KAuthorizedKey.VParamChar.end() != )
    }
 }
-*/
