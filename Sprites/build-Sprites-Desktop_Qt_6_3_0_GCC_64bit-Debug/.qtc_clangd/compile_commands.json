@@ -18,64 +18,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
-        "-I",
-        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
-        "-I",
-        "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
-        "-isystem",
-        "/usr/include/c++/9",
-        "-isystem",
-        "/usr/include/x86_64-linux-gnu/c++/9",
-        "-isystem",
-        "/usr/include/c++/9/backward",
-        "-isystem",
-        "/usr/local/include",
-        "-isystem",
-        "/opt/Qt-6.3/Tools/QtCreator/libexec/qtcreator/clang/lib/clang/14.0.0/include",
-        "-isystem",
-        "/usr/include/x86_64-linux-gnu",
-        "-isystem",
-        "/usr/include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++",
-        "-Wno-unknown-pragmas",
-        "-Wno-unknown-warning-option",
-        "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/main.cpp"
-    ],
-    "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/main.cpp"
-},
-{
-    "arguments": [
-        "clang",
-        "-I",
-        "/tmp/QtCreator-gbAcVi/clang-uiheader-fqolYD",
-        "-nostdinc",
-        "-nostdinc++",
-        "-pipe",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-fPIC",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-linux-gnu",
-        "-DQ_CREATOR_RUN",
-        "-DQT_QML_DEBUG",
-        "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
-        "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -104,10 +49,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/audio/audioengine.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/main.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/audio/audioengine.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/main.cpp"
 },
 {
     "arguments": [
@@ -128,9 +73,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -159,10 +104,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/exception/cexception.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/audio/audioengine.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/exception/cexception.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/audio/audioengine.cpp"
 },
 {
     "arguments": [
@@ -183,9 +128,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -214,10 +159,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/mingl.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/exception/cexception.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/mingl.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/exception/cexception.cpp"
 },
 {
     "arguments": [
@@ -238,9 +183,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -269,10 +214,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/event/event_manager.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/mingl.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/event/event_manager.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/mingl.cpp"
 },
 {
     "arguments": [
@@ -293,9 +238,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -324,10 +269,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/circle.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/event/event_manager.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/circle.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/event/event_manager.cpp"
 },
 {
     "arguments": [
@@ -348,9 +293,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -379,10 +324,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/line.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/circle.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/line.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/circle.cpp"
 },
 {
     "arguments": [
@@ -403,9 +348,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -434,10 +379,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/rectangle.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/line.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/rectangle.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/line.cpp"
 },
 {
     "arguments": [
@@ -458,9 +403,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -489,10 +434,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/triangle.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/rectangle.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/triangle.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/rectangle.cpp"
 },
 {
     "arguments": [
@@ -513,9 +458,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -544,10 +489,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/shape.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/triangle.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/shape/shape.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/triangle.cpp"
 },
 {
     "arguments": [
@@ -568,9 +513,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -599,10 +544,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/graphics/rgbacolor.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/shape.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/graphics/rgbacolor.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/shape/shape.cpp"
 },
 {
     "arguments": [
@@ -623,9 +568,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -654,10 +599,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/graphics/vec2d.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/graphics/rgbacolor.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/graphics/vec2d.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/graphics/rgbacolor.cpp"
 },
 {
     "arguments": [
@@ -678,9 +623,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -709,10 +654,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/gui/glut_font.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/graphics/vec2d.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/gui/glut_font.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/graphics/vec2d.cpp"
 },
 {
     "arguments": [
@@ -733,9 +678,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -764,10 +709,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/gui/sprite.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/gui/glut_font.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/gui/sprite.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/gui/glut_font.cpp"
 },
 {
     "arguments": [
@@ -788,9 +733,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -819,10 +764,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/gui/text.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/gui/sprite.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/gui/text.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/gui/sprite.cpp"
 },
 {
     "arguments": [
@@ -843,9 +788,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -874,10 +819,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/transition/transition.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/gui/text.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/transition/transition.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/gui/text.cpp"
 },
 {
     "arguments": [
@@ -898,9 +843,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -929,10 +874,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/transition/transition_contract.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/transition/transition.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/transition/transition_contract.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/transition/transition.cpp"
 },
 {
     "arguments": [
@@ -953,9 +898,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -984,10 +929,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/transition/transition_engine.cpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/transition/transition_contract.cpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/src/transition/transition_engine.cpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/transition/transition_contract.cpp"
 },
 {
     "arguments": [
@@ -1008,9 +953,64 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
+        "-I",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "-I",
+        "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
+        "-isystem",
+        "/usr/include/c++/9",
+        "-isystem",
+        "/usr/include/x86_64-linux-gnu/c++/9",
+        "-isystem",
+        "/usr/include/c++/9/backward",
+        "-isystem",
+        "/usr/local/include",
+        "-isystem",
+        "/opt/Qt-6.3/Tools/QtCreator/libexec/qtcreator/clang/lib/clang/14.0.0/include",
+        "-isystem",
+        "/usr/include/x86_64-linux-gnu",
+        "-isystem",
+        "/usr/include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++",
+        "-Wno-unknown-pragmas",
+        "-Wno-unknown-warning-option",
+        "-Wno-documentation-unknown-command",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/transition/transition_engine.cpp"
+    ],
+    "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/src/transition/transition_engine.cpp"
+},
+{
+    "arguments": [
+        "clang",
+        "-I",
+        "/tmp/QtCreator-gbAcVi/clang-uiheader-fqolYD",
+        "-nostdinc",
+        "-nostdinc++",
+        "-pipe",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-fPIC",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-linux-gnu",
+        "-DQ_CREATOR_RUN",
+        "-DQT_QML_DEBUG",
+        "-I",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
+        "-I",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1039,10 +1039,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.hpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.hpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.hpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.hpp"
 },
 {
     "arguments": [
@@ -1063,9 +1063,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1094,10 +1094,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/event/event.hpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/event/event.hpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/event/event.hpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/event/event.hpp"
 },
 {
     "arguments": [
@@ -1118,9 +1118,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1149,10 +1149,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.hpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.hpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.hpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.hpp"
 },
 {
     "arguments": [
@@ -1173,9 +1173,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1204,10 +1204,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/tools/ifonctorunaire.hpp"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/tools/ifonctorunaire.hpp"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/tools/ifonctorunaire.hpp"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/tools/ifonctorunaire.hpp"
 },
 {
     "arguments": [
@@ -1228,9 +1228,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1259,10 +1259,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/audio/audioengine.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/audio/audioengine.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/audio/audioengine.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/audio/audioengine.h"
 },
 {
     "arguments": [
@@ -1283,9 +1283,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1314,10 +1314,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/cexception.h"
 },
 {
     "arguments": [
@@ -1338,9 +1338,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1369,10 +1369,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/exception/errcode.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/errcode.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/exception/errcode.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/exception/errcode.h"
 },
 {
     "arguments": [
@@ -1393,9 +1393,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1424,10 +1424,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/macros.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/macros.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/macros.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/macros.h"
 },
 {
     "arguments": [
@@ -1448,9 +1448,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1479,10 +1479,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/mingl.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/mingl.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/mingl.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/mingl.h"
 },
 {
     "arguments": [
@@ -1503,9 +1503,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1534,10 +1534,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/event/event_manager.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/event/event_manager.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/event/event_manager.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/event/event_manager.h"
 },
 {
     "arguments": [
@@ -1558,9 +1558,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1589,10 +1589,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/circle.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/circle.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/circle.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/circle.h"
 },
 {
     "arguments": [
@@ -1613,9 +1613,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1644,10 +1644,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/line.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/line.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/line.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/line.h"
 },
 {
     "arguments": [
@@ -1668,9 +1668,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1699,10 +1699,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/rectangle.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/rectangle.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/rectangle.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/rectangle.h"
 },
 {
     "arguments": [
@@ -1723,9 +1723,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1754,10 +1754,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/triangle.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/triangle.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/triangle.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/triangle.h"
 },
 {
     "arguments": [
@@ -1778,9 +1778,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1809,10 +1809,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/shape.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/shape.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/shape/shape.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/shape/shape.h"
 },
 {
     "arguments": [
@@ -1833,9 +1833,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1864,10 +1864,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/graphics/idrawable.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/graphics/idrawable.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/graphics/idrawable.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/graphics/idrawable.h"
 },
 {
     "arguments": [
@@ -1888,9 +1888,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1919,10 +1919,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/graphics/rgbacolor.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/graphics/rgbacolor.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/graphics/rgbacolor.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/graphics/rgbacolor.h"
 },
 {
     "arguments": [
@@ -1943,9 +1943,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -1974,10 +1974,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/graphics/vec2d.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/graphics/vec2d.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/graphics/vec2d.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/graphics/vec2d.h"
 },
 {
     "arguments": [
@@ -1998,9 +1998,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2029,10 +2029,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/gui/glut_font.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/gui/glut_font.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/gui/glut_font.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/gui/glut_font.h"
 },
 {
     "arguments": [
@@ -2053,9 +2053,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2084,10 +2084,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/gui/sprite.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/gui/sprite.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/gui/sprite.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/gui/sprite.h"
 },
 {
     "arguments": [
@@ -2108,9 +2108,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2139,10 +2139,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/gui/text.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/gui/text.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/gui/text.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/gui/text.h"
 },
 {
     "arguments": [
@@ -2163,9 +2163,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2194,10 +2194,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/tools/ieditable.h"
 },
 {
     "arguments": [
@@ -2218,9 +2218,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2249,10 +2249,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/itransitionable.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/itransitionable.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/itransitionable.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/itransitionable.h"
 },
 {
     "arguments": [
@@ -2273,9 +2273,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2304,10 +2304,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition.h"
 },
 {
     "arguments": [
@@ -2328,9 +2328,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2359,10 +2359,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h"
 },
 {
     "arguments": [
@@ -2383,9 +2383,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2414,10 +2414,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h"
 },
 {
     "arguments": [
@@ -2438,9 +2438,9 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites",
         "-I",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include",
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include",
         "-I",
         "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
@@ -2469,9 +2469,9 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h"
+        "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h"
     ],
     "directory": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/build-Sprites-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/d22011515/SAE CASALI/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h"
+    "file": "/amuhome/d22011515/SAE PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h"
 }
 ]

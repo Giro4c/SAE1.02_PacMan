@@ -20,6 +20,8 @@
 
 using namespace std;
 
+typedef pair <unsigned, unsigned> CPosition;
+
 struct GhostSprite
 {
     unsigned XCenter = 100;
@@ -42,17 +44,15 @@ struct GhostSprite
 //    nsShape::Triangle triangle = {nsGraphics::Vec2D(diametre, diametre), nsGraphics::Vec2D(diametre + rayon, rayon), nsGraphics::Vec2D(diametre + rayon, diametre + rayon - 10), nsGraphics::KBlack};
 //};
 
-//struct forMap {
-//    unsigned posX --> Cposition.first;
-//    unsigned posY --> Cposition.second;
-
-//};
-//pour l'appeler : //bpMap[(posX, posY)] = false;
+// struct BP {
+//     CPosition CenterPos;
+//     unsigned rayon = 5;
+// };
 
 //void LoadParams (CMyParam & Param)
 //{
 //    ifstream ifs("config.yaml");
-//    pair <unsigned, unsigned> line;
+//    pair350 <unsigned, unsigned> line;
 //    while(true)
 //    {
 //        //cin >> str;
@@ -72,34 +72,68 @@ struct GhostSprite
 //    }
 //}
 
-/**
- * @brief CPosition : a pair gathering the coordinates in the grid
- */
-//pair <unsigned, unsigned> bp1 (50,50);
-//pair <unsigned, unsigned> bp2 (100,50);
-//pair <unsigned, unsigned> bp3 (150,50);
-//pair <unsigned, unsigned> bp4 (200,50);
-//pair <unsigned, unsigned> bp5 (250,50);
-//pair <unsigned, unsigned> bp6 (300,50);
-//pair <unsigned, unsigned> bp7 (350,50);
-//pair <unsigned, unsigned> bp8 (400,50);
-//pair <unsigned, unsigned> bp9 (450,50);
-//pair <unsigned, unsigned> bp10 (500,50);
-////typedef std::pair <unsigned, unsigned> CPosition;
-////CPosition stockage = {50, 50};
-//map<pair<unsigned, unsigned>, bool> bpMap;
-//bpMap[bp1] = false;
-//bpMap[bp2] = false;
-//bpMap[bp3] = false;
-//bpMap[bp4] = false;
-//bpMap[bp5] = false;
-//bpMap[bp6] = false;
-//bpMap[bp7] = false;
-//bpMap[bp8] = false;
-//bpMap[bp9] = false;
-//bpMap[bp10] = false;
 
- void dessiner(MinGL & window)
+void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
+{
+    // Création de paires
+    /**
+//     * @brief CPosition : a pair gathering the coordinates in the grid
+//     */
+//    CPosition bp1 {50,50};
+//    CPosition bp2 {100,50};
+//    CPosition bp3 {150,50};
+//    CPosition bp4 {200,50};
+//    CPosition bp5 {250,50};
+//    CPosition bp6 {300,50};
+//    CPosition bp7 {350,50};
+//    CPosition bp8 {400,50};
+//    CPosition bp9{450,50};
+//    CPosition bp10 {500,50};
+    pair <unsigned, unsigned> bp1 (50,50);
+    pair <unsigned, unsigned> bp2 (100,50);
+    pair <unsigned, unsigned> bp3 (150,50);
+    pair <unsigned, unsigned> bp4 (200,50);
+    pair <unsigned, unsigned> bp5 (250,50);
+    pair <unsigned, unsigned> bp6 (300,50);
+    pair <unsigned, unsigned> bp7 (350,50);
+    pair <unsigned, unsigned> bp8 (400,50);
+    pair <unsigned, unsigned> bp9 (450,50);
+    pair <unsigned, unsigned> bp10 (500,50);
+    // Initialisation de la map
+    bpMap[bp1] = false;
+    bpMap[bp2] = false;
+    bpMap[bp3] = false;
+    bpMap[bp4] = false;
+    bpMap[bp5] = false;
+    bpMap[bp6] = false;
+    bpMap[bp7] = false;
+    bpMap[bp8] = false;
+    bpMap[bp9] = false;
+    bpMap[bp10] = false;
+}
+
+template <class T, class U>
+void ShowMap (map <pair <unsigned, unsigned>, bool>bpMap)
+{
+    InitMap(bpMap);
+    for (const pair <T,U> & val : bpMap)
+    {
+        cout << "Clé : " << val.first << " "
+            << "Valeur : " << val.second << endl;
+    }
+    cout << endl;
+}
+
+void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
+{
+    for (const pair <CPosition,bool> & Bp : MapBp)
+    {
+        if (Bp.second == false)
+            window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, Bp.first.second), sizeBp, nsGraphics::KWhite);
+    }
+}
+
+void dessiner(MinGL & window)
 {
     // PacMan Right
     window << nsShape::Circle(nsGraphics::Vec2D(50, 50), 25, nsGraphics::KYellow);
@@ -119,7 +153,7 @@ struct GhostSprite
     window << nsShape::Circle(nsGraphics::Vec2D(250, 50), 5, nsGraphics::KWhite);
     // Boule point grand
     window << nsShape::Circle(nsGraphics::Vec2D(300, 50), 10, nsGraphics::KWhite);
-    // Fantôme Bleu
+    // Fantôme Bleu>
     window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
     window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KBlue);
     window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
@@ -127,80 +161,85 @@ struct GhostSprite
     window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
 
 //    // Fantôme Rouge
-//    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
+//    window << nsShape>::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
 //    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KRed);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphi//pair <unsigned, unsigned> bp2 (100,50);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
 //    // Fantôme Vert
 //    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
 //    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KGreen);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
+//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraph//pair <unsigned, unsigned> bp2 (100,50);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
-
 
 }
 
 int main()
 {
-//    PacMan pacLeft;
+//  PacMan pacLeft
     GhostSprite Fantome;
     GhostSprite Fantome2;
 
     srand (time(nullptr));
-        vector <unsigned> V;
-        // Initialise le système
-        MinGL window("PacMan", nsGraphics::Vec2D(800, 1010), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
-        window.initGlut();
-        window.initGraphic();
+    vector <unsigned> V;
+    MinGL window("PacMan", nsGraphics::Vec2D(800, 1010), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
+    window.initGlut();
+    window.initGraphic();
 
-        // Variable qui tient le temps de frame
-        chrono::microseconds frameTime = chrono::microseconds::zero();
+    // Variable qui tient le temps de frame
+    chrono::microseconds frameTime = chrono::microseconds::zero();
 
-        // On fait tourner la boucle tant que la fenêtre est ouverte
-        while (window.isOpen())
-        {
-            // Récupère l'heure actuelle
-            chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
+    // initMap
+    map <pair <unsigned, unsigned>, bool> bpMap;
+    InitMap(bpMap);
 
-            // On efface la fenêtre
-            window.clearScreen();
+    // On fait tourner la boucle tant que la fenêtre est ouverte
+    while (window.isOpen())
+    {
+        // Récupère l'heure actuelle
+        chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
 
-            // On dessine les formes géométriques
-            // Instancie le sprite
-            nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
-            window << doggo;
-//            window << Fantome.head;
-//            window << Fantome.body;
+        // On efface la fenêtre
+        window.clearScreen();
 
-            Fantome2.YCenter = Fantome.YCenter + 1;
-            Fantome2.XCenter = Fantome.XCenter + 1;
+        // On dessine les formes géométriques
+        // Instancie le sprite
+        // Importation de la map
+        nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
+        // Dessin de la map
+        window << doggo;
+//      window << Fantome.head;
+//      window << Fantome.body;
 
-            Fantome2.body = Fantome2.body;
+        Fantome2.YCenter = Fantome.YCenter + 1;
+        Fantome2.XCenter = Fantome.XCenter + 1;
+
+        Fantome2.body = Fantome2.body;
 
 
-            cout << Fantome.YCenter;
-            window << Fantome2.head;
-            window << Fantome2.body;
-//            window << pacLeft.cercle;
-//            window << pacLeft.triangle;
+        cout << Fantome.YCenter;
+        window << Fantome2.head;
+        window << Fantome2.body;
+//      window << pacLeft.cercle;
+//      window << pacLeft.triangle;
+        // dessin de la fenêtre
+        dessiner(window);
+        dessinerBp(window, bpMap, 5);
 
-            dessiner(window);
+        // On finit la frame en cours
+        window.finishFrame();
 
-            // On finit la frame en cours
-            window.finishFrame();
+        // On vide la queue d'évènements
+        window.getEventManager().clearEvents();
 
-            // On vide la queue d'évènements
-            window.getEventManager().clearEvents();
+        // On attend un peu pour limiter le framerate et soulager le CPU
+        this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
 
-            // On attend un peu pour limiter le framerate et soulager le CPU
-            this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
-
-            // On récupère le temps de frame
-            frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
-        }
-         return 0;
+        // On récupère le temps de frame
+        frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
+    }
+     return 0;
 }
 
 /*

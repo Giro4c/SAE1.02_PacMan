@@ -88,7 +88,8 @@ OBJECTS       = main.o \
 		transition.o \
 		transition_contract.o \
 		transition_engine.o
-DIST          = /opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/spec_pre.prf \
+DIST          = ../Sprites/configmap.yaml \
+		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/common/linux.conf \
 		/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/common/sanitize.conf \

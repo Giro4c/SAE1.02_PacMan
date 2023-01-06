@@ -6,8 +6,6 @@ INCLUDEPATH += $$PWD/include/
 macos:INCLUDEPATH += /usr/local/opt/freeglut/include /usr/local/opt/sfml/include
 
 SOURCES += \
-    $$PWD/include/mingl/game.cpp \
-    $$PWD/include/mingl/params.cpp \
     $$PWD/src/audio/audioengine.cpp \
     $$PWD/src/exception/cexception.cpp \
     $$PWD/src/mingl.cpp \
@@ -31,12 +29,10 @@ HEADERS += \
     $$PWD/include/mingl/exception/cexception.h \
     $$PWD/include/mingl/exception/cexception.hpp \
     $$PWD/include/mingl/exception/errcode.h \
-    $$PWD/include/mingl/game.h \
     $$PWD/include/mingl/macros.h \
     $$PWD/include/mingl/mingl.h \
     $$PWD/include/mingl/event/event.hpp \
     $$PWD/include/mingl/event/event_manager.h \
-    $$PWD/include/mingl/params.h \
     $$PWD/include/mingl/shape/circle.h \
     $$PWD/include/mingl/shape/line.h \
     $$PWD/include/mingl/shape/rectangle.h \
@@ -55,5 +51,4 @@ HEADERS += \
     $$PWD/include/mingl/transition/transition.h \
     $$PWD/include/mingl/transition/transition_contract.h \
     $$PWD/include/mingl/transition/transition_engine.h \
-    $$PWD/include/mingl/transition/transition_types.h \
-    $$PWD/include/mingl/type.h
+    $$PWD/include/mingl/transition/transition_types.h
