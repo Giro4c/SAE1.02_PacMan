@@ -10,6 +10,8 @@
                 - coordonnées des BP (Clé de type CPosition)
                 - Mangée ou non (Val de type bool, initialisée à false pour tt les BP au debut du programme)
 
+            Struct des Fantomes 
+            Map des 4 Fantomes <unsigned, StrcutFantome> (unsigned est le num du Fantome)
             Vector des Intersection (Inclue les co de chaque intersection sur le plateau)
 
             Paramètres load

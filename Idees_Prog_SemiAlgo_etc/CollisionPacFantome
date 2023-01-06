@@ -2,45 +2,30 @@ Collision Pac / Fantome
 
 Fonction bool  bool(collision ou non)
 Paramètres :
-- Map des sprites
-- Direction Pac (inclu dans map sprites)
+- Struct de Pacman (contient PacPos, PacSize)
+- Map des Sprites Fantomes (contient struct Fantome qui contient FantomePos, FantomeSize)
+- 
 
-unsigned numberExtremityGhost
-unsigned numberExtremityPac_Min
-unsigned numberExtremityPac_Max
-bool collisionPacBP (numberExtremityPac <= numberExtremityGhost_Max && numberExtremityPac >= numberExtremityGhost_Min)
-for (<unsigned, CPosition> & Fantome : Map_Ghost)
-    // En fonction direction
-    if (Fantome.directionFantome == Fantome.GoUp) 
-        unsigned numberExtremityGhost = Fantome.CenterPos.second - largeur_Rayon
-        unsigned numberExtremityPac_Min = Pac.CenterPos.second - Pac.Size
-        unsigned numberExtremityPac_Max = Pac.CenterPos.second + Pac.Size
-        /* Explications : 
-        PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée y = PacCo y min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus haut de PacMan. 
-        Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les Y des PointMax et PointMin d'une BP de la map des BP avec risque de collision
-        */
-    if (Pac.directionPac == Pac.GoDown) 
-        unsigned numberExtremityGhost = Fantome.CenterPos.second - largeur_Rayon + longueur 
-        unsigned numberExtremityPac_Min = Pac.CenterPos.second - Pac.Size
-        unsigned numberExtremityPac_Max = Pac.CenterPos.second + Pac.Size
-        /* Explications :
-        PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée y = PacCo y max (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus bas de PacMan. 
-        Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les Y des PointMax et PointMin d'une BP de la map des BP avec risque de collision
-        */
-    if (Pac.directionPac == Pac.GoLeft) 
-        unsigned numberExtremityGhost = Fantome.CenterPos.first - largeur_Rayon
-        unsigned numberExtremityPac_Min = Pac.CenterPos.first - Pac.Size
-        unsigned numberExtremityPac_Max = Pac.CenterPos.first + Pac.Size
-        /* Explications :
-        PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée x = PacCo x min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus à gauche de PacMan. 
-        Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les X des PointMax et PointMin d'une BP de la map des BP avec risque de collision
-        */
-    if (Pac.directionPac == Pac.GoRight) 
-        unsigned numberExtremityGhost = Fantome.CenterPos.first + largeur_Rayon
-        unsigned numberExtremityPac_Min = Pac.CenterPos.first - Pac.Size
-        unsigned numberExtremityPac_Max = Pac.CenterPos.first + Pac.Size
-        /* Explications :
-        PacMan se dirige vers le haut donc la ligne de collision aura pour coordonnée x = PacCo x min (car fenetre haut=0 et bas=max) Soit la droite horizontale passant par le "point" le plus à droite de PacMan. 
-        Sachant que la vitesse est suceptible de changer durant une partie, on détermine qu'une collision a lieu lorsque le PointMax est dans l'intervalle compris entre les X des PointMax et PointMin d'une BP de la map des BP avec risque de collision
-        */
-        
+bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac) {
+    if ((XCenterPac - SizePac) <= XPointFantome && (XCenterPac + SizePac) >= XPointFantome)
+        return true;
+    else
+        return false;
+}
+
+bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome) {
+    unsigned valAbsDiffXPacFantome;
+    if (XCenterPac < XPointFantome)
+        valAbsDiffXPacFantome = XPointFantome - XCenterPac;
+    else
+        valAbsDiffXPacFantome = XCenterPac - XPointFantome
+    
+    if ((YCenterPac - SizePac/2) - (SizePac - valAbsDiffXPacFantome) <= YPointFantome && (YCenterPac + SizePac/2) + (SizePac - valAbsDiffXPacFantome) <= YPointFantome)
+        return true;
+    else
+        return false;
+}
+
+bool CollisionPacGhost (const PacMan & Pac, map <unsigned, GhostSprite> & MapGhost){
+    
+}
