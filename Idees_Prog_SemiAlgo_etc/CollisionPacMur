@@ -1,0 +1,41 @@
+using namespace std;
+/*Collision Pac / Mur
+
+Fonction bool  bool(collision ou non)
+Paramètres :
+- Struct de Pacman (contient PacPos, PacSize, PacDirection?)
+- Map Param du PacMan (inclue les touches associée à chaque mouvement)
+- Map Param General Jeu
+*/
+
+bool CollisionPacMur (const PacMan & Pac, const map<string, char> & MapParamStrPac, const CMyParam & Parameters)
+{
+    CPosition posVerif1; // Coordonnées du premier point de vérification de contact
+    CPosition posVerif2;
+    if (Pac.Direction == MapParamStrPac.find("TurnUp")->second){
+        posVerif1 = {Pac.CenterPos.first + Pac.Size, Pac.CenterPos.second - Pac.Size - 1};
+        if (/*Couleur pixel co. (posVerif1.first, posVerif1.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+        posVerif2 = {Pac.CenterPos.first - Pac.Size, Pac.CenterPos.second - Pac.Size - 1};
+        if (/*Couleur pixel co. (posVerif2.first, posVerif2.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+    }
+    else if (Pac.Direction == MapParamStrPac.find("TurnDown")->second){
+        posVerif1 = {Pac.CenterPos.first + Pac.Size, Pac.CenterPos.second + Pac.Size + 1};
+        if (/*Couleur pixel co. (posVerif1.first, posVerif1.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+        posVerif2 = {Pac.CenterPos.first - Pac.Size, Pac.CenterPos.second + Pac.Size + 1};
+        if (/*Couleur pixel co. (posVerif2.first, posVerif2.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+    }
+    else if (Pac.Direction == MapParamStrPac.find("TurnLeft")->second){
+        posVerif1 = {Pac.CenterPos.first - Pac.Size - 1, Pac.CenterPos.second - Pac.Size};
+        if (/*Couleur pixel co. (posVerif1.first, posVerif1.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+        posVerif2 = {Pac.CenterPos.first - Pac.Size - 1, Pac.CenterPos.second + Pac.Size};
+        if (/*Couleur pixel co. (posVerif2.first, posVerif2.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+    }
+    else if (Pac.Direction == MapParamStrPac.find("TurnRight")->second){
+        posVerif1 = {Pac.CenterPos.first + Pac.Size + 1, Pac.CenterPos.second - Pac.Size};
+        if (/*Couleur pixel co. (posVerif1.first, posVerif1.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+        posVerif2 = {Pac.CenterPos.first + Pac.Size + 1, Pac.CenterPos.second + Pac.Size};
+        if (/*Couleur pixel co. (posVerif2.first, posVerif2.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+    }
+    else 
+        return false;
+}
