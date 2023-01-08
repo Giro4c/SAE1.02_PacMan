@@ -13,6 +13,7 @@
 #include "mingl/gui/sprite.h"
 #include <map>
 #include <utility>
+#include <random>
 
 //using namespace std;
 //using namespace nsShape;
@@ -22,20 +23,69 @@ using namespace std;
 
 typedef pair <unsigned, unsigned> CPosition;
 
+unsigned largeur_Rayon = 12;
+unsigned longueur = 25;
+//struct GhostSprite
+//{
+//    unsigned XCenter = 550;
+//    unsigned YCenter = 250;
+//    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
+//    nsGraphics dvt:: couleur;// variable couleur
+//    // Forme du fantôme
+//    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::couleur};
+//    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur};
+//    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
+//};
+
 struct GhostSprite
 {
-    unsigned XCenter = 550;
-    unsigned YCenter = 250;
-    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
-    unsigned largeur_Rayon = 12;
-    unsigned longueur = 25;
-    // Penser à mettre variable couleur
-    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KRed};
-    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KRed};
-    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
-    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
-    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
+    unsigned XCenter;
+    unsigned YCenter;
+    nsGraphics::RGBAcolor couleur;// variable couleur
+    // Forme du fantôme
+    nsShape::Circle head;
+    nsShape::Rectangle body;
+//    vector<nsShape::Triangle>bottom;
 };
+
+GhostSprite ghost1 = {
+    550,
+    250,
+    nsGraphics::KCyan,
+    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+
+};
+
+GhostSprite ghost2 = {
+    600,
+    250,
+    nsGraphics::KMagenta,
+    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+
+};
+
+GhostSprite ghost3 = {
+    650,
+    250,
+    nsGraphics::KGreen,
+    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+
+};
+
+GhostSprite ghost4 = {
+    700,
+    250,
+    nsGraphics::KSilver,
+    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+
+};
+
 
 //struct PacMan {
 //    unsigned diametre = 50;
@@ -400,8 +450,8 @@ void dessiner(MinGL & window)
 int main()
 {
 //  PacMan pacLeft
-    GhostSprite Fantome;
-    GhostSprite Fantome2;
+    //GhostSprite Fantome;
+    //GhostSprite Fantome2;
 
     srand (time(nullptr));
     vector <unsigned> V;
@@ -434,20 +484,27 @@ int main()
 //      window << Fantome.head;
 //      window << Fantome.body;
 
-        Fantome2.YCenter = Fantome.YCenter + 1;
-        Fantome2.XCenter = Fantome.XCenter + 1;
-
-        Fantome2.body = Fantome2.body;
+//        Fantome2.YCenter = Fantome.YCenter;
+//        Fantome2.XCenter = Fantome.XCenter + 50;
+//        Fantome2.body = Fantome2.body;
+//        Fantome2.couleur = "KBlue";
 
 //      window << pacLeft.cercle;
 //      window << pacLeft.triangle;
         // dessin de la fenêtre
-        dessiner(window);
-        afficheMap(window, vectMap);
-        cout << Fantome.YCenter;
-        window << Fantome2.head;
-        window << Fantome2.body;
-//      dessinerBp(window, bpMap, 5);
+        dessiner(window); // on dessine un PacMan
+        afficheMap(window, vectMap); //affiche la map
+        window << ghost1;
+        window << ghost2;
+        window << ghost3;
+        window << ghost4;
+//        window << Fantome.head;
+//        window << Fantome.body;
+
+//        window << Fantome2.head;
+//        window << Fantome2.body;
+
+//        dessinerBp(window, bpMap, 5);
 
         // On finit la frame en cours
         window.finishFrame();

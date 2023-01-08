@@ -5,7 +5,7 @@
                 - Color (type string) : Couleur principale de l'entité
                 - Formes des Entités : les cercles rectangles carrés triangle etc...
 
-            Map des BP
+            Map des BP Check
                 Inclue :
                 - coordonnées des BP (Clé de type CPosition)
                 - Mangée ou non (Val de type bool, initialisée à false pour tt les BP au debut du programme)
