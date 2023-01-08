@@ -25,120 +25,77 @@ typedef pair <unsigned, unsigned> CPosition;
 
 unsigned largeur_Rayon = 12;
 unsigned longueur = 25;
-//struct GhostSprite
-//{
-//    unsigned XCenter = 550;
-//    unsigned YCenter = 250;
-//    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
-//    nsGraphics dvt:: couleur;// variable couleur
-//    // Forme du fantôme
-//    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::couleur};
-//    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur};
+struct GhostSprite
+{
+    unsigned XCenter = 550;
+    unsigned YCenter = 275;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
+    // Forme du fantôme
+    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KMagenta};
+    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KMagenta};
 //    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
 //    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
 //    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
+};
+
+//struct GhostSprite
+//{
+//    unsigned XCenter;
+//    unsigned YCenter;
+//    nsGraphics::RGBAcolor couleur;// variable couleur
+//    // Forme du fantôme
+//    nsShape::Circle head;
+//    nsShape::Rectangle body;
+////    vector<nsShape::Triangle>bottom;
+//};
+//GhostSprite ghost1 = {
+//    550,
+//    250,
+//    nsGraphics::KCyan,
+//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+
 //};
 
-struct GhostSprite
-{
-    unsigned XCenter;
-    unsigned YCenter;
-    nsGraphics::RGBAcolor couleur;// variable couleur
-    // Forme du fantôme
-    nsShape::Circle head;
-    nsShape::Rectangle body;
-//    vector<nsShape::Triangle>bottom;
-};
+//GhostSprite ghost2 = {
+//    600,
+//    250,
+//    nsGraphics::KMagenta,
+//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
 
-GhostSprite ghost1 = {
-    550,
-    250,
-    nsGraphics::KCyan,
-    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+//};
 
-};
+//GhostSprite ghost3 = {
+//    650,
+//    250,
+//    nsGraphics::KGreen,
+//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
 
-GhostSprite ghost2 = {
-    600,
-    250,
-    nsGraphics::KMagenta,
-    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+//};
 
-};
+//GhostSprite ghost4 = {
+//    700,
+//    250,
+//    nsGraphics::KSilver,
+//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
+//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
 
-GhostSprite ghost3 = {
-    650,
-    250,
-    nsGraphics::KGreen,
-    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+//};
 
-};
-
-GhostSprite ghost4 = {
-    700,
-    250,
-    nsGraphics::KSilver,
-    head {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-    body {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
-
-};
-
-
+//unsigned diametre = 50;
+//unsigned rayon = 25;
 //struct PacMan {
-//    unsigned diametre = 50;
-//    unsigned rayon = 25;
 //    nsShape::Circle cercle = {nsGraphics::Vec2D(diametre, diametre), rayon, nsGraphics::KYellow};
 //    nsShape::Triangle triangle = {nsGraphics::Vec2D(diametre, diametre), nsGraphics::Vec2D(diametre + rayon, rayon), nsGraphics::Vec2D(diametre + rayon, diametre + rayon - 10), nsGraphics::KBlack};
 //};
-
-// struct BP {
-//     CPosition CenterPos;
-//     unsigned rayon = 5;
-// };
-
-//void LoadParams (CMyParam & Param)
-//{
-//    ifstream ifs("config.yaml");
-//    pair350 <unsigned, unsigned> line;
-//    while(true)
-//    {
-//        //cin >> str;
-//        if (ifs.eof()) break;
-//        getline(ifs,line);
-
-//        // cout << str << '\n';
-
-//        // extraire param et val
-//        string param ;
-//        string val;
-//        size_t pos = line.find(":");
-//        param = line.substr(0,pos - 1);
-//        val = line.substr(pos + 1);
-//        cout << param << " : " << val << endl;
-//        // enregistrer dans la struct
-//    }
-//}
 
 
 //void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
 //{
 //    // Création de paires
-//    /**
-////     * @brief CPosition : a pair gathering the coordinates in the grid
-////     */
-////    CPosition bp1 {50,50};
-////    CPosition bp2 {100,50};
-////    CPosition bp3 {150,50};
-////    CPosition bp4 {200,50};
-////    CPosition bp5 {250,50};
-////    CPosition bp6 {300,50};
-////    CPosition bp7 {350,50};
-////    CPosition bp8 {400,50};
-////    CPosition bp9{450,50};
-////    CPosition bp10 {500,50};
+
 ////  bp ligne 1
 //    pair <unsigned, unsigned> bp1 (75,75);
 //    pair <unsigned, unsigned> bp2 (125,75);
@@ -303,69 +260,130 @@ GhostSprite ghost4 = {
 //    bpMap[bp13] = false;
 //    bpMap[bp14] = false;
 //    bpMap[bp15] = false;
-
+//    bpMap[bp16] = false;
+//    bpMap[bp17] = false;
+//    bpMap[bp18] = false;
+//    bpMap[bp19] = false;
+//    bpMap[bp20] = false;
+//    bpMap[bp21] = false;
+//    bpMap[bp22] = false;
+//    bpMap[bp23] = false;
+//    bpMap[bp24] = false;
+//    bpMap[bp25] = false;
+//    bpMap[bp26] = false;
+//    bpMap[bp27] = false;
+//    bpMap[bp28] = false;
+//    bpMap[bp29] = false;
+//    bpMap[bp30] = false;
+//    bpMap[bp31] = false;
+//    bpMap[bp32] = false;
+//    bpMap[bp33] = false;
+//    bpMap[bp34] = false;
+//    bpMap[bp35] = false;
+//    bpMap[bp36] = false;
+//    bpMap[bp37] = false;
+//    bpMap[bp38] = false;
+//    bpMap[bp39] = false;
+//    bpMap[bp40] = false;
+//    bpMap[bp41] = false;
+//    bpMap[bp42] = false;
+//    bpMap[bp43] = false;
+//    bpMap[bp44] = false;
+//    bpMap[bp45] = false;
+//    bpMap[bp46] = false;
+//    bpMap[bp47] = false;
+//    bpMap[bp48] = false;
+//    bpMap[bp49] = false;
+//    bpMap[bp50] = false;
+//    bpMap[bp51] = false;
+//    bpMap[bp52] = false;
+//    bpMap[bp53] = false;
+//    bpMap[bp54] = false;
+//    bpMap[bp54] = false;
+//    bpMap[bp55] = false;
+//    bpMap[bp56] = false;
+//    bpMap[bp57] = false;
+//    bpMap[bp58] = false;
+//    bpMap[bp59] = false;
+//    bpMap[bp60] = false;
+//    bpMap[bp61] = false;
+//    bpMap[bp62] = false;
+//    bpMap[bp63] = false;
+//    bpMap[bp64] = false;
+//    bpMap[bp65] = false;
+//    bpMap[bp66] = false;
+//    bpMap[bp67] = false;
+//    bpMap[bp68] = false;
+//    bpMap[bp68] = false;
+//    bpMap[bp70] = false;
+//    bpMap[bp71] = false;
+//    bpMap[bp72] = false;
+//    bpMap[bp73] = false;
+//    bpMap[bp74] = false;
+//    bpMap[bp75] = false;
+//    bpMap[bp76] = false;
+//    bpMap[bp77] = false;
+//    bpMap[bp78] = false;
+//    bpMap[bp79] = false;
+//    bpMap[bp80] = false;
+//    bpMap[bp11] = false;
+//    bpMap[bp82] = false;
+//    bpMap[bp83] = false;
+//    bpMap[bp84] = false;
+//    bpMap[bp85] = false;
+//    bpMap[bp86] = false;
+//    bpMap[bp87] = false;
+//    bpMap[bp88] = false;
+//    bpMap[bp89] = false;
+//    bpMap[bp90] = false;
+//    bpMap[bp91] = false;
+//    bpMap[bp92] = false;
+//    bpMap[bp93] = false;
+//    bpMap[bp94] = false;
+//    bpMap[bp95] = false;
+//    bpMap[bp96] = false;
+//    bpMap[bp97] = false;
+//    bpMap[bp98] = false;
+//    bpMap[bp99] = false;
+//    bpMap[bp100] = false;
+//    bpMap[bp101] = false;
+//    bpMap[bp102] = false;
+//    bpMap[bp103] = false;
+//    bpMap[bp104] = false;
+//    bpMap[bp105] = false;
+//    bpMap[bp106] = false;
+//    bpMap[bp107] = false;
+//    bpMap[bp108] = false;
+//    bpMap[bp109] = false;
+//    bpMap[bp110] = false;
+//    bpMap[bp111] = false;
+//    bpMap[bp112] = false;
+//    bpMap[bp113] = false;
+//    bpMap[bp114] = false;
+//    bpMap[bp115] = false;
+//    bpMap[bp116] = false;
+//    bpMap[bp117] = false;
+//    bpMap[bp118] = false;
+//    bpMap[bp119] = false;
+//    bpMap[bp120] = false;
+//    bpMap[bp121] = false;
+//    bpMap[bp122] = false;
+//    bpMap[bp123] = false;
+//    bpMap[bp124] = false;
+//    bpMap[bp125] = false;
+//    bpMap[bp126] = false;
+//    bpMap[bp127] = false;
+//    bpMap[bp128] = false;
+//    bpMap[bp129] = false;
+//    bpMap[bp130] = false;
+//    bpMap[bp131] = false;
+//    bpMap[bp132] = false;
+//    bpMap[bp133] = false;
+//    bpMap[bp134] = false;
+//    bpMap[bp135] = false;
+//    bpMap[bp136] = false;
 //}
 
-//template <class T, class U>
-//void ShowMap (map <pair <unsigned, unsigned>, bool>bpMap)
-//{
-//    InitMap(bpMap);
-//    for (const pair <T,U> & val : bpMap)
-//    {
-//        cout << "Clé : " << val.first << " "
-//            << "Valeur : " << val.second << endl;
-//    }
-//    cout << endl;
-//}
-
-////void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
-////{
-////    unsigned nbLine(26);
-////    for (const pair <CPosition,bool> & Bp : MapBp)
-////    {
-////        unsigned posY = Bp.first.second;
-////        if (Bp.second == false)
-////        {
-////            window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
-////            for (unsigned i (0); i < nbLine; ++i)
-////            {
-////                posY = posY + 36;
-////                window << nsShape::Circle(nsGraphics::Vec2D(Bp.first.first, posY), sizeBp, nsGraphics::KWhite);
-////            }
-////        }
-////    }
-////}
-
-//void dessinerBp (MinGL & window, const map<CPosition, bool> & MapBp, const unsigned & sizeBp)
-//{
-//    for (const pair <CPosition,bool> & Bp : MapBp)
-//    {
-//        unsigned posX = Bp.first.first;
-//        unsigned posY = Bp.first.second;
-//        if (Bp.second == false)
-//        {
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 50), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 110), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 160), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 200), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 250), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 290), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 330), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 370), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 410), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 450), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 490), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 535), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 575), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 620), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 660), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 705), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 750), sizeBp, nsGraphics::KWhite);
-//            window << nsShape::Circle(nsGraphics::Vec2D(posX, posY + 800), sizeBp, nsGraphics::KWhite);
-//        }
-//    }
-//}
 
 void initMap (vector<string> & vectMap)
 {
@@ -425,23 +443,10 @@ void dessiner(MinGL & window)
 //    window << nsShape::Circle(nsGraphics::Vec2D(250, 50), 5, nsGraphics::KWhite);
 //    // Boule point grand
 //    window << nsShape::Circle(nsGraphics::Vec2D(300, 50), 10, nsGraphics::KWhite);
-//    // Fantôme Bleu>
+//    // Fantôme
 //    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
 //    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KBlue);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphics::Vec2D(330, 90), nsGraphics::Vec2D(340, 90), nsGraphics::KBlack);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
-
-//    // Fantôme Rouge
-//    window << nsShape>::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
-//    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KRed);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraphi//pair <unsigned, unsigned> bp2 (100,50);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
-//    // Fantôme Vert
-//    window << nsShape::Circle(nsGraphics::Vec2D(350, 50), 25, nsGraphics::KBlue);
-//    window << nsShape::Rectangle(nsGraphics::Vec2D(375, 50), nsGraphics::Vec2D(325, 90), nsGraphics::KGreen);
-//    window << nsShape::Triangle(nsGraphics::Vec2D(335, 85), nsGraph//pair <unsigned, unsigned> bp2 (100,50);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(350, 85), nsGraphics::Vec2D(345, 90), nsGraphics::Vec2D(355, 90), nsGraphics::KBlack);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(365, 85), nsGraphics::Vec2D(360, 90), nsGraphics::Vec2D(370, 90), nsGraphics::KBlack);
 
@@ -450,8 +455,10 @@ void dessiner(MinGL & window)
 int main()
 {
 //  PacMan pacLeft
-    //GhostSprite Fantome;
-    //GhostSprite Fantome2;
+    GhostSprite Fantome;
+    GhostSprite Fantome2;
+    GhostSprite Fantome3;
+    GhostSprite Fantome4;
 
     srand (time(nullptr));
     vector <unsigned> V;
@@ -484,25 +491,40 @@ int main()
 //      window << Fantome.head;
 //      window << Fantome.body;
 
-//        Fantome2.YCenter = Fantome.YCenter;
-//        Fantome2.XCenter = Fantome.XCenter + 50;
+        Fantome.XCenter = 550;
+        Fantome.YCenter = 275;
+
+        Fantome2.XCenter = Fantome.XCenter + 50;
+        Fantome2.YCenter = Fantome.YCenter;
+
+        Fantome3.XCenter = Fantome2.XCenter + 50;
+        Fantome3.YCenter = Fantome2.YCenter;
+
+        Fantome4.XCenter = Fantome3.XCenter + 50;
+        Fantome4.YCenter = Fantome3.YCenter;
+
 //        Fantome2.body = Fantome2.body;
-//        Fantome2.couleur = "KBlue";
 
 //      window << pacLeft.cercle;
 //      window << pacLeft.triangle;
         // dessin de la fenêtre
         dessiner(window); // on dessine un PacMan
         afficheMap(window, vectMap); //affiche la map
-        window << ghost1;
-        window << ghost2;
-        window << ghost3;
-        window << ghost4;
-//        window << Fantome.head;
-//        window << Fantome.body;
+//        window << ghost1;
+//        window << ghost2;
+//        window << ghost3;
+//        window << ghost4;
+        window << Fantome.head;
+        window << Fantome.body;
 
-//        window << Fantome2.head;
-//        window << Fantome2.body;
+        window << Fantome2.head;
+        window << Fantome2.body;
+
+        window << Fantome3.head;
+        window << Fantome3.body;
+
+        window << Fantome4.head;
+        window << Fantome4.body;
 
 //        dessinerBp(window, bpMap, 5);
 
