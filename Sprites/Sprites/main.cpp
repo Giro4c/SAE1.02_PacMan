@@ -25,9 +25,9 @@ typedef pair <unsigned, unsigned> CPosition;
 
 unsigned largeur_Rayon = 12;
 unsigned longueur = 25;
-struct GhostSprite
+struct GhostSprite1
 {
-    unsigned XCenter = 550;
+    unsigned XCenter = 475;
     unsigned YCenter = 275;
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
     // Forme du fantôme
@@ -37,6 +37,46 @@ struct GhostSprite
 //    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
 //    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
 };
+
+struct GhostSprite2
+{
+    unsigned XCenter = 525;
+    unsigned YCenter = 275;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
+    // Forme du fantôme
+    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KGreen};
+    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KGreen};
+//    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
+};
+
+struct GhostSprite3
+{
+    unsigned XCenter = 575;
+    unsigned YCenter = 275;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
+    // Forme du fantôme
+    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KRed};
+    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KRed};
+//    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
+};
+struct GhostSprite4
+{
+    unsigned XCenter = 625;
+    unsigned YCenter = 275;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(XCenter,YCenter);
+    // Forme du fantôme
+    nsShape::Circle head = {nsGraphics::Vec2D(CenterPos), largeur_Rayon, nsGraphics::KSilver};
+    nsShape::Rectangle body = {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::KSilver};
+//    nsShape::Triangle bottom1 = {nsGraphics::Vec2D(XCenter - longueur,YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(330, largeur_Rayon + longueur), nsGraphics::Vec2D(longueur - largeur_Rayon, largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom2 = {nsGraphics::Vec2D(350, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(345, largeur_Rayon + longueur), nsGraphics::Vec2D(355,largeur_Rayon + longueur), nsGraphics::KBlack};
+//    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
+};
+
+
 
 //struct GhostSprite
 //{
@@ -52,8 +92,8 @@ struct GhostSprite
 //    550,
 //    250,
 //    nsGraphics::KCyan,
-//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+//    {nsGraphics::Vec2D(ghost1.XCenter, ghost1.YCenter), largeur_Rayon, nsGraphics::couleur},
+//    {nsGraphics::Vec2D(ghost1.XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
 
 //};
 
@@ -389,7 +429,7 @@ void initMap (vector<string> & vectMap)
 {
     vectMap = {
     "xxxxxxxxxxxxxxxxxxxxxx",
-    "xo...x.........ox....x",
+    "xo...xo.........x....x",
     "x.xx.x.xxxxxxxx.x.xx.x",
     "x.x................x.x",
     "x.x.xx.xxxnnxxx.xx.x.x",
@@ -399,7 +439,7 @@ void initMap (vector<string> & vectMap)
     "x.x.xx.xxxxxxxx.xx.x.x",
     "x.x................x.x",
     "x.xx.x.xxxxxxxx.x.xx.x",
-    "x...ox..........x...oxx",
+    "x...ox.........ox...oxx",
     "xxxxxxxxxxxxxxxxxxxxxx"};
 }
 
@@ -455,10 +495,10 @@ void dessiner(MinGL & window)
 int main()
 {
 //  PacMan pacLeft
-    GhostSprite Fantome;
-    GhostSprite Fantome2;
-    GhostSprite Fantome3;
-    GhostSprite Fantome4;
+    GhostSprite1 Fantome;
+    GhostSprite2 Fantome2;
+    GhostSprite3 Fantome3;
+    GhostSprite4 Fantome4;
 
     srand (time(nullptr));
     vector <unsigned> V;
@@ -488,8 +528,8 @@ int main()
 //        nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
 //        // Dessin de la map
 //        window << doggo;
-//      window << Fantome.head;
-//      window << Fantome.body;
+      window << Fantome.head;
+      window << Fantome.body;
 
         Fantome.XCenter = 550;
         Fantome.YCenter = 275;
