@@ -17,7 +17,7 @@ CXX           = clang++
 DEFINES       = -DQT_QML_DEBUG
 CFLAGS        = -pipe -g -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra $(DEFINES)
-INCPATH       = -I../move -I. -I../../../../Qt/6.4.2/gcc_64/mkspecs/linux-clang
+INCPATH       = -I../move -I. -I../MinGL/include -I../../../../Qt/6.4.2/gcc_64/mkspecs/linux-clang
 QMAKE         = /home/jules/Qt/6.4.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = move1.0.0
 DISTDIR = /home/jules/Documents/PacmanNoPush/Move/build-move-Desktop_Qt_6_4_2_GCC_64bit-Debug/.tmp/move1.0.0
 LINK          = clang++
 LFLAGS        = -ccc-gcc-name g++
-LIBS          = $(SUBLIBS)    
+LIBS          = $(SUBLIBS) -lglut -lsfml-audio -lGLU -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,8 +52,48 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../move/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../move/Pacman.cpp \
+		../move/main.cpp \
+		../move/move.cpp \
+		../move/yaml.cpp \
+		../MinGL/src/audio/audioengine.cpp \
+		../MinGL/src/exception/cexception.cpp \
+		../MinGL/src/mingl.cpp \
+		../MinGL/src/event/event_manager.cpp \
+		../MinGL/src/shape/circle.cpp \
+		../MinGL/src/shape/line.cpp \
+		../MinGL/src/shape/rectangle.cpp \
+		../MinGL/src/shape/triangle.cpp \
+		../MinGL/src/shape/shape.cpp \
+		../MinGL/src/graphics/rgbacolor.cpp \
+		../MinGL/src/graphics/vec2d.cpp \
+		../MinGL/src/gui/glut_font.cpp \
+		../MinGL/src/gui/sprite.cpp \
+		../MinGL/src/gui/text.cpp \
+		../MinGL/src/transition/transition.cpp \
+		../MinGL/src/transition/transition_contract.cpp \
+		../MinGL/src/transition/transition_engine.cpp 
+OBJECTS       = Pacman.o \
+		main.o \
+		move.o \
+		yaml.o \
+		audioengine.o \
+		cexception.o \
+		mingl.o \
+		event_manager.o \
+		circle.o \
+		line.o \
+		rectangle.o \
+		triangle.o \
+		shape.o \
+		rgbacolor.o \
+		vec2d.o \
+		glut_font.o \
+		sprite.o \
+		text.o \
+		transition.o \
+		transition_contract.o \
+		transition_engine.o
 DIST          = ../../../../Qt/6.4.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/common/unix.conf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/common/linux.conf \
@@ -180,6 +220,7 @@ DIST          = ../../../../Qt/6.4.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/default_pre.prf \
+		../MinGL/mingl.pri \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/resolve_config.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/default_post.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/qml_debug.prf \
@@ -190,7 +231,56 @@ DIST          = ../../../../Qt/6.4.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/lex.prf \
-		../move/move.pro move.h ../move/main.cpp
+		../move/move.pro Pacman.h \
+		move.h \
+		yaml.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/audio/audioengine.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/exception/cexception.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/exception/cexception.hpp \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/exception/errcode.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/macros.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/mingl.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/event/event.hpp \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/event/event_manager.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/shape/circle.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/shape/line.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/shape/rectangle.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/shape/triangle.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/shape/shape.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/graphics/idrawable.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/graphics/rgbacolor.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/graphics/vec2d.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/gui/glut_font.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/gui/sprite.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/gui/text.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/tools/ieditable.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/tools/ieditable.hpp \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/tools/ifonctorunaire.hpp \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/transition/itransitionable.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/transition/transition.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/transition/transition_contract.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/transition/transition_engine.h \
+		/home/jules/Documents/PacmanNoPush/Move/MinGL/include/mingl/transition/transition_types.h ../move/Pacman.cpp \
+		../move/main.cpp \
+		../move/move.cpp \
+		../move/yaml.cpp \
+		../MinGL/src/audio/audioengine.cpp \
+		../MinGL/src/exception/cexception.cpp \
+		../MinGL/src/mingl.cpp \
+		../MinGL/src/event/event_manager.cpp \
+		../MinGL/src/shape/circle.cpp \
+		../MinGL/src/shape/line.cpp \
+		../MinGL/src/shape/rectangle.cpp \
+		../MinGL/src/shape/triangle.cpp \
+		../MinGL/src/shape/shape.cpp \
+		../MinGL/src/graphics/rgbacolor.cpp \
+		../MinGL/src/graphics/vec2d.cpp \
+		../MinGL/src/gui/glut_font.cpp \
+		../MinGL/src/gui/sprite.cpp \
+		../MinGL/src/gui/text.cpp \
+		../MinGL/src/transition/transition.cpp \
+		../MinGL/src/transition/transition_contract.cpp \
+		../MinGL/src/transition/transition_engine.cpp
 QMAKE_TARGET  = move
 DESTDIR       = 
 TARGET        = move
@@ -328,6 +418,7 @@ Makefile: ../move/move.pro ../../../../Qt/6.4.2/gcc_64/mkspecs/linux-clang/qmake
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/default_pre.prf \
+		../MinGL/mingl.pri \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/resolve_config.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/default_post.prf \
 		../../../../Qt/6.4.2/gcc_64/mkspecs/features/qml_debug.prf \
@@ -466,6 +557,7 @@ Makefile: ../move/move.pro ../../../../Qt/6.4.2/gcc_64/mkspecs/linux-clang/qmake
 ../../../../Qt/6.4.2/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/6.4.2/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/6.4.2/gcc_64/mkspecs/features/default_pre.prf:
+../MinGL/mingl.pri:
 ../../../../Qt/6.4.2/gcc_64/mkspecs/features/resolve_config.prf:
 ../../../../Qt/6.4.2/gcc_64/mkspecs/features/default_post.prf:
 ../../../../Qt/6.4.2/gcc_64/mkspecs/features/qml_debug.prf:
@@ -520,8 +612,171 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../move/main.cpp 
+Pacman.o: ../move/Pacman.cpp ../move/Pacman.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Pacman.o ../move/Pacman.cpp
+
+main.o: ../move/main.cpp ../MinGL/include/mingl/mingl.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/event/event_manager.h \
+		../MinGL/include/mingl/event/event.hpp \
+		../MinGL/include/mingl/shape/circle.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/shape/rectangle.h \
+		../MinGL/include/mingl/shape/triangle.h \
+		../MinGL/include/mingl/transition/transition.h \
+		../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/transition_types.h \
+		../MinGL/include/mingl/transition/transition_engine.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../move/main.cpp
+
+move.o: ../move/move.cpp ../move/move.h \
+		../move/yaml.h \
+		../move/Pacman.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o move.o ../move/move.cpp
+
+yaml.o: ../move/yaml.cpp ../move/yaml.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o yaml.o ../move/yaml.cpp
+
+audioengine.o: ../MinGL/src/audio/audioengine.cpp ../MinGL/include/mingl/audio/audioengine.h \
+		../MinGL/include/mingl/exception/cexception.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/exception/errcode.h \
+		../MinGL/include/mingl/exception/cexception.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o audioengine.o ../MinGL/src/audio/audioengine.cpp
+
+cexception.o: ../MinGL/src/exception/cexception.cpp ../MinGL/include/mingl/exception/cexception.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/exception/errcode.h \
+		../MinGL/include/mingl/exception/cexception.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cexception.o ../MinGL/src/exception/cexception.cpp
+
+mingl.o: ../MinGL/src/mingl.cpp ../MinGL/include/mingl/mingl.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/event/event_manager.h \
+		../MinGL/include/mingl/event/event.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mingl.o ../MinGL/src/mingl.cpp
+
+event_manager.o: ../MinGL/src/event/event_manager.cpp ../MinGL/include/mingl/event/event_manager.h \
+		../MinGL/include/mingl/event/event.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o event_manager.o ../MinGL/src/event/event_manager.cpp
+
+circle.o: ../MinGL/src/shape/circle.cpp ../MinGL/include/mingl/shape/circle.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o circle.o ../MinGL/src/shape/circle.cpp
+
+line.o: ../MinGL/src/shape/line.cpp ../MinGL/include/mingl/shape/line.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o line.o ../MinGL/src/shape/line.cpp
+
+rectangle.o: ../MinGL/src/shape/rectangle.cpp ../MinGL/include/mingl/shape/rectangle.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rectangle.o ../MinGL/src/shape/rectangle.cpp
+
+triangle.o: ../MinGL/src/shape/triangle.cpp ../MinGL/include/mingl/shape/triangle.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o triangle.o ../MinGL/src/shape/triangle.cpp
+
+shape.o: ../MinGL/src/shape/shape.cpp ../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shape.o ../MinGL/src/shape/shape.cpp
+
+rgbacolor.o: ../MinGL/src/graphics/rgbacolor.cpp ../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rgbacolor.o ../MinGL/src/graphics/rgbacolor.cpp
+
+vec2d.o: ../MinGL/src/graphics/vec2d.cpp ../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vec2d.o ../MinGL/src/graphics/vec2d.cpp
+
+glut_font.o: ../MinGL/src/gui/glut_font.cpp ../MinGL/include/mingl/gui/glut_font.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o glut_font.o ../MinGL/src/gui/glut_font.cpp
+
+sprite.o: ../MinGL/src/gui/sprite.cpp ../MinGL/include/mingl/gui/sprite.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/macros.h \
+		../MinGL/include/mingl/exception/cexception.h \
+		../MinGL/include/mingl/exception/errcode.h \
+		../MinGL/include/mingl/exception/cexception.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sprite.o ../MinGL/src/gui/sprite.cpp
+
+text.o: ../MinGL/src/gui/text.cpp ../MinGL/include/mingl/gui/text.h \
+		../MinGL/include/mingl/gui/glut_font.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/macros.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o text.o ../MinGL/src/gui/text.cpp
+
+transition.o: ../MinGL/src/transition/transition.cpp ../MinGL/include/mingl/transition/transition.h \
+		../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/transition/transition_types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transition.o ../MinGL/src/transition/transition.cpp
+
+transition_contract.o: ../MinGL/src/transition/transition_contract.cpp ../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/transition/transition_types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transition_contract.o ../MinGL/src/transition/transition_contract.cpp
+
+transition_engine.o: ../MinGL/src/transition/transition_engine.cpp ../MinGL/include/mingl/transition/transition_engine.h \
+		../MinGL/include/mingl/transition/transition.h \
+		../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/transition/transition_types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transition_engine.o ../MinGL/src/transition/transition_engine.cpp
 
 ####### Install
 

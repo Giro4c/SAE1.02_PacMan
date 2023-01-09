@@ -13,3 +13,5 @@ HEADERS += \
     Pacman.h \
     move.h \
     yaml.h
+
+include(../MinGL/mingl.pri)

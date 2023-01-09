@@ -11,6 +11,7 @@ vector<unsigned> vecParam (const string & fileName) {
     char valChar;
     unsigned valUnsigned;
     vector<unsigned> vecValues;
+/*
     for (string key; ifs >> key;) {
         ifs >> valChar;
         if (vecValuesUns.end() != find(vecValuesUns.begin(), vecValuesUns.end(), key)) {
@@ -18,6 +19,7 @@ vector<unsigned> vecParam (const string & fileName) {
             vecValues.push_back(valUnsigned);
         }
     }
+*/
     return vecValues;
 
 }
