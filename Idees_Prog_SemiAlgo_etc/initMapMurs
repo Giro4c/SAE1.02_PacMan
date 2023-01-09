@@ -1,0 +1,17 @@
+using namespace std;
+
+void initMapMursEtBP (const vector<string> & shema, vector<Cposition> & VecteurMurs, map<CPosition, bool> & MapBP, const CMyParam & Parameters)
+{
+    
+    for (unsigned i (0); i < shema.size(); ++i){
+        for (unsigned j (0); j < shema[i]; ++j){
+            switch (shema[i][j]){
+            case 'x':
+                VecteurMurs.push_back({j*(Param.MapParamUnsigned.find("CaseSize")->second), i*(Param.MapParamUnsigned.find("Case Size")->second)})
+            case '.':
+                MapBP[{j*(Param.MapParamUnsigned.find("CaseSize")->second) + (Param.MapParamUnsigned.find("BPSize")->second), i*(Param.MapParamUnsigned.find("Case Size")->second) + (Param.MapParamUnsigned.find("BPSize")->second)}] = false;
+            }
+
+        }
+    }
+}
