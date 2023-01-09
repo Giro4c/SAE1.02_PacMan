@@ -8,16 +8,102 @@ Paramètres :
 - Map Param General Jeu
 */
 
-bool CollisionPacMur (const PacMan & Pac, const map<string, char> & MapParamStrPac, const CMyParam & Parameters)
+void PossibleMursCollision (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, vector<Cposition> & VecteurPointsMursPossibles)
 {
-    CPosition posVerif1; // Coordonnées du premier point de vérification de contact
-    CPosition posVerif2;
-    if (Pac.Direction == MapParamStrPac.find("TurnUp")->second){
-        posVerif1 = {Pac.CenterPos.first + Pac.Size, Pac.CenterPos.second - Pac.Size - 1};
-        if (/*Couleur pixel co. (posVerif1.first, posVerif1.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
-        posVerif2 = {Pac.CenterPos.first - Pac.Size, Pac.CenterPos.second - Pac.Size - 1};
-        if (/*Couleur pixel co. (posVerif2.first, posVerif2.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
+    VecteurPointsMursPossibles.resize(0);
+    // Si direction vers le haut
+    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+        for (Cposition & Mur : VecteurMurs){
+            if (Mur.second <= Pac.CenterPos.second){ // Traduction sur la fenetre : point au dessus de pacman
+                if (Pac.CenterPos.first - Pac.size <= Mur.first && Mur.first <= Pac.CenterPos.first + Pac.size){
+                    VecteurPointsMursPossibles.push_back(Mur);
+                    VecteurPointsMursPossibles.push_back({Mur.first, Mur.second + CaseSize});
+                }
+                if (Pac.CenterPos.first - Pac.size <= Mur.first + CaseSize && Mur.first + CaseSize <= Pac.CenterPos.first + Pac.size){
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second});
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second + CaseSize});
+                }
+            }
+        }
     }
+    // Si direction vers le bas
+    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
+        for (Cposition & Mur : VecteurMurs){
+            if (Mur.second >= Pac.CenterPos.second){ // Traduction sur la fenetre : point en dessous de pacman
+                if (Pac.CenterPos.first - Pac.size <= Mur.first && Mur.first <= Pac.CenterPos.first + Pac.size){
+                    VecteurPointsMursPossibles.push_back(Mur);
+                    VecteurPointsMursPossibles.push_back({Mur.first, Mur.second + CaseSize});
+                }
+                if (Pac.CenterPos.first - Pac.size <= Mur.first + CaseSize && Mur.first + CaseSize <= Pac.CenterPos.first + Pac.size){
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second});
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second + CaseSize});
+                }
+            }
+        }
+    }
+    // Si direction à gauche
+    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
+        for (Cposition & Mur : VecteurMurs){
+            if (Mur.first <= Pac.CenterPos.first){ // Traduction sur la fenetre : point à gauche de pacman
+                if (Pac.CenterPos.second - Pac.size <= Mur.second && Mur.second <= Pac.CenterPos.second + Pac.size){
+                    VecteurPointsMursPossibles.push_back(Mur);
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second});
+                }
+                if (Pac.CenterPos.second - Pac.size <= Mur.second + CaseSize && Mur.second + CaseSize <= Pac.CenterPos.second + Pac.size){
+                    VecteurPointsMursPossibles.push_back({Mur.first, Mur.second + CaseSize});
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second + CaseSize});
+                }
+            }
+        }
+    }
+    // Si direction à droite
+    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnRight")->second){
+        for (Cposition & Mur : VecteurMurs){
+            if (Mur.first >= Pac.CenterPos.first){ // Traduction sur la fenetre : point à droite de pacman
+                if (Pac.CenterPos.second - Pac.size <= Mur.second && Mur.second <= Pac.CenterPos.second + Pac.size){
+                    VecteurPointsMursPossibles.push_back(Mur);
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second});
+                }
+                if (Pac.CenterPos.second - Pac.size <= Mur.second + CaseSize && Mur.second + CaseSize <= Pac.CenterPos.second + Pac.size){
+                    VecteurPointsMursPossibles.push_back({Mur.first, Mur.second + CaseSize});
+                    VecteurPointsMursPossibles.push_back({Mur.first + CaseSize, Mur.second + CaseSize});
+                }
+            }
+        }
+    }
+}
+
+bool xPacInsideWall (const PacMan & Pac, const CPosition & PointPac, const vector<CPosition> & VecteurPointsMursPossibles) {
+    for (CPosition & PointMur : VecteurPointsMursPossibles)
+    if (PointMur.first <= PointPac.first)
+        return true;
+    else
+        return false;
+}
+
+
+if (Pac.DirectionPrev != Pac.DirectionActuelle){
+    PossibleMursCollision(Pac, Param.MapParamUnsigned.find("CaseSize")->second, VecteurMurs, VecteurPointsMursPossibles);
+}
+
+bool CollisionPacMur (const PacMan & Pac, const unsigned & Vitesse, const map<string, char> & MapParamStrPac, const CMyParam & Parameters, const vector<Cposition> & VecteurMurs, vector<Cposition> & VecteurPointsMursPossibles)
+{
+    // Ajout de cette condition pour éviter d'avoir à redéterminer les cases de collision possible et éviter de perdre du temps
+    if (Pac.DirectionPrev != Pac.DirectionActuelle)
+        PossibleMursCollision(Pac, Param.MapParamUnsigned.find("CaseSize")->second, VecteurMurs, VecteurPointsMursPossibles);
+    
+    // Déclaration des deux positions des deux points d'extrémité
+    unsigned xVerif; // Coordonnées x max du point potentiel de contact
+    unsigned yVerif; // Coordonnées y max du point potentiel de contact
+
+    // Vérification en fonction de la direction actuelle du PacMan
+    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+        yVerif = Pac.CenterPos.second - Pac.Size - 1;
+        posVerif2 = {Pac.CenterPos.first - Pac.Size, Pac.CenterPos.second - Pac.Size - 1};
+        for (CPosition & PointMur : VecteurPointsMursPossibles){
+            if (PointMur.second >= posVerif1.second || PointMur.second >= posVerif2.second)
+                return true;
+        }
     else if (Pac.Direction == MapParamStrPac.find("TurnDown")->second){
         posVerif1 = {Pac.CenterPos.first + Pac.Size, Pac.CenterPos.second + Pac.Size + 1};
         if (/*Couleur pixel co. (posVerif1.first, posVerif1.second) == Parameters.MapParamStr.find(KColorMur)->second */) return true;
