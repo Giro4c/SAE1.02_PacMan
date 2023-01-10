@@ -9,7 +9,7 @@ Paramètres :
 */
 
 /**
- * @brief Procédure qui construit un vecteur contenant positions des murs pouvant potentiellement entrer en collision avec pacman parmis un vecteur de position de tous les murs
+ * @brief Renvoie la coordonnée x ou y de l'extrémité du mur en risque de collision qui se trouve sur la trajectoire du pacman
  * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
  * @param[in] CaseSize : La largeur et longueur d'une case du plateau
  * @param[in] LocEntities : La struct contenant toutes les positions des entités sauf le pacman
@@ -44,7 +44,6 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
 
         }
         return ValCoNextMurY;
-
     }
     // Si direction vers le bas
     else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
@@ -71,7 +70,6 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
 
         }
         return ValCoNextMurY;
-
     }
     // Si direction à gauche
     else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
@@ -98,9 +96,8 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
 
         }
         return ValCoNextMurX;
-
     }
-        // Si direction à droite
+    // Si direction à droite
     else if (Pac.DirectionActuelle == Parameters.MapParamStrPac.find("TurnRight")->second){
         unsigned ValCoNextMurX (Parameters.MapParamUnsigned.find("WindowWidth")->second);
         for (Cposition & Mur : VecteurMurs){
@@ -125,75 +122,13 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
 
         }
         return ValCoNextMurX;
-
     }
 
 }
 
-void PossibleMursCollision (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, vector<Cposition> & VecteurPointsMursPossibles)
-{
-    VecteurPointsMursPossibles.resize(0);
-    // Si direction vers le haut
-    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
-        for (Cposition & Mur : VecteurMurs){
-            if (Mur.getY() <= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
-                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
-                    VecteurPointsMursPossibles.push_back(Mur);
-                    VecteurPointsMursPossibles.push_back({Mur.getX(), Mur.getY() + CaseSize});
-                }
-                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.size){
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY()});
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY() + CaseSize});
-                }
-            }
-        }
-    }
-    // Si direction vers le bas
-    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
-        for (Cposition & Mur : VecteurMurs){
-            if (Mur.getY() >= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point en dessous de pacman
-                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
-                    VecteurPointsMursPossibles.push_back(Mur);
-                    VecteurPointsMursPossibles.push_back({Mur.getX(), Mur.getY() + CaseSize});
-                }
-                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.size){
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY()});
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY() + CaseSize});
-                }
-            }
-        }
-    }
-    // Si direction à gauche
-    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
-        for (Cposition & Mur : VecteurMurs){
-            if (Mur.getX() <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
-                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
-                    VecteurPointsMursPossibles.push_back(Mur);
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY()});
-                }
-                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.size){
-                    VecteurPointsMursPossibles.push_back({Mur.getX(), Mur.getY() + CaseSize});
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY() + CaseSize});
-                }
-            }
-        }
-    }
-    // Si direction à droite
-    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnRight")->second){
-        for (Cposition & Mur : VecteurMurs){
-            if (Mur.getX() >= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à droite de pacman
-                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
-                    VecteurPointsMursPossibles.push_back(Mur);
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY()});
-                }
-                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.size){
-                    VecteurPointsMursPossibles.push_back({Mur.getX(), Mur.getY() + CaseSize});
-                    VecteurPointsMursPossibles.push_back({Mur.getX() + CaseSize, Mur.getY() + CaseSize});
-                }
-            }
-        }
-    }
-}
+    // Ajout de cette condition pour éviter d'avoir à redéterminer les cases de collision possible et éviter de perdre du temps
+    if (Pac.DirectionPrev != Pac.DirectionActuelle)
+        ValCoNextMur = CoNextMur(Pac, Param.MapParamUnsigned.find("CaseSize")->second, VecteurMurs);
 
 
 /**
@@ -201,16 +136,12 @@ void PossibleMursCollision (const PacMan & Pac, const unsigned & CaseSize, const
  * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
  * @param[in] Vitesse : La vitesse de déplacement de PacMan (en pixels)
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
- * @param[in] VecteurPointsMursPossibles : Le vecteur contenant les positions des murs pouvant potentiellement entrer en collision avec pacman
+ * @param[in] ValCoNextMur : La coordonnée x ou y de l'extémité du prochain 
  * @return Vrai et la distance entre extémité_mur et extémité_pacman + vitesse, -1 qui sera la nouvelle vitesse temporaire en attendant un changement de direction.
  * @fn 
 */
 pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vitesse, const map<string, char> & MapParamStrPac, const CMyParam & Parameters, /* const vector<Cposition> & VecteurMurs */, vector<Cposition> & VecteurPointsMursPossibles)
-{
-    // Ajout de cette condition pour éviter d'avoir à redéterminer les cases de collision possible et éviter de perdre du temps
-    if (Pac.DirectionPrev != Pac.DirectionActuelle)
-        PossibleMursCollision(Pac, Param.MapParamUnsigned.find("CaseSize")->second, VecteurMurs, VecteurPointsMursPossibles);
-    
+{    
     // Déclaration des coordonnées d'extrémités dépendantes de la direction actuelle du pacman
     unsigned xVerif; // Coordonnées x max du point potentiel de contact
     unsigned yVerif; // Coordonnées y max du point potentiel de contact
@@ -219,36 +150,32 @@ pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vite
     // Haut
     if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
         yVerif = Pac.CenterPos.getY() - Pac.Size - Vitesse;
-        for (CPosition & PointMur : VecteurPointsMursPossibles){
-            if (PointMur.getY() >= yVerif)
-                return {true, PointMur.getY() - yVerif - 1};
-        }
-        return {false, 0}; // Puisque pas de collision
+        if (ValCoNextMur >= yVerif)
+            return {true, PointMur.getY() - yVerif - 1};
+        else 
+            return {false, 0}; // Puisque pas de collision
     // Bas
     else if (Pac.Direction == MapParamStrPac.find("TurnDown")->second){
         yVerif = Pac.CenterPos.getY() + Pac.Size + Vitesse;
-        for (CPosition & PointMur : VecteurPointsMursPossibles){
-            if (PointMur.getY() <= yVerif)
-                return {true, yVerif - PointMur.getY() - 1};
-        }
-        return {false, 0}; // Puisque pas de collision
+        if (ValCoNextMur <= yVerif)
+            return {true, yVerif - PointMur.getY() - 1};
+        else
+            return {false, 0}; // Puisque pas de collision
     }
     // Gauche
     else if (Pac.Direction == MapParamStrPac.find("TurnLeft")->second){
         xVerif = Pac.CenterPos.getX() - Pac.Size - Vitesse;
-        for (CPosition & PointMur : VecteurPointsMursPossibles){
-            if (PointMur.getx() >= xVerif)
-                return {true, PointMur.getx() - xVerif - 1};
-        }
-        return {false, 0}; // Puisque pas de collision
+        if (ValCoNextMur >= xVerif)
+            return {true, PointMur.getx() - xVerif - 1};
+        else
+            return {false, 0}; // Puisque pas de collision
     }
     else if (Pac.Direction == MapParamStrPac.find("TurnRight")->second){
         xVerif = Pac.CenterPos.getX() + Pac.Size + Vitesse;
-        for (CPosition & PointMur : VecteurPointsMursPossibles){
-            if (PointMur.getx() <= xVerif)
-                return {true, xVerif - PointMur.getx() - 1};
-        }
-        return {false, 0}; // Puisque pas de collision
+        if (ValCoNextMur <= xVerif)
+            return {true, xVerif - PointMur.getx() - 1};
+        else
+            return {false, 0}; // Puisque pas de collision
     }
     else 
         return {false, 0}; // Puisque pas de collision car mauvaise direction en entrée
