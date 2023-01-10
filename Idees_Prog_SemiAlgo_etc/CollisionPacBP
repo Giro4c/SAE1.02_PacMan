@@ -1,4 +1,5 @@
-Collision Pac / BP
+using namespace std;
+// Collision Pac / BP
 
 Procedure modifie map contenant une partie des données de MapBP (Toutes les BP suceptibles d'être percutées) en fonction de la directionPac
 Paramètres :
@@ -6,19 +7,19 @@ Paramètres :
 - Map PossibleCollision_BP
 - directionPac
 
-procedure BP possible collision
+void CollisionBPPossible (const PacMan & Pac, const map<CPosition, bool> & MapBP, const CMyParam & Parameters, map<CPosition, bool> & MapBPPossible)
 {
-    clear Map PossibleCollision_BP
-    tailleBP = Map_Sprites.find("BP")->second
-    tailleBP = tailleBP.Size
-    taillePac = Map_Sprites.find("Pac")->second
-    taillePac = taillePac.Size
+    MapBPPossible.erase(MapBPPossible.begin(), MapBPPossible.end());
+    tailleBP = Parameters.MapParamUnsigned.find("BPSize")->second;
+    taillePac = Parameters.MapParamUnsigned.find("PacSize")->second;
     // Colonne allignée avec le pacman 
-    if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoUp || DirectionPac == ParamPac (de type CParamPlayEntity) .GoDown )
-        for ( pair <CPosition, bool> & BP : Map_BP )
-            if (BP.CenterPos/first/.first <= Pac.CenterPos.first + taillePac && BP.CenterPos/first/.first <= Pac.CenterPos.first - taillePac)
-                Map_BP[BP.first] = BP.second
-    
+    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second)
+        for ( pair <CPosition, bool> & BP : MapBP )
+            if (BP.second == false){
+                if (BP.first.getY() <= Pac.CenterPos.getY() && Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
+                    MapBPPossible[BP.first] = BP.second
+            }
+    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second)
     // Ligne allignée avec le pacman
     if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoLeft || DirectionPac == ParamPac (de type CParamPlayEntity) .GoRight )
     for ( pair <CPosition, bool> & BP : Map_BP )
