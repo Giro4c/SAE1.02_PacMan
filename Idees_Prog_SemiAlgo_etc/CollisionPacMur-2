@@ -13,9 +13,123 @@ Paramètres :
  * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
  * @param[in] CaseSize : La largeur et longueur d'une case du plateau
  * @param[in] LocEntities : La struct contenant toutes les positions des entités sauf le pacman
- * @param[out] VecteurPointsMursPossibles : Le vecteur contenant les positions des murs pouvant potentiellement entrer en collision avec pacman
- * @fn 
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @fn unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters);
 */
+
+unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters)
+{
+    // Si direction vers le haut
+    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+        unsigned ValCoNextMurY (0);
+        for (Cposition & Mur : VecteurMurs){
+
+            if (Mur.getY() + CaseSize <= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
+                }
+                else if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
+                }
+            }
+            // Else if car (y + CaseSize) est forcément plus grand que (y) sachant que CaseSize >= 0
+            else if (Mur.getY() <= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = max(ValCoNextMurY, Mur.getY());
+                }
+                else if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = max(ValCoNextMurY, Mur.getY());
+                }
+            }
+
+        }
+        return ValCoNextMurY;
+
+    }
+    // Si direction vers le bas
+    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
+        unsigned ValCoNextMurY (Parameters.MapParamUnsigned.find("WindowHeight")->second);
+        for (Cposition & Mur : VecteurMurs){
+
+            if (Mur.getY() >= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = min(ValCoNextMurY, Mur.getY());
+                }
+                else if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = min(ValCoNextMurY, Mur.getY());
+                }
+            }
+            // Else if car (y) est forcément plus petit que (y + CaseSize) sachant que CaseSize >= 0            
+            else if (Mur.getY() + CaseSize >= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+                if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
+                }
+                else if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.size){
+                    ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
+                }
+            }
+
+        }
+        return ValCoNextMurY;
+
+    }
+    // Si direction à gauche
+    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
+        unsigned ValCoNextMurX (0);
+        for (Cposition & Mur : VecteurMurs){
+
+            if (Mur.getX() + CaseSize <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
+                }
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
+                }
+            }
+            // Else if car (x + CaseSize) est forcément plus grand que (x) sachant que CaseSize >= 0
+            if (Mur.getX() <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = max(ValCoNextMurX, Mur.getX());
+                }
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = max(ValCoNextMurX, Mur.getX());
+                }
+            }
+
+        }
+        return ValCoNextMurX;
+
+    }
+        // Si direction à droite
+    else if (Pac.DirectionActuelle == Parameters.MapParamStrPac.find("TurnRight")->second){
+        unsigned ValCoNextMurX (Parameters.MapParamUnsigned.find("WindowWidth")->second);
+        for (Cposition & Mur : VecteurMurs){
+
+            if (Mur.getX() <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = min(ValCoNextMurX, Mur.getX());
+                }
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = min(ValCoNextMurX, Mur.getX());
+                }
+            }
+            // Else if car (x) est forcément plus petit que (x + CaseSize) sachant que CaseSize >= 0            
+            else if (Mur.getX() + CaseSize <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
+                }
+                if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.size){
+                    ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
+                }
+            }
+
+        }
+        return ValCoNextMurX;
+
+    }
+
+}
+
 void PossibleMursCollision (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, vector<Cposition> & VecteurPointsMursPossibles)
 {
     VecteurPointsMursPossibles.resize(0);
