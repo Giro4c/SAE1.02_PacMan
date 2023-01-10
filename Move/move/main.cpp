@@ -2,11 +2,9 @@
 #include <iostream>
 #include <thread>
 
+#include "move.h"
 #include "mingl/mingl.h"
-
 #include "mingl/shape/circle.h"
-#include "mingl/shape/shape.h"
-#include "mingl/shape/rectangle.h"
 #include "mingl/shape/triangle.h"
 #include "mingl/transition/transition.h"
 #include "mingl/transition/transition_engine.h"
@@ -15,59 +13,6 @@ using namespace nsTransition;
 using namespace std;
 using namespace nsGraphics;
 using namespace nsShape;
-
-
-struct Pacman
-{
-    nsGraphics::Vec2D Position;
-    string DirectionActuelle;
-    string DirectionPrecédent;
-    unsigned vitesse;
-    const unsigned rayon;
-    nsGraphics::Vec2D BouchePosA;
-    nsGraphics::Vec2D BouchePosB;
-};
-
-void clavier(MinGL &window, Pacman &pacman)
-{
-    // On vérifie si ZQSD est pressé, et met a jour la position
-    pacman.DirectionPrecédent= pacman.DirectionActuelle;
-    if (window.isPressed({'z', false})){
-        pacman.Position.setY(pacman.Position.getY() - pacman.vitesse);
-            pacman.DirectionActuelle= "haut";
-        }
-    else if (window.isPressed({'s', false})){
-        pacman.Position.setY(pacman.Position.getY() + pacman.vitesse);
-        pacman.DirectionActuelle = "bas";
-    }
-    else if (window.isPressed({'q', false})){
-        pacman.Position.setX(pacman.Position.getX() - pacman.vitesse);
-        pacman.DirectionActuelle = "gauche";
-    }
-    else if (window.isPressed({'d', false})){
-        pacman.Position.setX(pacman.Position.getX() + pacman.vitesse);
-        pacman.DirectionActuelle = "droite";
-    }
-}
-
-void dessiner(MinGL &window, Pacman &pacman)
-{
-    // On dessine le rectangle
-    window<<nsShape::Circle (pacman.Position, 25, nsGraphics::KYellow);
-    if (pacman.DirectionActuelle== "haut"){
-        pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()-25};
-        pacman.BouchePosB = {pacman.Position.getX()+20,pacman.Position.getY()-25};}
-    else if (pacman.DirectionActuelle== "bas"){
-        pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()+25};
-        pacman.BouchePosB = {pacman.Position.getX()+20,pacman.Position.getY()+25};}
-    else if (pacman.DirectionActuelle == "gauche"){
-        pacman.BouchePosA = {pacman.Position.getX()-25,pacman.Position.getY()-20};
-        pacman.BouchePosB = {pacman.Position.getX()-25,pacman.Position.getY()+20};}
-    else if (pacman.DirectionActuelle == "droite"){
-        pacman.BouchePosA = {pacman.Position.getX()+25,pacman.Position.getY()-20};
-        pacman.BouchePosB = {pacman.Position.getX()+25,pacman.Position.getY()+20};}
-    window << nsShape::Triangle(pacman.Position,pacman.BouchePosA,pacman.BouchePosB,KBlack);
-}
 
 int main()
 {
@@ -81,6 +26,7 @@ int main()
 
     nsTransition::TransitionEngine tst;
 
+    // initialisation de l'objet pacman
     Pacman pacman = {
         {0,0}, // position
         "right", //posActu
@@ -90,6 +36,11 @@ int main()
         {0,0}, //posBoucheA
         {0,0} // posBoucheB
     };
+
+    // initialisation de la bouche
+    nsShape::Triangle bouche({0,0}, {0,0}, {0,0}, KBlack);
+    tst.startContract(nsTransition::TransitionContract(bouche, bouche.TRANSITION_FILL_COLOR_ALPHA, chrono::milliseconds(100), {0},
+                                                       chrono::milliseconds(0), nsTransition::Transition::TransitionMode::MODE_LOOP_SMOOTH));
 
     // On fait tourner la boucle tant que la fenêtre est ouverte
     while (window.isOpen())
@@ -103,7 +54,7 @@ int main()
 
         // On fait tourner les procédures
         clavier(window, pacman);
-        dessiner(window, pacman);
+        dessiner(window, pacman, bouche);
 
         // On finit la frame en cours
         window.finishFrame();

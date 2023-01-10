@@ -3,28 +3,25 @@
 
 #include <vector>
 
-#include "MinGL2/include/mingl/mingl.h"
-#include "MinGL2/include/mingl/gui/sprite.h"
-#include "MinGL2/include/mingl/graphics/vec2d.h"
-#include "MinGL2/include/mingl/shape/rectangle.h"
+#include "mingl/mingl.h"
+#include "mingl/gui/sprite.h"
+#include "mingl/graphics/vec2d.h"
+#include "mingl/shape/triangle.h"
 
-#include "yaml.h"
+using namespace std;
 
-void moveSprite(nsGui::Sprite &, const int &, const int &);
-void keyboard(MinGL &, nsGui::Sprite &, std::vector<unsigned>);
+struct Pacman
+{
+    nsGraphics::Vec2D Position;
+    string DirectionActuelle;
+    string DirectionPrecedent;
+    unsigned vitesse;
+    const unsigned rayon;
+    nsGraphics::Vec2D BouchePosA;
+    nsGraphics::Vec2D BouchePosB;
+};
+
+void clavier(MinGL &window, Pacman &pacman);
+void dessiner(MinGL &window, Pacman &pacman, nsShape::Triangle &bouche);
 
 #endif // MOVE_H
-
-
-
-#include "Pacman.h"
-
-class Pacman : public Personnage
-{
-private:
-    bool Miroir_;
-
-public:
-    Pacman(int X, int Y);
-    bool Bouger(int Evenement, bool Miroir);
-};

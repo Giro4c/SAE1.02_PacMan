@@ -4,47 +4,64 @@
 #include <thread>
 #include <vector>
 
-#include "MinGL2/include/mingl/mingl.h"
-#include "MinGL2/include/mingl/gui/sprite.h"
-#include "MinGL2/include/mingl/graphics/vec2d.h"
-#include "MinGL2/include/mingl/shape/rectangle.h"
-
+#include "mingl/mingl.h"
+#include "mingl/graphics/vec2d.h"
+#include "mingl/shape/circle.h"
+#include "mingl/shape/triangle.h"
 #include "move.h"
-#include "yaml.h"
 
 using namespace std;
 using namespace nsGraphics;
 using namespace nsGui;
 using namespace chrono;
 
-/*
-void addScore(string & life, string &nameStr){
-    fstream ofs;
-    ofs.open("score.txt");
-    if(ofs.is_open()){
-        ofs << nameStr << " " << life << endl;
-    }
-}
-*/
-
-void keyboard(MinGL &window, Sprite & pacman, vector<unsigned> vecKey)
+void clavier(MinGL &window, Pacman &pacman)
 {
-    if (window.isPressed({char(vecKey[6]), false}) && pacman.getPosition().getX() > 50 ) {
-        Vec2D position = pacman.getPosition();
-        int pacX = position.getX();
-        int pacY = position.getY();
-        Vec2D positionF (pacX-5, pacY);
-        pacman.setPosition(positionF);
+    // On vérifie si ZQSD est pressé, et met a jour la position
+    pacman.DirectionPrecedent= pacman.DirectionActuelle;
+    if (window.isPressed({'z', false})){
+        pacman.Position.setY(pacman.Position.getY() - pacman.vitesse);
+            pacman.DirectionActuelle= "haut";
+        }
+    else if (window.isPressed({'s', false})){
+        pacman.Position.setY(pacman.Position.getY() + pacman.vitesse);
+        pacman.DirectionActuelle = "bas";
     }
-    if (window.isPressed({char(vecKey[7]), false}) && pacman.getPosition().getX() < (600-64+50)) {
-        Vec2D position = pacman.getPosition();
-        int pacX = position.getX();
-        int pacY = position.getY();
-        Vec2D positionF (pacX+5, pacY);
-        pacman.setPosition(positionF);
+    else if (window.isPressed({'q', false})){
+        pacman.Position.setX(pacman.Position.getX() - pacman.vitesse);
+        pacman.DirectionActuelle = "gauche";
+    }
+    else if (window.isPressed({'d', false})){
+        pacman.Position.setX(pacman.Position.getX() + pacman.vitesse);
+        pacman.DirectionActuelle = "droite";
     }
 }
 
-void movePac(Sprite &position, const int &x, const int &y) {
-    position.setPosition(Vec2D(position.getPosition().getX() + x, position.getPosition().getY() + y));
+void dessiner(MinGL &window, Pacman &pacman, nsShape::Triangle &bouche)
+{
+    // On dessine le rectangle
+    window << nsShape::Circle (pacman.Position, 25, nsGraphics::KYellow);
+    if (pacman.DirectionActuelle== "haut"){
+        pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()-25};
+        pacman.BouchePosB = {pacman.Position.getX()+20,pacman.Position.getY()-25};}
+    else if (pacman.DirectionActuelle== "bas"){
+        pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()+25};
+        pacman.BouchePosB = {pacman.Position.getX()+20,pacman.Position.getY()+25};}
+    else if (pacman.DirectionActuelle == "gauche"){
+        pacman.BouchePosA = {pacman.Position.getX()-25,pacman.Position.getY()-20};
+        pacman.BouchePosB = {pacman.Position.getX()-25,pacman.Position.getY()+20};}
+    else if (pacman.DirectionActuelle == "droite"){
+        pacman.BouchePosA = {pacman.Position.getX()+25,pacman.Position.getY()-20};
+        pacman.BouchePosB = {pacman.Position.getX()+25,pacman.Position.getY()+20};}
+    bouche.setFirstPosition(pacman.Position);
+    bouche.setSecondPosition(pacman.BouchePosA);
+    bouche.setThirdPosition(pacman.BouchePosB);
+    window << bouche;
+    if (pacman.DirectionActuelle == "haut" || pacman.DirectionActuelle == "bas") {
+        window << nsShape::Triangle(pacman.Position, {pacman.BouchePosA.getX()+10, pacman.BouchePosA.getY()},
+                                    {pacman.BouchePosB.getX()-10, pacman.BouchePosB.getY()}, KBlack);
+    } else {
+        window << nsShape::Triangle(pacman.Position, {pacman.BouchePosA.getX(), pacman.BouchePosA.getY()+10},
+                                                    {pacman.BouchePosB.getX(), pacman.BouchePosB.getY()-10}, KBlack);
+    }
 }

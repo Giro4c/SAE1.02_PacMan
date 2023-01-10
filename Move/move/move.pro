@@ -4,14 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        Pacman.cpp \
         main.cpp \
-        move.cpp \
-        yaml.cpp
+        move.cpp
 
 HEADERS += \
-    Pacman.h \
-    move.h \
-    yaml.h
+    move.h
 
 include(../MinGL/mingl.pri)
