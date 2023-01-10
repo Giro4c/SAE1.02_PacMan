@@ -17,7 +17,7 @@ using namespace chrono;
 
 void clavier(MinGL &window, Pacman &pacman)
 {
-    // On vérifie si ZQSD est pressé, et met a jour la position
+    // On vérifie si ZQSD est pressé, et met a jour la position, pas de diagonale
     pacman.DirectionPrecedent= pacman.DirectionActuelle;
     if (window.isPressed({'z', false})){
         pacman.Position.setY(pacman.Position.getY() - pacman.vitesse);
@@ -39,7 +39,7 @@ void clavier(MinGL &window, Pacman &pacman)
 
 void dessiner(MinGL &window, Pacman &pacman, nsShape::Triangle &bouche)
 {
-    // On dessine le rectangle
+    // On dessine le pacman et on gère ses déplacements
     window << nsShape::Circle (pacman.Position, 25, nsGraphics::KYellow);
     if (pacman.DirectionActuelle== "haut"){
         pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()-25};
