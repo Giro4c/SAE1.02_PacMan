@@ -12,7 +12,6 @@
 
 #include "type.h"
 void InitParams (CMyParam & Param);
-void LoadParams (CMyParam & Param);
 
 
 /**

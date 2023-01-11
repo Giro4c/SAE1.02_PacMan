@@ -14,6 +14,9 @@
 #include <map>
 #include <utility>
 #include <random>
+#include "Complements/game.h"
+#include "Complements/params.h"
+#include "Complements/type.h"
 
 //using namespace std;
 //using namespace nsShape;
@@ -76,60 +79,24 @@ struct GhostSprite4
 //    nsShape::Triangle bottom3 = {nsGraphics::Vec2D(365, YCenter - largeur_Rayon - longueur), nsGraphics::Vec2D(360, largeur_Rayon + longueur), nsGraphics::Vec2D(370, largeur_Rayon + longueur), nsGraphics::KBlack};
 };
 
-
-
-//struct GhostSprite
+//void initGhost(map<unsigned,struct>ghostMap)
 //{
-//    unsigned XCenter;
-//    unsigned YCenter;
-//    nsGraphics::RGBAcolor couleur;// variable couleur
-//    // Forme du fantôme
-//    nsShape::Circle head;
-//    nsShape::Rectangle body;
-////    vector<nsShape::Triangle>bottom;
-//};
-//GhostSprite ghost1 = {
-//    550,
-//    250,
-//    nsGraphics::KCyan,
-//    {nsGraphics::Vec2D(ghost1.XCenter, ghost1.YCenter), largeur_Rayon, nsGraphics::couleur},
-//    {nsGraphics::Vec2D(ghost1.XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
+//    ghostMap[0] = GhostSprite1;
+//    ghostMap[1] = GhostSprite2;
+//    ghostMap[2] = GhostSprite3;
+//    ghostMap[3] = GhostSprite4;
+//}
 
-//};
-
-//GhostSprite ghost2 = {
-//    600,
-//    250,
-//    nsGraphics::KMagenta,
-//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
-
-//};
-
-//GhostSprite ghost3 = {
-//    650,
-//    250,
-//    nsGraphics::KGreen,
-//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
-
-//};
-
-//GhostSprite ghost4 = {
-//    700,
-//    250,
-//    nsGraphics::KSilver,
-//    {nsGraphics::Vec2D(XCenter, YCenter), largeur_Rayon, nsGraphics::couleur},
-//    {nsGraphics::Vec2D(XCenter - largeur_Rayon, YCenter), nsGraphics::Vec2D(XCenter + largeur_Rayon, YCenter + longueur - largeur_Rayon), nsGraphics::couleur},
-
-//};
-
-//unsigned diametre = 50;
-//unsigned rayon = 25;
-//struct PacMan {
-//    nsShape::Circle cercle = {nsGraphics::Vec2D(diametre, diametre), rayon, nsGraphics::KYellow};
-//    nsShape::Triangle triangle = {nsGraphics::Vec2D(diametre, diametre), nsGraphics::Vec2D(diametre + rayon, rayon), nsGraphics::Vec2D(diametre + rayon, diametre + rayon - 10), nsGraphics::KBlack};
-//};
+const unsigned diametre = 50;
+const unsigned rayon = 25;
+struct PacMan {
+    nsGraphics::Vec2D CPosition;
+    string directionActuelle;
+    string directionPrecedente;
+    unsigned vitesse;
+    nsShape::Circle cercle = {CPosition, rayon, nsGraphics::KYellow};
+    nsShape::Triangle triangle = {(CPosition), nsGraphics::Vec2D(CPosition.first + rayon, CPosition.second), nsGraphics::Vec2D(CPosition.first + rayon, CPosition.second - rayon), nsGraphics::KBlack};
+};
 
 
 //void InitMap (map <pair <unsigned, unsigned>, bool> & bpMap)
@@ -429,17 +396,17 @@ void initMap (vector<string> & vectMap)
 {
     vectMap = {
     "xxxxxxxxxxxxxxxxxxxxxx",
-    "xo...xo.........x....x",
+    "x....x..........x....x",
     "x.xx.x.xxxxxxxx.x.xx.x",
     "x.x................x.x",
     "x.x.xx.xxxnnxxx.xx.x.x",
-    "..x....xnnnnnnx....x.o",
+    "x.x....xnnnnnnx....x.x",
     "x...xx.xxxxxxxx.xx...x",
     "x.x................x.x",
     "x.x.xx.xxxxxxxx.xx.x.x",
     "x.x................x.x",
     "x.xx.x.xxxxxxxx.x.xx.x",
-    "x...ox.........ox...oxx",
+    "x....x..........x....xx",
     "xxxxxxxxxxxxxxxxxxxxxx"};
 }
 
@@ -469,7 +436,7 @@ void dessiner(MinGL & window)
     window << nsShape::Circle(nsGraphics::Vec2D(75, 75), 15, nsGraphics::KYellow);
     window << nsShape::Triangle(nsGraphics::Vec2D(75, 75), nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(100, 91), nsGraphics::KBlack);
 //    // PacMan Left
-//    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 25, nsGraphics::KYellow);
+//    window << nsShape::Circle(nsGraphics::Vec2D(100, 50), 15, nsGraphics::KYellow);
 //    window << nsShape::Triangle(nsGraphics::Vec2D(100, 50), nsGraphics::Vec2D(75, 25), nsGraphics::Vec2D(75, 60), nsGraphics::KBlack);
 //    // PacMan Up
 //    window << nsShape::Circle(nsGraphics::Vec2D(150, 50), 25, nsGraphics::KYellow);
@@ -528,20 +495,20 @@ int main()
 //        nsGui::Sprite doggo("../Sprites/map.si2", nsGraphics::Vec2D(0, 0));
 //        // Dessin de la map
 //        window << doggo;
-      window << Fantome.head;
-      window << Fantome.body;
+//          window << Fantome.head;
+//          window << Fantome.body;
 
-        Fantome.XCenter = 550;
-        Fantome.YCenter = 275;
+//        Fantome.XCenter = 550;
+//        Fantome.YCenter = 275;
 
-        Fantome2.XCenter = Fantome.XCenter + 50;
-        Fantome2.YCenter = Fantome.YCenter;
+//        Fantome2.XCenter = Fantome.XCenter + 50;
+//        Fantome2.YCenter = Fantome.YCenter;
 
-        Fantome3.XCenter = Fantome2.XCenter + 50;
-        Fantome3.YCenter = Fantome2.YCenter;
+//        Fantome3.XCenter = Fantome2.XCenter + 50;
+//        Fantome3.YCenter = Fantome2.YCenter;
 
-        Fantome4.XCenter = Fantome3.XCenter + 50;
-        Fantome4.YCenter = Fantome3.YCenter;
+//        Fantome4.XCenter = Fantome3.XCenter + 50;
+//        Fantome4.YCenter = Fantome3.YCenter;
 
 //        Fantome2.body = Fantome2.body;
 
