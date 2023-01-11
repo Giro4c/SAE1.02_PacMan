@@ -1,21 +1,8 @@
+#include "collision.h"
+
 using namespace std;
-/*Collision Pac / Mur
 
-Fonction bool  bool(collision ou non)
-Paramètres :
-- Struct de Pacman (contient PacPos, PacSize, PacDirection?)
-- Map Param du PacMan (inclue les touches associée à chaque mouvement)
-- Map Param General Jeu
-*/
-
-/**
- * @brief Renvoie la coordonnée x ou y de l'extrémité du mur en risque de collision qui se trouve sur la trajectoire du pacman
- * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
- * @param[in] CaseSize : La largeur et longueur d'une case du plateau
- * @param[in] LocEntities : La struct contenant toutes les positions des entités sauf le pacman
- * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
- * @fn unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters);
-*/
+/* ************************  PacMan / Mur  ************************** */
 
 unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters)
 {
@@ -123,24 +110,11 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
         }
         return ValCoNextMurX;
     }
-
+    else
+        return 0;
 }
 
-    // Ajout de cette condition pour éviter d'avoir à redéterminer les cases de collision possible et éviter de perdre du temps
-    if (Pac.DirectionPrev != Pac.DirectionActuelle)
-        ValCoNextMur = CoNextMur(Pac, Param.MapParamUnsigned.find("CaseSize")->second, VecteurMurs);
-
-
-/**
- * @brief 
- * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
- * @param[in] Vitesse : La vitesse de déplacement de PacMan (en pixels)
- * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
- * @param[in] ValCoNextMur : La coordonnée x ou y de l'extémité du prochain 
- * @return Vrai et la distance entre extémité_mur et extémité_pacman + vitesse, -1 qui sera la nouvelle vitesse temporaire en attendant un changement de direction.
- * @fn 
-*/
-pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vitesse, const map<string, char> & MapParamStrPac, const CMyParam & Parameters, /* const vector<Cposition> & VecteurMurs */, vector<Cposition> & VecteurPointsMursPossibles)
+pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur)
 {    
     // Déclaration des coordonnées d'extrémités dépendantes de la direction actuelle du pacman
     unsigned xVerif; // Coordonnées x max du point potentiel de contact
@@ -180,4 +154,143 @@ pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vite
     }
     else 
         return {false, 0}; // Puisque pas de collision car mauvaise direction en entrée
+}
+
+/* ************************  PacMan / Fantome (Ghost) ************************** */
+
+bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac) 
+{
+    if ((XCenterPac - SizePac) <= XPointFantome && (XCenterPac + SizePac) >= XPointFantome)
+        return true;
+    else
+        return false;
+}
+
+bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome) 
+{
+    if ((YCenterPac - SizePac) <= YPointFantome && (YCenterPac + SizePac) >= YPointFantome){ // Cette condition empeche que y sortent de la HitBox
+        unsigned valAbsDiffXPacFantome;
+        if (XCenterPac < XPointFantome)
+            valAbsDiffXPacFantome = XPointFantome - XCenterPac;
+        else
+            valAbsDiffXPacFantome = XCenterPac - XPointFantome
+        
+        if ((YCenterPac - SizePac/2) - (SizePac - valAbsDiffXPacFantome) <= YPointFantome && (YCenterPac + SizePac/2) + (SizePac - valAbsDiffXPacFantome) >= YPointFantome)
+            return true;
+        else
+            return false;
+    }
+}
+
+bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost);
+{
+    if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xGFirstContact + (Ghost.Size /2), Pac.Size) == true || xFInsideHitBoxPacX(Pac.CenterPos.getX(), xGFirstContact + (Ghost.Size /2), Pac.Size) == true)
+        return true;
+    else if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yGFirstContact, Pac.Size, Pac.CenterPos.getX(), xGFirstContact) == true)
+        return true;
+    else 
+        return false;
+}
+
+bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & MapGhost)
+{
+    /* Si un Ghost n'as pas de collision avec PacMan, la fonction ne renvoie pas false immédiatement : cette valeur n'est envoyée seulement si AUCUN n'a de collision d'où le renvoie false APRES la boucle for*/
+    for (pair <unsigned, GhostSprite> & Fantome : MapGhost){
+        
+        // Avec xMax 
+        unsigned xMaxGhost = Fantome.second.CenterPos.getX() + Fantome.second.Size;
+        if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xMaxGhost, Pac.Size) == true)
+        {
+            // yMax
+            unsigned yMaxGhost = Fantome.second.CenterPos.second + Fantome.second.Size;
+            if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMaxGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true) 
+                return true;
+            // yMin
+            else{
+                unsigned yMinGhost = Fantome.second.CenterPos.second - Fantome.second.Size;
+                if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true && RealHitGhost(Pac, xMaxGhost, yMinGhost, Fantome.second.Size))
+                    return true;
+                else 
+                    continue;
+            }
+        }
+
+        // Avec xMin
+        else 
+        {
+            unsigned xMinGhost = Fantome.second.CenterPos.first - Fantome.second.Size;
+            if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xMinGhost, Pac.Size) == true)
+                {
+                unsigned yMaxGhost = Fantome.second.CenterPos.second + Fantome.second.Size;
+                if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMaxGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true) 
+                    return true;
+                else{
+                    unsigned yMinGhost = Fantome.second.CenterPos.second - Fantome.second.Size;
+                    if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true && RealHitGhost(Pac, xMinGhost, yMinGhost, Fantome.second.Size))
+                        return true;
+                    else
+                        continue;
+                }
+            }
+            else 
+                continue;
+        }
+    }
+    return false;
+}
+
+
+/* ************************  PacMan / Boule-Point (BP)  ************************** */
+
+void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, map<nsGraphics::Vec2D, bool> & MapBPPossible)
+{
+    if (Pac.DirectionPrev != Pac.DirectionActuelle){ // Evite d'avoir à tout reconstruire à chaque appel de la procedure
+        MapBPPossible.erase(MapBPPossible.begin(), MapBPPossible.end());
+        taillePac = Pac.Size;
+        // Trajectoire Verticale
+        if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getY() <= Pac.CenterPos.getY()){
+                    if (Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getY() >= Pac.CenterPos.getY()){
+                    if (Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+        // Ligne alignée avec le pacman
+        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getX() <= Pac.CenterPos.getX()){
+                    if (Pac.CenterPos.getY() - taillePac <= BP.first.getY() && BP.first.getY() <= Pac.CenterPos.getY() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnRight")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getX() >= Pac.CenterPos.getX()){
+                    if (Pac.CenterPos.getY() - taillePac <= BP.first.getY() && BP.first.getY() <= Pac.CenterPos.getY() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+    }
+}
+
+pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const map <nsGraphics::Vec2D, bool> & MapBPPossible)
+{
+    tailleBP = Parameters.MapParamUnsigned.find("BPSize")->second;
+    for (auto & BPPossible : MapBPPossible){
+        if (BPPossible == true){
+            if (Pac.CenterPos.isColliding(nsGraphics::Vec2D((BPPossible.first.getX() - tailleBP), (BPPossible.first.getY() - tailleBP)), nsGraphics::Vec2D((BPPossible.first.getX() + tailleBP), (BPPossible.first.getY() + tailleBP))) == true)
+                return {true, BPPossible.first};
+        }
+    }
 }

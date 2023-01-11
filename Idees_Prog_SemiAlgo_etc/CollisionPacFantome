@@ -15,7 +15,8 @@ nsGraphics::Vec2D
  * @param[in] SizePac : Le rayon du cercle qui compose le PacMan
  * @fn xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac);
 */
-bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac) {
+bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac) 
+{
     if ((XCenterPac - SizePac) <= XPointFantome && (XCenterPac + SizePac) >= XPointFantome)
         return true;
     else
@@ -31,8 +32,8 @@ bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFanto
  * @param[in] XPointFantome : La coordonnée x d'un point d'extémité du Fantome et par extension le carré contenant sa HitBox
  * @fn yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 */
-bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome) {
-    
+bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome) 
+{
     if ((YCenterPac - SizePac) <= YPointFantome && (YCenterPac + SizePac) >= YPointFantome){ // Cette condition empeche que y sortent de la HitBox
         unsigned valAbsDiffXPacFantome;
         if (XCenterPac < XPointFantome)
