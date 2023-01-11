@@ -5,7 +5,7 @@ Fonction bool  bool(collision ou non)
 Paramètres :
 - Struct de Pacman (contient PacPos, PacSize)
 - Map des Sprites Fantomes (contient struct Fantome qui contient FantomePos, FantomeSize)
-- 
+nsGraphics::Vec2D
 */
 
 /**
@@ -57,9 +57,9 @@ bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFanto
  * @fn RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost);
 */
 bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost){
-    if (xFInsideHitBoxPacX(Pac.CenterPos.first, xGFirstContact + (Ghost.Size /2), Pac.Size) == true || xFInsideHitBoxPacX(Pac.CenterPos.first, xGFirstContact + (Ghost.Size /2), Pac.Size) == true)
+    if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xGFirstContact + (Ghost.Size /2), Pac.Size) == true || xFInsideHitBoxPacX(Pac.CenterPos.getX(), xGFirstContact + (Ghost.Size /2), Pac.Size) == true)
         return true;
-    else if (yFInsideHitBoxPacY(Pac.CenterPos.second, yGFirstContact, Pac.Size, Pac.CenterPos.first, xGFirstContact) == true)
+    else if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yGFirstContact, Pac.Size, Pac.CenterPos.getX(), xGFirstContact) == true)
         return true;
     else 
         return false;
@@ -76,17 +76,17 @@ bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & 
     for (pair <unsigned, GhostSprite> & Fantome : MapGhost){
         
         // Avec xMax 
-        unsigned xMaxGhost = Fantome.second.CenterPos.first + Fantome.second.Size;
-        if (xFInsideHitBoxPacX(Pac.CenterPos.first, xMaxGhost, Pac.Size) == true)
+        unsigned xMaxGhost = Fantome.second.CenterPos.getX() + Fantome.second.Size;
+        if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xMaxGhost, Pac.Size) == true)
         {
             // yMax
             unsigned yMaxGhost = Fantome.second.CenterPos.second + Fantome.second.Size;
-            if (yFInsideHitBoxPacY(Pac.CenterPos.second, yMaxGhost, Pac.Size, Pac.CenterPos.first, xMaxGhost) == true) 
+            if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMaxGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true) 
                 return true;
             // yMin
             else{
                 unsigned yMinGhost = Fantome.second.CenterPos.second - Fantome.second.Size;
-                if (yFInsideHitBoxPacY(Pac.CenterPos.second, yMinGhost, Pac.Size, Pac.CenterPos.first, xMaxGhost) == true && RealHitGhost(Pac, xMaxGhost, yMinGhost, Fantome.second.Size))
+                if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true && RealHitGhost(Pac, xMaxGhost, yMinGhost, Fantome.second.Size))
                     return true;
                 else 
                     continue;
@@ -97,14 +97,14 @@ bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & 
         else 
         {
             unsigned xMinGhost = Fantome.second.CenterPos.first - Fantome.second.Size;
-            if (xFInsideHitBoxPacX(Pac.CenterPos.first, xMinGhost, Pac.Size) == true)
+            if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xMinGhost, Pac.Size) == true)
                 {
                 unsigned yMaxGhost = Fantome.second.CenterPos.second + Fantome.second.Size;
-                if (yFInsideHitBoxPacY(Pac.CenterPos.second, yMaxGhost, Pac.Size, Pac.CenterPos.first, xMinGhost) == true) 
+                if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMaxGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true) 
                     return true;
                 else{
                     unsigned yMinGhost = Fantome.second.CenterPos.second - Fantome.second.Size;
-                    if (yFInsideHitBoxPacY(Pac.CenterPos.second, yMinGhost, Pac.Size, Pac.CenterPos.first, xMinGhost) == true && RealHitGhost(Pac, xMinGhost, yMinGhost, Fantome.second.Size))
+                    if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true && RealHitGhost(Pac, xMinGhost, yMinGhost, Fantome.second.Size))
                         return true;
                     else
                         continue;
@@ -114,5 +114,5 @@ bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & 
                 continue;
         }
     }
-     
+    return false;
 }

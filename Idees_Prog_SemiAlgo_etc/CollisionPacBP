@@ -1,44 +1,105 @@
 using namespace std;
 // Collision Pac / BP
 
-Procedure modifie map contenant une partie des données de MapBP (Toutes les BP suceptibles d'être percutées) en fonction de la directionPac
+/*Procedure modifie map contenant une partie des données de MapBP (Toutes les BP suceptibles d'être percutées) en fonction de la directionPac
 Paramètres :
 - Map 
 - Map PossibleCollision_BP
-- directionPac
-
-void CollisionBPPossible (const PacMan & Pac, const map<CPosition, bool> & MapBP, const CMyParam & Parameters, map<CPosition, bool> & MapBPPossible)
+- directionPac */
+/**
+ * @brief Procédure qui construit la map des BP sur la trajectoire du pacman en fonction de la direction
+ * @param[in] Pac : 
+ * @param[in] Parameters : 
+ * @param[in] MapBP : 
+ * @param[in|out] MapBPPossible : Map contenant les BP sur la trajectoire du pacman
+ * @fn void CollisionBPPossible (const PacMan & Pac, const CMyParam & Parameters, const map<nsGraphics::Vec2D, bool> & MapBP, map<nsGraphics::Vec2D, bool> & MapBPPossible);
+*/
+void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, map<nsGraphics::Vec2D, bool> & MapBPPossible)
 {
-    MapBPPossible.erase(MapBPPossible.begin(), MapBPPossible.end());
-    tailleBP = Parameters.MapParamUnsigned.find("BPSize")->second;
-    taillePac = Parameters.MapParamUnsigned.find("PacSize")->second;
-    // Colonne allignée avec le pacman 
-    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second)
-        for ( pair <CPosition, bool> & BP : MapBP )
-            if (BP.second == false){
-                if (BP.first.getY() <= Pac.CenterPos.getY() && Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
-                    MapBPPossible[BP.first] = BP.second
+    if (Pac.DirectionPrev != Pac.DirectionActuelle){ // Evite d'avoir à tout reconstruire à chaque appel de la procedure
+        MapBPPossible.erase(MapBPPossible.begin(), MapBPPossible.end());
+        taillePac = Pac.Size;
+        // Trajectoire Verticale
+        if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getY() <= Pac.CenterPos.getY()){
+                    if (Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
             }
-    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second)
-    // Ligne allignée avec le pacman
-    if ( DirectionPac == ParamPac (de type CParamPlayEntity) .GoLeft || DirectionPac == ParamPac (de type CParamPlayEntity) .GoRight )
-    for ( pair <CPosition, bool> & BP : Map_BP )
-        if (BP.CenterPos/first/.second <= Pac.CenterPos.first + taillePac && BP.CenterPos/first/.second <= Pac.CenterPos.first - taillePac)
-            Map_BP[BP.first] = BP.second
+        }
+        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getY() >= Pac.CenterPos.getY()){
+                    if (Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+        // Ligne allignée avec le pacman
+        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getX() <= Pac.CenterPos.getX()){
+                    if (Pac.CenterPos.getY() - taillePac <= BP.first.getY() && BP.first.getY() <= Pac.CenterPos.getY() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnRight")->second){
+            for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
+                if (BP.first.getX() >= Pac.CenterPos.getX()){
+                    if (Pac.CenterPos.getY() - taillePac <= BP.first.getY() && BP.first.getY() <= Pac.CenterPos.getY() + taillePac)
+                        MapBPPossible[BP.first] = BP.second;
+                }
+            }
+        }
+    }
 }
 
-Fonction pair <bool, CPosition>  bool(collision ou non)   CPosition(co de la BP en contact si existe)
-Paramètres :
-- Map des sprites
-- Direction Pac (inclu dans map sprites)
-- combo
-- timelapse
-- 
-Fonction collision_Pac-BP
+map <nsGraphics::Vec2D, bool> MapBPPossible;
 
-while (true){
-    map <CPosition, bool> Map_PossibleCollision_BP
-    BP possible collision ();
+    if (timer < 3min || ResteBP == 0)
+        FinPartie = true;
+    
+    
+    if (timelapse > 1 sec)
+        combo = 0;
+
+    if (CollisionPacFantome())
+
+    // Avant appel collPacBP
+    CollisionBPPossible(Pac, Parameters, MapBP, MapBPPossible);
+    
+    if (CollisionPacBP().first == true){
+        // Modif des Map BP
+        MapBP.find[CollisionBPPossible().first] = true;
+        MapBPPossible.find[CollisionBPPossible().first] = true;
+
+        // Actions et modifs des autres variables
+        ++combo;
+        --ResteBP;
+        Score = Score + 100*(1 + ((Combo - 1)* 0.01));
+        timelapse.reset();
+    }
+
+/**
+ * @brief Renvoie Vrai et les coordonnées du centre de la Boule Point s'il y a collision entre pacman et une BP
+ * @param[in] Pac :
+ * @param[in] Parameters : 
+ * @param[in] MapBPPossible : 
+ * @fn pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const map <nsGraphics::Vec2D, bool> & MapBPPossible);
+*/
+pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const map <nsGraphics::Vec2D, bool> & MapBPPossible)
+{
+    tailleBP = Parameters.MapParamUnsigned.find("BPSize")->second;
+    for (auto & BPPossible : MapBPPossible){
+        if (BPPossible == true){
+            if (Pac.CenterPos.isColliding(nsGraphics::Vec2D((BPPossible.first.getX() - tailleBP), (BPPossible.first.getY() - tailleBP)), nsGraphics::Vec2D((BPPossible.first.getX() + tailleBP), (BPPossible.first.getY() + tailleBP))) == true)
+                return {true, BPPossible.first};
+        }
+    }
+}
+
 //    si timelapse > 3 second
 //        combo = 0
 //    Peut sera effectué après verif
@@ -46,7 +107,7 @@ while (true){
     unsigned numberExtremityBP_Min
     unsigned numberExtremityBP_Max
     bool collisionPacBP (numberExtremityPac <= numberExtremityBP_Max && numberExtremityPac >= numberExtremityBP_Min)
-    for (<CPosition, bool> & BP_Possible : Map_PossibleCollision_BP)
+    for (<nsGraphics::Vec2D, bool> & BP_Possible : Map_PossibleCollision_BP)
         // En fonction direction
         if (Pac.directionPac == Pac.GoUp) 
             numberExtremityPac = Pac.CenterPos.second - Pac.Size
@@ -82,7 +143,7 @@ while (true){
             */
         
         if (collisionPacBP == true && BP_Possible.second == false)
-            pair <bool, CPosition> resultCollision = {true, BP_Possible.first}
+            pair <bool, nsGraphics::Vec2D> resultCollision = {true, BP_Possible.first}
             return (resultCollision);
 }
 
