@@ -1,0 +1,36 @@
+using namespace std;
+
+// Debut programme, en dehors boucle fenetre
+map <nsGraphics::Vec2D, bool> MapBPPossible;
+
+// Debut boucle fenetre
+if (timer < 3min || ResteBP == 0)
+    FinPartie = true;
+
+// Dans debut partie "if FinPartie == false" 
+if (timelapse > 1 sec)
+    combo = 0;
+
+// Juste Après mouvement pacman
+if (CollisionPacFantome())
+
+// Avant appel collPacBP et apres mouvement et verif fantome
+CollisionBPPossible(Pac, Parameters, MapBP, MapBPPossible);
+
+// Apres void BPPossible
+if (CollisionPacBP().first == true){
+    // Modif des Map BP
+    MapBP.find[CollisionBPPossible().first] = true;
+    MapBPPossible.find[CollisionBPPossible().first] = true;
+
+    // Actions et modifs des autres variables
+    ++combo;
+    --ResteBP;
+    Score = Score + 100*(1 + ((Combo - 1)* 0.01));
+    timelapse.reset();
+}
+
+//Avant mouvement
+if (CollisionPacMur().first == true){
+    Vitesse = CollisionPacMur().second;
+}
