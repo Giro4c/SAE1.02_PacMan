@@ -1,6 +1,4 @@
 #define FPS_LIMIT 60
-//#include "params.h"
-//#include "game.h"
 #include <iostream>
 #include <thread>
 #include "mingl/mingl.h"
@@ -24,21 +22,13 @@ typedef pair <unsigned, unsigned> CPosition; // On définit un pair d'entier nat
 
 /**
  * @brief struct pour les fantomes
- * @param CenterPos : la position centrale avec laquelle on commencera à dessiner nos formes
+ * @param CenterPos : la position centrale avec laquelle on commencera à dessiner nos formes et GhostColor la variable couleur des fantomes
  */
-
 struct GhostSprite
 {
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(475,275);
     nsGraphics::RGBAcolor GhostColor = nsGraphics::RGBAcolor(100, 200, 50);
 };
-//void initGhost(vector<GhostSprite>ghostVect)
-//{
-//    ghostVect[0] = GhostSprite1;
-//    ghostVect[1] = GhostSprite2;
-//    ghostVect[2] = GhostSprite3;
-//    ghostVect[3] = GhostSprite4;
-//}
 
 
 /**
