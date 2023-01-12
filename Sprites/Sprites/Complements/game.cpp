@@ -3,7 +3,6 @@
 #include "game.h"
 #include "params.h"
 #include "gridmanagement.h"
-
 #include <map>
 using namespace std;
 template <class T, class U>
@@ -67,7 +66,6 @@ int ppal (void)
     // appel de la fonction InitParams
     CMyParam Param;
     InitParams(Param);
-    LoadParams(Param);
 
     InitGrid(Mat, Param, PosPlayer1, PosPlayer2);
 

@@ -52,7 +52,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Sprites/main.cpp \
+SOURCES       = ../Sprites/Complements/game.cpp \
+		../Sprites/Complements/gridmanagement.cpp \
+		../Sprites/Complements/params.cpp \
+		../Sprites/main.cpp \
 		../Sprites/MinGL2/src/audio/audioengine.cpp \
 		../Sprites/MinGL2/src/exception/cexception.cpp \
 		../Sprites/MinGL2/src/mingl.cpp \
@@ -70,7 +73,10 @@ SOURCES       = ../Sprites/main.cpp \
 		../Sprites/MinGL2/src/transition/transition.cpp \
 		../Sprites/MinGL2/src/transition/transition_contract.cpp \
 		../Sprites/MinGL2/src/transition/transition_engine.cpp 
-OBJECTS       = main.o \
+OBJECTS       = game.o \
+		gridmanagement.o \
+		params.o \
+		main.o \
 		audioengine.o \
 		cexception.o \
 		mingl.o \
@@ -262,7 +268,14 @@ DIST          = ../Sprites/configmap.yaml \
 		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition.h \
 		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_contract.h \
 		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_engine.h \
-		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h ../Sprites/main.cpp \
+		/amuhome/d22011515/SAE\ PACMAN/SAE1.02_PacMan/Sprites/Sprites/MinGL2/include/mingl/transition/transition_types.h \
+		Complements/game.h \
+		Complements/gridmanagement.h \
+		Complements/params.h \
+		Complements/type.h ../Sprites/Complements/game.cpp \
+		../Sprites/Complements/gridmanagement.cpp \
+		../Sprites/Complements/params.cpp \
+		../Sprites/main.cpp \
 		../Sprites/MinGL2/src/audio/audioengine.cpp \
 		../Sprites/MinGL2/src/exception/cexception.cpp \
 		../Sprites/MinGL2/src/mingl.cpp \
@@ -631,6 +644,21 @@ compiler_clean:
 
 ####### Compile
 
+game.o: ../Sprites/Complements/game.cpp ../Sprites/Complements/game.h \
+		../Sprites/Complements/type.h \
+		../Sprites/Complements/params.h \
+		../Sprites/Complements/gridmanagement.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o game.o ../Sprites/Complements/game.cpp
+
+gridmanagement.o: ../Sprites/Complements/gridmanagement.cpp ../Sprites/Complements/gridmanagement.h \
+		../Sprites/Complements/type.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gridmanagement.o ../Sprites/Complements/gridmanagement.cpp
+
+params.o: ../Sprites/Complements/params.cpp ../Sprites/Complements/params.h \
+		../Sprites/Complements/type.h \
+		../Sprites/Complements/game.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o params.o ../Sprites/Complements/params.cpp
+
 main.o: ../Sprites/main.cpp ../Sprites/MinGL2/include/mingl/mingl.h \
 		../Sprites/MinGL2/include/mingl/graphics/idrawable.h \
 		../Sprites/MinGL2/include/mingl/graphics/rgbacolor.h \
@@ -645,7 +673,10 @@ main.o: ../Sprites/main.cpp ../Sprites/MinGL2/include/mingl/mingl.h \
 		../Sprites/MinGL2/include/mingl/shape/circle.h \
 		../Sprites/MinGL2/include/mingl/shape/line.h \
 		../Sprites/MinGL2/include/mingl/shape/triangle.h \
-		../Sprites/MinGL2/include/mingl/gui/sprite.h
+		../Sprites/MinGL2/include/mingl/gui/sprite.h \
+		../Sprites/Complements/game.h \
+		../Sprites/Complements/type.h \
+		../Sprites/Complements/params.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Sprites/main.cpp
 
 audioengine.o: ../Sprites/MinGL2/src/audio/audioengine.cpp ../Sprites/MinGL2/include/mingl/audio/audioengine.h \
