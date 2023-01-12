@@ -56,14 +56,11 @@ const AuthorizedKey KAuthorizedKey;
 
 const std::map <std::string, nsGraphics::RGBAcolor> KColor
 {
-    {"KReset", {200, 50, 0}},
     {"KBlack", {0, 0, 0}},
-    {"KRed", {0, 0, 0}},
-    {"KGreen", {0, 0, 0}},
-    {"KYellow", {0, 0, 0}},
-    {"KBlue", {0, 0, 0}},
-    {"KMAgenta", {0, 0, 0}},
-    {"KCyan", {0, 0, 0}},
+    {"KRed", {255, 0, 0}},
+    {"KGreen", {0, 255, 0}},
+    {"KWhite", {255, 255, 255}},
+    {"KBlue", {0, 0, 255}},
 
 };
 
@@ -74,7 +71,7 @@ const std::map <std::string, nsGraphics::RGBAcolor> KColor
  */
 struct PacMan
 {
-    nsGraphics::Vec2D Position;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(0, 0);
     char DirectionActuelle = 'p';
     char DirectionPrecedent = 'm';
     unsigned Vitesse;
@@ -84,15 +81,17 @@ struct PacMan
 };
 
 /**
- * @brief struct pour les fantomes
- * @param CenterPos : la position centrale avec laquelle on commencera à dessiner nos formes
+ * @brief Struct pour les fantomes
  */
-
 struct GhostSprite
 {
-    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(475,275);
+    unsigned ID;
+    nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(0, 0);
+    char DirectionActuelle = 'p';
+    char DirectionPrecedent = 'm';
+    unsigned Size;
+    unsigned Vitesse;
     nsGraphics::RGBAcolor GhostColor = nsGraphics::RGBAcolor(255, 255, 255);
 };
-
 
 #endif // TYPE_H

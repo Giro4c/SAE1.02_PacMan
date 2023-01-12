@@ -15,53 +15,102 @@ using namespace nsGraphics;
 using namespace nsGui;
 using namespace chrono;
 
-void clavier(MinGL &window, Pacman &pacman)
+/* Paramètres :
+    map<string, unsigned> mapNextMur;
+    combo
+
+*/  
+
+/**
+ * @brief Suite d'instructions à effectuer près un appuis de touche de mouvement dont le passage à la nouvelle DirectionActuelle
+ * @param[out] Pac : 
+ * @param[in] Parameters : 
+ * @param[in] VecteurMurs :
+ * @param[inout] MapNextMur : La map contenant la coordonnée x ou y du prochain Mur pour chaque entité capable de se déplacer
+ * @param[in] Combo : Le combo de BP "mangées" d'affilée (intervalle entre 2 BP mangées < 1 sec)
+ * @param[in] Touche : Le caractère associé à la touche appuyée
+*/
+void ChangeDirectionVars (PacMan & Pac, const CMyParam & Parameters, const vector<nsGraphics::Vec2D> & VecteurMurs, map<string, unsigned> & MapNextMur,const unsigned & Combo, const char & Touche)
 {
-    // On vérifie si ZQSD est pressé, et met a jour la position, pas de diagonale
-    pacman.DirectionPrecedent= pacman.DirectionActuelle;
-    if (window.isPressed({'z', false})){
-        pacman.Position.setY(pacman.Position.getY() - pacman.vitesse);
-            pacman.DirectionActuelle= "haut";
-        }
-    else if (window.isPressed({'s', false})){
-        pacman.Position.setY(pacman.Position.getY() + pacman.vitesse);
-        pacman.DirectionActuelle = "bas";
-    }
-    else if (window.isPressed({'q', false})){
-        pacman.Position.setX(pacman.Position.getX() - pacman.vitesse);
-        pacman.DirectionActuelle = "gauche";
-    }
-    else if (window.isPressed({'d', false})){
-        pacman.Position.setX(pacman.Position.getX() + pacman.vitesse);
-        pacman.DirectionActuelle = "droite";
+    Pac.DirectionPred = Pac.DirectionActuelle;
+    Pac.DirectionActuelle = Touche;
+    // Traduction : s'il y a changement de tarjectoire
+    if (Pac.DirectionPred != Pac.DirectionActuelle){
+        // Changement de direction donc nouvelle recherche du mur le plus proche
+        MapNextMur["PacNextMur"] = CoNextMur(Pac, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+        // Rétablissement de la vitesse par défaut ou max puisque la direction est forcément différente donc le PacMan n'a plus à faire de sur place
+        if (Combo > 0)
+            Pac.Vitesse = Parameters.MapParamSpeed.find("PacMaxSpeed")->second;
+        else 
+            Pac.Vitesse = Parameters.MapParamSpeed.find("PacDefaultSpeed")->second;
     }
 }
 
-void dessiner(MinGL &window, Pacman &pacman, nsShape::Triangle &bouche)
+void clavier(MinGL & Window, const CMyParam & Parameters, PacMan & Pac, const vector<nsGraphics::Vec2D> & VecteurMurs, map<string, unsigned> & MapNextMur,const unsigned & Combo)
 {
-    // On dessine le pacman et on gère ses déplacements
-    window << nsShape::Circle (pacman.Position, 25, nsGraphics::KYellow);
-    if (pacman.DirectionActuelle== "haut"){
-        pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()-25};
-        pacman.BouchePosB = {pacman.Position.getX()+20,pacman.Position.getY()-25};}
-    else if (pacman.DirectionActuelle== "bas"){
-        pacman.BouchePosA = {pacman.Position.getX()-20,pacman.Position.getY()+25};
-        pacman.BouchePosB = {pacman.Position.getX()+20,pacman.Position.getY()+25};}
-    else if (pacman.DirectionActuelle == "gauche"){
-        pacman.BouchePosA = {pacman.Position.getX()-25,pacman.Position.getY()-20};
-        pacman.BouchePosB = {pacman.Position.getX()-25,pacman.Position.getY()+20};}
-    else if (pacman.DirectionActuelle == "droite"){
-        pacman.BouchePosA = {pacman.Position.getX()+25,pacman.Position.getY()-20};
-        pacman.BouchePosB = {pacman.Position.getX()+25,pacman.Position.getY()+20};}
-    bouche.setFirstPosition(pacman.Position);
-    bouche.setSecondPosition(pacman.BouchePosA);
-    bouche.setThirdPosition(pacman.BouchePosB);
-    window << bouche;
-    if (pacman.DirectionActuelle == "haut" || pacman.DirectionActuelle == "bas") {
-        window << nsShape::Triangle(pacman.Position, {pacman.BouchePosA.getX()+10, pacman.BouchePosA.getY()},
-                                    {pacman.BouchePosB.getX()-10, pacman.BouchePosB.getY()}, KBlack);
+    // On vérifie si ZQSD est pressé, et met a jour la direction, pas de diagonale
+    if (Window.isPressed({Parameters.MapParamChar.find("PacKeyUp")->second, false})){
+        ChangeDirectionVars(Pac, Parameters, VecteurMurs, MapNextMur, Combo, Parameters.MapParamChar.find("PacKeyUp")->second);
+    }
+    else if (Window.isPressed({Parameters.MapParamChar.find("PacKeyDown")->second, false})){
+        ChangeDirectionVars(Pac, Parameters, VecteurMurs, MapNextMur, Combo, Parameters.MapParamChar.find("PacKeyUp")->second);
+    }
+    else if (Window.isPressed({Parameters.MapParamChar.find("PacKeyLeft")->second, false})){
+        ChangeDirectionVars(Pac, Parameters, VecteurMurs, MapNextMur, Combo, Parameters.MapParamChar.find("PacKeyUp")->second);
+    }
+    else if (Window.isPressed({Parameters.MapParamChar.find("PacKeyRight")->second, false})){
+        ChangeDirectionVars(Pac, Parameters, VecteurMurs, MapNextMur, Combo, Parameters.MapParamChar.find("PacKeyUp")->second);
+    }
+
+    // Mise à jour de la position
+    if (Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyUp")->second){
+        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).first == true)
+            Pac.Vitesse = CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).second;
+        Pac.CenterPos.setY(Pac.CenterPos.getY() - Pac.Vitesse);
+    }
+    else if (Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyDown")->second){
+        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).first == true)
+            Pac.Vitesse = CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).second;
+        Pac.CenterPos.setY(Pac.CenterPos.getY() + Pac.vitesse);
+    }
+    else if (Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyLeft")->second){
+        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).first == true)
+            Pac.Vitesse = CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).second;
+        Pac.CenterPos.setX(Pac.CenterPos.getX() - Pac.vitesse);
+    }
+    else if (Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyRight")->second){
+        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).first == true)
+            Pac.Vitesse = CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("PacNextMur")->second).second;
+        Pac.CenterPos.setX(Pac.CenterPos.getX() + Pac.vitesse);
+    }
+
+}
+
+void dessiner(MinGL &Window, Pac &Pac, nsShape::Triangle &bouche)
+{
+    // On dessine le Pac et on gère ses déplacements
+    Window << nsShape::Circle (Pac.CenterPos, 25, nsGraphics::KYellow);
+    if (Pac.DirectionActuelle== "haut"){
+        Pac.BouchePosA = {Pac.CenterPos.getX()-20,Pac.CenterPos.getY()-25};
+        Pac.BouchePosB = {Pac.CenterPos.getX()+20,Pac.CenterPos.getY()-25};}
+    else if (Pac.DirectionActuelle== "bas"){
+        Pac.BouchePosA = {Pac.CenterPos.getX()-20,Pac.CenterPos.getY()+25};
+        Pac.BouchePosB = {Pac.CenterPos.getX()+20,Pac.CenterPos.getY()+25};}
+    else if (Pac.DirectionActuelle == "gauche"){
+        Pac.BouchePosA = {Pac.CenterPos.getX()-25,Pac.CenterPos.getY()-20};
+        Pac.BouchePosB = {Pac.CenterPos.getX()-25,Pac.CenterPos.getY()+20};}
+    else if (Pac.DirectionActuelle == "droite"){
+        Pac.BouchePosA = {Pac.CenterPos.getX()+25,Pac.CenterPos.getY()-20};
+        Pac.BouchePosB = {Pac.CenterPos.getX()+25,Pac.CenterPos.getY()+20};}
+    bouche.setFirstPosition(Pac.CenterPos);
+    bouche.setSecondPosition(Pac.BouchePosA);
+    bouche.setThirdPosition(Pac.BouchePosB);
+    Window << bouche;
+    if (Pac.DirectionActuelle == "haut" || Pac.DirectionActuelle == "bas") {
+        Window << nsShape::Triangle(Pac.CenterPos, {Pac.BouchePosA.getX()+10, Pac.BouchePosA.getY()},
+                                    {Pac.BouchePosB.getX()-10, Pac.BouchePosB.getY()}, KBlack);
     } else {
-        window << nsShape::Triangle(pacman.Position, {pacman.BouchePosA.getX(), pacman.BouchePosA.getY()+10},
-                                                    {pacman.BouchePosB.getX(), pacman.BouchePosB.getY()-10}, KBlack);
+        Window << nsShape::Triangle(Pac.CenterPos, {Pac.BouchePosA.getX(), Pac.BouchePosA.getY()+10},
+                                                    {Pac.BouchePosB.getX(), Pac.BouchePosB.getY()-10}, KBlack);
     }
 }

@@ -11,8 +11,6 @@
 #include "mingl/transition/transition.h"
 #include "mingl/transition/transition_engine.h"
 
-//#include "NosFiles/game.h"
-
 using namespace std;
 
 int main()
@@ -26,20 +24,22 @@ int main()
     LoadParams(params, "config.yaml");
 
     PacMan pac;
+    pac.Vitesse = params.MapParamSpeed.find("PacDefaultSpeed")->second;
+    pac.Size = params.MapParamSize.find("PacSize")->second;
     vector<nsGraphics::Vec2D> vecteurMurs;
-    vector<GhostSprite> vecteurGhost (4);
-    InitColorGhost(params, vecteurGhost); /* *********************** A CREER *************************** */
+    vector<GhostSprite> vecteurGhost (2);
+    InitGhost(params, vecteurGhost); 
     map<nsGraphics::Vec2D, bool> mapBP;
     unsigned resteBP (0);
     InitMursBPGhost(plateau, params, pac, vecteurMurs, mapBP, vecteurGhost);
 
+
     bool finPartie = false;
     float score (0);
     unsigned combo (0);
-    unsigned vitesse (3);
 
     map<nsGraphics::Vec2D, bool> mapBPPossible;
-    unsigned valCoNextMur;
+    map<string, unsigned> mapNextMur;
 
     // Initialise le système
     MinGL window("Pac Man", nsGraphics::Vec2D(640, 640), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
@@ -52,8 +52,7 @@ int main()
 
     // Initialisation de la bouche du pacman
     nsShape::Triangle bouche({0,0}, {0,0}, {0,0}, KBlack);
-    tst.startContract(nsTransition::TransitionContract(bouche, bouche.TRANSITION_FILL_COLOR_ALPHA, chrono::milliseconds(100), {0},
-                                                       chrono::milliseconds(0), nsTransition::Transition::TransitionMode::MODE_LOOP_SMOOTH));
+    tst.startContract(nsTransition::TransitionContract(bouche, bouche.TRANSITION_FILL_COLOR_ALPHA, chrono::milliseconds(100), {0}, chrono::milliseconds(0), nsTransition::Transition::TransitionMode::MODE_LOOP_SMOOTH));
 
 
     // Lance les différents chronos utilisés dans une partie
@@ -74,7 +73,7 @@ int main()
                 finPartie = true;
 
         // Affichage des murs
-        drawMurs(window, params, vecteurMurs); /* *********************** A CREER *************************** */
+        DrawMurs(window, params, vecteurMurs);
 
         if (finPartie == false)
         {
@@ -89,16 +88,16 @@ int main()
             Aaaa;
 
             // Affichage des Entités (sauf murs)
-            drawBP(window, params, mapBP); /* *********************** A CREER *************************** */
+            DrawBP(window, params, mapBP);
             dessiner(window, pac, bouche);
-            drawGhost(window, params, vecteurGhost); /* *********************** A CREER *************************** */
+            DrawGhost(window, params, vecteurGhost);
 
         }
         // Fin de partie == true
         else
         {
             // Affiche le rectangle du score
-            window << ; /* *********************** A CREER *************************** */
+            window << nsShape::Rectangle(nsGraphics::Vec2D(100, 100), 100, 75, nsGraphics::KWhite);
             // Affiche le score
             window << ; /* *********************** A CREER *************************** */
         }
