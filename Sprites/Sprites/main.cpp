@@ -120,7 +120,6 @@ void drawGhost (MinGL & window)
     window << head4;
     window << body4;
 }
-
 /**
  * @brief dessiner
  * @param window : la fenêtre qui a été crée dans laquelle nos procédure vont s'exécuter et s'afficher
