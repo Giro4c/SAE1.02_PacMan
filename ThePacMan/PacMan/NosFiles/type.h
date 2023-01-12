@@ -35,9 +35,9 @@ struct CMyParam {
  */
 struct AuthorizedKey {
     /** List of authorized key for the type char in a struct CMyParam*/
-    const std::vector <std::string> VParamChar {"KeyUp", "KeyDown", "KeyLeft", "KeyRight"};
+    const std::vector <std::string> VParamChar {"PacKeyUp", "PacKeyDown", "PacKeyLeft", "PacKeyRight", "G1KeyUp", "G1KeyDown", "G1KeyLeft", "G1KeyRight", "G2KeyUp", "G2KeyDown", "G2KeyLeft", "G2KeyRight"};
     /** List of authorized key for the type RGBAColor in a struct CMyParam*/
-    const std::vector <std::string> VParamRGBAColor {"ColorWall", "ColorPac", "ColorGhost1", "ColorGhost2", "ColorGhost3", "ColorGhost4"};
+    const std::vector <std::string> VParamRGBAColor {"ColorWall", "ColorGhost1", "ColorGhost2"};
     /** List of authorized key for the type unsigned, mapSize in a struct CMyParam*/
     const std::vector <std::string> VParamSize {"CaseSize", "PacSize", "BPSize", "GhostSize", "WindowWidth", "WindowHeight"};
     /** List of authorized key for the type unsigned, mapSpeed in a struct CMyParam*/
