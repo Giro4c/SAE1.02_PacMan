@@ -7,6 +7,10 @@ map <nsGraphics::Vec2D, bool> MapBPPossible;
 if (timer < 3min || ResteBP == 0)
     FinPartie = true;
 
+
+if (Pac.DirectionPrev != Pac.DirectionActuelle){ // Evite d'avoir à tout reconstruire à chaque appel de la procedure
+
+
 // Dans debut partie "if FinPartie == false" 
 if (timelapse > 1 sec)
     combo = 0;

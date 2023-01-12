@@ -1,15 +1,19 @@
+#include "param.h"
+
 using namespace std;
 
-/**
- * @brief Initialise les valeurs des maps, vecteurs et autres variables représentées sur le Plateau
- * @param[in] Plateau : Le vecteur de string représentant le plateau de jeu
- * @param[out] Parameters : 
- * @param[out] Pac :
- * @param[out] VecteurMurs :
- * @param[out] MapBP :
- * @param[out] VecteurGhost :
-*/
-void initMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, PacMan & Pac, vector<Cposition> & VecteurMurs, map<CPosition, bool> & MapBP, vector<GhostSprite> & VecteurGhost)
+
+void LoadParams (CMyParam & Parameters, const string & ConfigFileName)
+{
+    ifstream ifs;
+    ifs.open(ConfigFileName);
+    if (!ifs)
+        cerr << "Error: File not found"
+    
+}
+
+
+void InitMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, PacMan & Pac, vector<nsGraphics::Vec2D> & VecteurMurs, map<nsGraphics::Vec2D, bool> & MapBP, unsigned & ResteBP, vector<GhostSprite> & VecteurGhost)
 {
     Parameters.MapParamSize["WindowHeight"] = Plateau.size() * Parameters.MapParamUnsigned.find("CaseSize")->second;
     Parameters.MapParamSize["WindowWidth"] = Plateau[0].size() * Parameters.MapParamUnsigned.find("CaseSize")->second;
@@ -22,7 +26,8 @@ void initMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, Pac
                 VecteurMurs.push_back({j*(Parameters.MapParamUnsigned.find("CaseSize")->second), i*(Parameters.MapParamUnsigned.find("Case Size")->second)});
                 break;
             case '.':
-                MapBP[{j*(Parameters.MapParamUnsigned.find("CaseSize")->second) + (Parameters.MapParamUnsigned.find("CaseSize")->second)/2, i*(Parameters.MapParamUnsigned.find("Case Size")->second) + (Parameters.MapParamUnsigned.find("CaseSize")->second)/2}] = false;
+                MapBP[nsGraphics::Vec2D(j*(Parameters.MapParamUnsigned.find("CaseSize")->second) + (Parameters.MapParamUnsigned.find("CaseSize")->second)/2, i*(Parameters.MapParamUnsigned.find("Case Size")->second) + (Parameters.MapParamUnsigned.find("CaseSize")->second)/2)] = false;
+                ++ResteBP;
                 break;
             case 'o':
                 Pac.CenterPos.setX(j*(Parameters.MapParamUnsigned.find("CaseSize")->second) + (Parameters.MapParamUnsigned.find("CaseSize")->second)/2);
@@ -48,3 +53,4 @@ void initMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, Pac
         }
     }
 }
+
