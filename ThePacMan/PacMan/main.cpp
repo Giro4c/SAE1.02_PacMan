@@ -10,6 +10,7 @@
 #include "NosFiles/move.h"
 #include "NosFiles/type.h"
 #include "mingl/mingl.h"
+#include "mingl/shape/rectangle.h"
 #include "mingl/shape/circle.h"
 #include "mingl/shape/triangle.h"
 #include "mingl/transition/transition.h"
@@ -130,7 +131,8 @@ int main()
             // Affiche le rectangle du score
             window << nsShape::Rectangle(nsGraphics::Vec2D(100, 100), 100, 75, nsGraphics::KWhite);
             // Affiche le score
-            window << ; /* *********************** A CREER *************************** */
+            window << nsGui::Text(nsGraphics::Vec2D(150, 135), string(score), nsGraphics::KBlack, nsGui::GlutFont::BITMAP_9_BY_15,
+                          nsGui::Text::HorizontalAlignment::ALIGNH_CENTER);
         }
 
         // On finit la frame en cours
