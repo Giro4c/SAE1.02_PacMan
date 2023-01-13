@@ -2,6 +2,10 @@
 #include <iostream>
 #include <thread>
 
+// Pour les chronos
+#include <chrono>
+#include <unistd.h>
+
 #include "NosFiles/param.h"
 #include "NosFiles/move.h"
 #include "NosFiles/type.h"
@@ -56,29 +60,39 @@ int main()
 
 
     // Lance les différents chronos utilisés dans une partie
-    timelapse; /* *********************** A CREER *************************** */
-    timer; /* *********************** A CREER *************************** */
+        /* La balise temporelle qui marque le contact entre PacMan et une BP*/
+    auto tpBPContactStart = chrono::steady_clock::now();
+        /* La balise temporelle qui marque la fin de la timelapse entre 2 contacts Pac / BP */
+    auto tpBPContactEnd = chrono::steady_clock::now();
+        /* La balise temporelle de début de partie*/
+    auto timerStart = chrono::steady_clock::now();
+        /* Le chrono de la partie */
+    auto timerEnd = chrono::steady_clock::now();
 
     // On fait tourner la boucle tant que la fenêtre est ouverte
     while (window.isOpen())
     {
         // Récupère l'heure actuelle
         chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
+        // Récupère le temps écoulé depuis le début de la partie
+        timerEnd = chrono::steady_clock::now();
 
         // On efface la fenêtre
         window.clearScreen();
 
         // Vérification de variables suceptibles de déclencher une fin de partie
-        if (timer < 3min || resteBP == 0)
-                finPartie = true;
+        if (chrono::duration_cast<chrono::seconds>(timerEnd - timerStart).count() > chrono::seconds(180).count() || resteBP == 0)
+            finPartie = true;
 
         // Affichage des murs
         DrawMurs(window, params, vecteurMurs);
 
         if (finPartie == false)
         {
+            // Récupère le temps entre 2 contacts Pac / BP
+            tpBPContactEnd = chrono::steady_clock::now();
             // Annulation du combo si dernier contact avec une BP date de plus d'une (1) seconde
-            if (timelapse > 1 sec)
+            if (chrono::duration_cast<chrono::milliseconds>(tpBPContactEnd - tpBPContactStart).count() > chrono::milliseconds(1500).count())
                 combo = 0;
 
             // Mouvement du PacMan
@@ -86,6 +100,23 @@ int main()
 
             // Mouvement des Fantomes
             Aaaa;
+
+            // Vérification des collisions (sauf murs)
+            if (CollisionPacFantome(pac, vecteurGhost) == true){
+                finPartie = true;
+                continue;
+            }
+            CollisionBPPossible (pac, mapBP, params, mapBPPossible);
+            if (CollisionPacBP (pac, params, mapBPPossible).first == true){
+                // Modif des Map BP
+                MapBP.find(CollisionBPPossible().second) = true;
+                MapBPPossible.find(CollisionBPPossible().second) = true;
+                // Actions et modifs des autres variables
+                ++combo;
+                --resteBP;
+                score = score + 100*(1 + ((Combo - 1)* 0.01));
+                tpBPContactStart = chrono::steady_clock::now();
+            }
 
             // Affichage des Entités (sauf murs)
             DrawBP(window, params, mapBP);

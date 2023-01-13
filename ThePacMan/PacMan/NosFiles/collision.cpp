@@ -192,23 +192,23 @@ bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const un
         return false;
 }
 
-bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & MapGhost)
+bool CollisionPacGhost (const PacMan & Pac, const vector<GhostSprite> & VecteurGhost)
 {
     /* Si un Ghost n'as pas de collision avec PacMan, la fonction ne renvoie pas false immédiatement : cette valeur n'est envoyée seulement si AUCUN n'a de collision d'où le renvoie false APRES la boucle for*/
-    for (pair <unsigned, GhostSprite> & Fantome : MapGhost){
-        
+    for (GhostSprite & Fantome : VecteurGhost)
+    {   
         // Avec xMax 
-        unsigned xMaxGhost = Fantome.second.CenterPos.getX() + Fantome.second.Size;
+        unsigned xMaxGhost = Fantome.CenterPos.getX() + Fantome.Size;
         if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xMaxGhost, Pac.Size) == true)
         {
             // yMax
-            unsigned yMaxGhost = Fantome.second.CenterPos.second + Fantome.second.Size;
+            unsigned yMaxGhost = Fantome.CenterPos.getY() + Fantome.Size;
             if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMaxGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true) 
                 return true;
             // yMin
             else{
-                unsigned yMinGhost = Fantome.second.CenterPos.second - Fantome.second.Size;
-                if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true && RealHitGhost(Pac, xMaxGhost, yMinGhost, Fantome.second.Size))
+                unsigned yMinGhost = Fantome.CenterPos.getY() - Fantome.Size;
+                if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMaxGhost) == true && RealHitGhost(Pac, xMaxGhost, yMinGhost, Fantome.Size))
                     return true;
                 else 
                     continue;
@@ -218,15 +218,15 @@ bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & 
         // Avec xMin
         else 
         {
-            unsigned xMinGhost = Fantome.second.CenterPos.first - Fantome.second.Size;
+            unsigned xMinGhost = Fantome.CenterPos.getX() - Fantome.Size;
             if (xFInsideHitBoxPacX(Pac.CenterPos.getX(), xMinGhost, Pac.Size) == true)
                 {
-                unsigned yMaxGhost = Fantome.second.CenterPos.second + Fantome.second.Size;
+                unsigned yMaxGhost = Fantome.CenterPos.getY() + Fantome.Size;
                 if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMaxGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true) 
                     return true;
                 else{
-                    unsigned yMinGhost = Fantome.second.CenterPos.second - Fantome.second.Size;
-                    if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true && RealHitGhost(Pac, xMinGhost, yMinGhost, Fantome.second.Size))
+                    unsigned yMinGhost = Fantome.CenterPos.getY() - Fantome.Size;
+                    if (yFInsideHitBoxPacY(Pac.CenterPos.getY(), yMinGhost, Pac.Size, Pac.CenterPos.getX(), xMinGhost) == true && RealHitGhost(Pac, xMinGhost, yMinGhost, Fantome.Size))
                         return true;
                     else
                         continue;

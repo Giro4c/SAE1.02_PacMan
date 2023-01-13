@@ -72,8 +72,8 @@ const std::map <std::string, nsGraphics::RGBAcolor> KColor
 struct PacMan
 {
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(0, 0);
-    char DirectionActuelle = 'p';
-    char DirectionPrecedent = 'm';
+    char DirectionActuelle = 'c';
+    char DirectionPrecedent = 'b';
     unsigned Vitesse;
     unsigned Size;
     nsGraphics::Vec2D BouchePosA;
@@ -87,8 +87,8 @@ struct GhostSprite
 {
     unsigned ID;
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(0, 0);
-    char DirectionActuelle = 'p';
-    char DirectionPrecedent = 'm';
+    char DirectionActuelle = 'c';
+    char DirectionPrecedent = 'b';
     unsigned Size;
     unsigned Vitesse;
     nsGraphics::RGBAcolor GhostColor = nsGraphics::RGBAcolor(255, 255, 255);

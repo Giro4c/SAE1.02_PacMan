@@ -77,9 +77,9 @@ bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const un
  * @brief Détermine s'il y a collision entre PacMan et un des Ghost
  * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
  * @param[in] MapGhost : La map contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
- * @fn CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & MapGhost);
+ * @fn CollisionPacGhost (const PacMan & Pac, const vector<GhostSprite> & VecteurGhost);
 */
-bool CollisionPacGhost (const PacMan & Pac, const map <unsigned, GhostSprite> & MapGhost);
+bool CollisionPacGhost (const PacMan & Pac, const vector<GhostSprite> & VecteurGhost);
 
 
 /* ************************  PacMan / Boule-Point (BP)  ************************** */
