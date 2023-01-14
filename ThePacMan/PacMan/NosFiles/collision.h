@@ -21,7 +21,7 @@
  * @param[in] CaseSize : La largeur et longueur d'une case du plateau
  * @param[in] VecteurMurs : Le vecteur contenant la localisation de l'extrémité en haut à gauche d'une case "Mur"
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
- * @fn unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
+ * @fn unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
 */
 unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
 
@@ -70,7 +70,7 @@ pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsign
  * @param[in] XCenterPac : La coordonnée x du centre du PacMan et par extension sa HitBox
  * @param[in] XPointFantome : La coordonnée x d'un point d'extémité du Fantome et par extension le carré contenant sa HitBox
  * @param[in] SizePac : Le rayon du cercle qui compose le PacMan
- * @fn xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac);
+ * @fn bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac);
 */
 bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFantome, const unsigned SizePac);
 
@@ -81,7 +81,7 @@ bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFanto
  * @param[in] SizePac : Le rayon du cercle qui compose les PacMan
  * @param[in] XCenterPac : La coordonnée x du centre du PacMan et par extension sa HitBox
  * @param[in] XPointFantome : La coordonnée x d'un point d'extémité du Fantome et par extension le carré contenant sa HitBox
- * @fn yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
+ * bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 */
 bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 
@@ -91,7 +91,7 @@ bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFanto
  * @param[in] xGFirstContact : La coordonnée x du point de collision détecté de la HitBox simple (carrée) du Ghost
  * @param[in] XGFirstContact : La coordonnée y du point de collision détecté de la HitBox simple (carrée) du Ghost
  * @param[in] Ghost : La struct contenant toutes les caractéristiques du Ghost
- * @fn RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost);
+ * @fn bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost);
 */
 bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost);
 
@@ -99,8 +99,8 @@ bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const un
  * @brief Détermine s'il y a collision entre PacMan et un des Ghost
  * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
  * @param[in] VecteurGhost : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
- * @fn CollisionPacGhost (const PacMan & Pac, const vector<GhostSprite> & VecteurGhost);
-*/
+ * @fn bool CollisionPacGhost (const PacMan & Pac, const std::vector<GhostSprite> & VecteurGhost);
+
 bool CollisionPacGhost (const PacMan & Pac, const std::vector<GhostSprite> & VecteurGhost);
 
 
@@ -112,7 +112,7 @@ bool CollisionPacGhost (const PacMan & Pac, const std::vector<GhostSprite> & Vec
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
  * @param[in] MapBP : Map contenant les coordonnées et statut de toutes les BP du plateau
  * @param[inout] MapBPPossible : Map contenant les coordonnées et statut de toutes les BP sur la trajectoire du pacman
- * @fn void CollisionBPPossible (const PacMan & Pac, const CMyParam & Parameters, const map<nsGraphics::Vec2D, bool> & MapBP, map<nsGraphics::Vec2D, bool> & MapBPPossible);
+ * @fn void CollisionBPPossible (const PacMan & Pac, const std::map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 */
 void CollisionBPPossible (const PacMan & Pac, const std::map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 

@@ -4,14 +4,14 @@ using namespace std;
 
 /* ************************  PacMan / Mur  ************************** */
 
-unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters)
+unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters)
 {
     // Si direction vers le haut
-    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+    if (Pac.DirectionActuelle == MapParamChar.find("PacKeyUp")->second){
         unsigned ValCoNextMurY (0);
-        for (Cposition & Mur : VecteurMurs){
+        for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
-            if (Mur.getY() + CaseSize <= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+            if (Mur.getY() + CaseSize <= Pac.CenterPos.getY() - Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
                 if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
                     ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
@@ -20,7 +20,7 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
                 }
             }
             // Else if car (y + CaseSize) est forcément plus grand que (y) sachant que CaseSize >= 0
-            else if (Mur.getY() <= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+            else if (Mur.getY() <= Pac.CenterPos.getY() - Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
                 if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
                     ValCoNextMurY = max(ValCoNextMurY, Mur.getY());
                 }
@@ -33,11 +33,11 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
         return ValCoNextMurY;
     }
     // Si direction vers le bas
-    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
-        unsigned ValCoNextMurY (Parameters.MapParamUnsigned.find("WindowHeight")->second);
-        for (Cposition & Mur : VecteurMurs){
+    else if (Pac.DirectionActuelle == MapParamChar.find("PacKeyDown")->second){
+        unsigned ValCoNextMurY (Parameters.MapParamSize.find("WindowHeight")->second);
+        for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
-            if (Mur.getY() >= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+            if (Mur.getY() >= Pac.CenterPos.getY() + Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
                 if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
                     ValCoNextMurY = min(ValCoNextMurY, Mur.getY());
                 }
@@ -46,7 +46,7 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
                 }
             }
             // Else if car (y) est forcément plus petit que (y + CaseSize) sachant que CaseSize >= 0            
-            else if (Mur.getY() + CaseSize >= Pac.CenterPos.getY()){ // Traduction sur la fenetre : point au dessus de pacman
+            else if (Mur.getY() + CaseSize >= Pac.CenterPos.getY() + Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
                 if (Pac.CenterPos.getX() - Pac.size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.size){
                     ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
@@ -59,11 +59,11 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
         return ValCoNextMurY;
     }
     // Si direction à gauche
-    else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
+    else if (Pac.DirectionActuelle == MapParamChar.find("PacKeyLeft")->second){
         unsigned ValCoNextMurX (0);
-        for (Cposition & Mur : VecteurMurs){
+        for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
-            if (Mur.getX() + CaseSize <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+            if (Mur.getX() + CaseSize <= Pac.CenterPos.getX() - Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
                 if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
                     ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
@@ -72,7 +72,7 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
                 }
             }
             // Else if car (x + CaseSize) est forcément plus grand que (x) sachant que CaseSize >= 0
-            if (Mur.getX() <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+            if (Mur.getX() <= Pac.CenterPos.getX() - Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
                 if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
                     ValCoNextMurX = max(ValCoNextMurX, Mur.getX());
                 }
@@ -85,11 +85,11 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
         return ValCoNextMurX;
     }
     // Si direction à droite
-    else if (Pac.DirectionActuelle == Parameters.MapParamStrPac.find("TurnRight")->second){
-        unsigned ValCoNextMurX (Parameters.MapParamUnsigned.find("WindowWidth")->second);
-        for (Cposition & Mur : VecteurMurs){
+    else if (Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyRight")->second){
+        unsigned ValCoNextMurX (Parameters.MapParamSize.find("WindowWidth")->second);
+        for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
-            if (Mur.getX() <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+            if (Mur.getX() <= Pac.CenterPos.getX() + Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
                 if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
                     ValCoNextMurX = min(ValCoNextMurX, Mur.getX());
                 }
@@ -98,7 +98,7 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<
                 }
             }
             // Else if car (x) est forcément plus petit que (x + CaseSize) sachant que CaseSize >= 0            
-            else if (Mur.getX() + CaseSize <= Pac.CenterPos.getX()){ // Traduction sur la fenetre : point à gauche de pacman
+            else if (Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
                 if (Pac.CenterPos.getY() - Pac.size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.size){
                     ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
@@ -122,39 +122,46 @@ pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vite
 
     // Vérification en fonction de la direction actuelle du PacMan
     // Haut
-    if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+    if (Pac.DirectionActuelle == MapParamChar.find("PacKeyUp")->second){
         yVerif = Pac.CenterPos.getY() - Pac.Size - Vitesse;
         if (ValCoNextMur >= yVerif)
-            return {true, PointMur.getY() - yVerif - 1};
+            return {true, Vitesse - (ValCoNextMur - yVerif) - 1};
         else 
             return {false, 0}; // Puisque pas de collision
     }
     // Bas
-    else if (Pac.Direction == MapParamStrPac.find("TurnDown")->second){
+    else if (Pac.Direction == MapParamChar.find("PacKeyDown")->second){
         yVerif = Pac.CenterPos.getY() + Pac.Size + Vitesse;
         if (ValCoNextMur <= yVerif)
-            return {true, yVerif - PointMur.getY() - 1};
+            return {true, Vitesse - (yVerif - ValCoNextMur) - 1};
         else
             return {false, 0}; // Puisque pas de collision
     }
     // Gauche
-    else if (Pac.Direction == MapParamStrPac.find("TurnLeft")->second){
+    else if (Pac.Direction == MapParamChar.find("PacKeyLeft")->second){
         xVerif = Pac.CenterPos.getX() - Pac.Size - Vitesse;
         if (ValCoNextMur >= xVerif)
-            return {true, PointMur.getx() - xVerif - 1};
+            return {true, Vitesse - (ValCoNextMur - xVerif) - 1};
         else
             return {false, 0}; // Puisque pas de collision
     }
-    else if (Pac.Direction == MapParamStrPac.find("TurnRight")->second){
+    // Droite
+    else if (Pac.Direction == MapParamChar.find("PacKeyRight")->second){
         xVerif = Pac.CenterPos.getX() + Pac.Size + Vitesse;
         if (ValCoNextMur <= xVerif)
-            return {true, xVerif - PointMur.getx() - 1};
+            return {true, Vitesse - (xVerif - ValCoNextMur) - 1};
         else
             return {false, 0}; // Puisque pas de collision
     }
     else 
         return {false, 0}; // Puisque pas de collision car mauvaise direction en entrée
 }
+
+
+/* ************************  Fantome / Mur  ************************** */
+
+
+
 
 /* ************************  PacMan / Fantome (Ghost) ************************** */
 
@@ -248,7 +255,7 @@ void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool>
         MapBPPossible.erase(MapBPPossible.begin(), MapBPPossible.end());
         taillePac = Pac.Size;
         // Trajectoire Verticale
-        if (Pac.DirectionActuelle == MapParamStrPac.find("TurnUp")->second){
+        if (Pac.DirectionActuelle == MapParamChar.find("PacKeyUp")->second){
             for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
                 if (BP.first.getY() <= Pac.CenterPos.getY()){
                     if (Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
@@ -256,7 +263,7 @@ void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool>
                 }
             }
         }
-        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnDown")->second){
+        else if (Pac.DirectionActuelle == MapParamChar.find("PacKeyDown")->second){
             for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
                 if (BP.first.getY() >= Pac.CenterPos.getY()){
                     if (Pac.CenterPos.getX() - taillePac <= BP.first.getX() && BP.first.getX() <= Pac.CenterPos.getX() + taillePac)
@@ -265,7 +272,7 @@ void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool>
             }
         }
         // Ligne alignée avec le pacman
-        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnLeft")->second){
+        else if (Pac.DirectionActuelle == MapParamChar.find("PacKeyLeft")->second){
             for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
                 if (BP.first.getX() <= Pac.CenterPos.getX()){
                     if (Pac.CenterPos.getY() - taillePac <= BP.first.getY() && BP.first.getY() <= Pac.CenterPos.getY() + taillePac)
@@ -273,7 +280,7 @@ void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool>
                 }
             }
         }
-        else if (Pac.DirectionActuelle == MapParamStrPac.find("TurnRight")->second){
+        else if (Pac.DirectionActuelle == MapParamChar.find("PacKeyRight")->second){
             for (pair <nsGraphics::Vec2D, bool> & BP : MapBP ){
                 if (BP.first.getX() >= Pac.CenterPos.getX()){
                     if (Pac.CenterPos.getY() - taillePac <= BP.first.getY() && BP.first.getY() <= Pac.CenterPos.getY() + taillePac)
@@ -286,7 +293,7 @@ void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool>
 
 pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const map <nsGraphics::Vec2D, bool> & MapBPPossible)
 {
-    tailleBP = Parameters.MapParamUnsigned.find("BPSize")->second;
+    tailleBP = Parameters.MapParamSize.find("BPSize")->second;
     for (auto & BPPossible : MapBPPossible){
         if (BPPossible == true){
             if (Pac.CenterPos.isColliding(nsGraphics::Vec2D((BPPossible.first.getX() - tailleBP), (BPPossible.first.getY() - tailleBP)), nsGraphics::Vec2D((BPPossible.first.getX() + tailleBP), (BPPossible.first.getY() + tailleBP))) == true)

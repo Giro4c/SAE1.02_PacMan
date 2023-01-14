@@ -8,11 +8,11 @@ void InitPlateau (vector<string> & Plateau)
 {
     Plateau = {
     "xxxxxxxxxxxxxxxxxxxxxx",
-    "x....x..........x....x",
+    "xo...x..........x....x",
     "x.xx.x.xxxxxxxx.x.xx.x",
     "x.x................x.x",
     "x.x.xx.xxxnnxxx.xx.x.x",
-    "x.x....xnnnnnnx....x.x",
+    "x.x....xn1nn2nx....x.x",
     "x...xx.xxxxxxxx.xx...x",
     "x.x................x.x",
     "x.x.xx.xxxxxxxx.xx.x.x",
@@ -90,10 +90,12 @@ void InitMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, Pac
             case '1':
                 VecteurGhost[0].CenterPos.setX(j*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
                 VecteurGhost[0].CenterPos.setY(i*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
+                VecteurGhost[0].ID = 1;
                 break;
             case '2':
                 VecteurGhost[1].CenterPos.setX(j*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
                 VecteurGhost[1].CenterPos.setY(i*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
+                VecteurGhost[0].ID = 2;
                 break;
             }
             // End switch
