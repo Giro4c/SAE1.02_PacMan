@@ -1,5 +1,6 @@
 #define FPS_LIMIT 60
 #include <iostream>
+#include <algorithm>
 // Pour les chronos
 #include <chrono>
 #include <unistd.h>
@@ -7,25 +8,20 @@
 #include "NosFiles/type.h"
 #include "NosFiles/param.h"
 #include "NosFiles/move.h"
+#include "NosFiles/draw.h"
+
 #include "NosFiles/collision.h"
 #include "mingl/mingl.h"
 #include "mingl/shape/rectangle.h"
 #include "mingl/shape/triangle.h"
 #include "mingl/transition/transition.h"
 #include "mingl/transition/transition_engine.h"
-#include <algorithm>
 #include "mingl/gui/text.h"
 
 using namespace std;
 
-void DrawMurs(MinGL & Window, const CMyParam & Parameters, vector<nsGraphics::Vec2D> & VecteurMurs)
-{
-    unsigned sizeMur = Parameters.MapParamSize.find("CaseSize")->second;
-    for (size_t i (0); i < VecteurMurs.size(); ++i){
-        Window << nsShape::Rectangle(nsGraphics::Vec2D(VecteurMurs[i].getX(), VecteurMurs[i].getY()), sizeMur, sizeMur, nsGraphics::KBlue);
-    }
-}
-
+/*
+// Procédure pour vérifier les co des murs
 void vectmurs(vector<nsGraphics::Vec2D> & vecteurMur) {
     for(auto & mur : vecteurMur){
         cout << mur.getX();
@@ -34,6 +30,7 @@ void vectmurs(vector<nsGraphics::Vec2D> & vecteurMur) {
         cout << endl;
     }
 }
+*/
 
 int main()
 {
@@ -50,11 +47,11 @@ int main()
     pac.Size = params.MapParamSize.find("PacSize")->second;
     vector<nsGraphics::Vec2D> vecteurMurs;
     vector<GhostSprite> vecteurGhost (2);
-//    InitGhost(params, vecteurGhost);
+    InitGhost(params, vecteurGhost);
     map<nsGraphics::Vec2D, bool> mapBP;
     unsigned resteBP (0);
     InitMursBPGhost(plateau, params, pac, vecteurMurs, mapBP,resteBP, vecteurGhost);
-    vectmurs(vecteurMurs);
+//    vectmurs(vecteurMurs);
 
     bool finPartie = false;
     float score (0);
@@ -114,10 +111,12 @@ int main()
                 combo = 0;
 
             // Mouvement du PacMan
-            MovePac(window,params,pac,vecteurMurs,mapNextMur,combo);
+            MovePac(window, params, pac, vecteurMurs, mapNextMur, combo);
 
             // Mouvement des Fantomes
-            //Aaaa;
+            for (GhostSprite & ghost : vecteurGhost){
+                MoveGhost(window, params, ghost, vecteurMurs, mapNextMur);
+            }
 
             // Vérification des collisions (sauf murs)
             if (CollisionPacGhost(pac, vecteurGhost) == true){
@@ -127,8 +126,8 @@ int main()
             CollisionBPPossible (pac, mapBP, params, mapBPPossible);
             if (CollisionPacBP (pac, params, mapBPPossible).first == true){
                 // Modif des Map BP
-                mapBP.find((CollisionPacBP (pac, params, mapBPPossible).second) = true);
-                mapBPPossible.find((CollisionPacBP (pac, params, mapBPPossible).second) = true);
+                mapBP.find((CollisionPacBP (pac, params, mapBPPossible).second)) = true;
+                mapBPPossible.find((CollisionPacBP (pac, params, mapBPPossible).second)) = true;
                 // Actions et modifs des autres variables
                 ++combo;
                 --resteBP;
@@ -136,9 +135,9 @@ int main()
                 tpBPContactStart = chrono::steady_clock::now();
             }
             // Affichage des Entités (sauf murs)
-            //DrawBP(window, params, mapBP);
-            Dessiner(window, pac, bouche);
-            //DrawGhost(window, params, vecteurGhost);
+            DrawBP(window, params, mapBP);
+            DrawPac(window, pac, bouche);
+            DrawGhost(window, params, vecteurGhost);
 
         }
         // Fin de partie == true
@@ -164,6 +163,5 @@ int main()
         // On récupère le temps de frame
         frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
     }
-
     return 0;
 }

@@ -18,7 +18,7 @@ void InitPlateau (vector<string> & Plateau)
     "x.x.xx.xxxxxxxx.xx.x.x",
     "x.x................x.x",
     "x.xx.x.xxxxxxxx.x.xx.x",
-    "x....x..........x....xx",
+    "x....x..........x....x",
     "xxxxxxxxxxxxxxxxxxxxxx"};
 }
 
@@ -103,3 +103,14 @@ void InitMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, Pac
     }
 }
 
+void InitGhost(const CMyParam & Parameters, vector<GhostSprite> & VecteurGhost)
+{
+    for (GhostSprite & Ghost : VecteurGhost){
+        Ghost.Vitesse = Parameters.MapParamSpeed.find("GhostSpeed")->second;
+        Ghost.Size = Parameters.MapParamSize.find("GhostSize")->second;
+    }
+    VecteurGhost[0].Color = Parameters.MapParamColor.find("GhostColor1")->second;
+    VecteurGhost[0].ID = 1;
+    VecteurGhost[1].Color = Parameters.MapParamColor.find("GhostColor2")->second;
+    VecteurGhost[1].ID = 2;
+}

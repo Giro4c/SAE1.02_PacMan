@@ -2,7 +2,7 @@
 #define PARAM_H
 
 /*!
- * \file collision.h
+ * \file param.h
  * \brief Liste de fonctions et procédures pour l'initialisation et modification des paramètres
  * \version 1.0
  * \date 12 janvier 2023
@@ -11,9 +11,19 @@
 #include <fstream>
 #include "type.h"
 
-
+/**
+ * @brief Initialise le vecteur de string représentant le plateau de jeu
+ * @param[out] Plateau : Le vecteur de string représentant le plateau de jeu
+ * @fn void InitPlateau (std::vector<std::string> & Plateau);
+*/
 void InitPlateau (std::vector<std::string> & Plateau);
 
+/**
+ * @brief Charge les paramètres modifiables d'une partie
+ * @param[out] Param : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[in] ConfigFileName : Le nom du fichier de configuration des paramètres
+ * @fn void LoadParams (CMyParam & Param, const std::string & ConfigFileName);
+*/
 void LoadParams (CMyParam & Param, const std::string & ConfigFileName);
 
 /**
@@ -28,6 +38,14 @@ void LoadParams (CMyParam & Param, const std::string & ConfigFileName);
  * @fn void initMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, PacMan & Pac, vector<Cposition> & VecteurMurs, map<CPosition, bool> & MapBP, vector<GhostSprite> & VecteurGhost);
 */
 void InitMursBPGhost (const std::vector<std::string> & Plateau, CMyParam & Parameters, PacMan & Pac, std::vector<nsGraphics::Vec2D> & VecteurMurs, std::map<nsGraphics::Vec2D, bool> & MapBP, unsigned & ResteBP, std::vector<GhostSprite> & VecteurGhost);
+
+/**
+ * @brief Initialise les paramètres des Fantomes
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[out] VecteurGhost : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
+ * @fn void InitGhost(const CMyParam & Parameters, std::vector<GhostSprite> & VecteurGhost);
+*/
+void InitGhost(const CMyParam & Parameters, std::vector<GhostSprite> & VecteurGhost);
 
 
 #endif // PARAM_H

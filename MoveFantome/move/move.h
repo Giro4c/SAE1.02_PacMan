@@ -18,6 +18,6 @@ struct Ghost{
     unsigned vitesse;
 };
 
-void clavier(MinGL &window, Ghost &ghost);
+void clavier(MinGL & window, Ghost &ghost);
 void dessiner(MinGL &window, Ghost &ghost);
 #endif // MOVE_H

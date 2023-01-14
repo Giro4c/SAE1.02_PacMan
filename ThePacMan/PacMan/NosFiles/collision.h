@@ -48,9 +48,9 @@ std::pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned &
  * @param[in] CaseSize : La largeur et longueur d'une case du plateau
  * @param[in] VecteurMurs : Le vecteur contenant la localisation de l'extrémité en haut à gauche d'une case "Mur"
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
- * @fn unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
+ * @fn unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
 */
-unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
+unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
 
 
 /**
@@ -60,7 +60,7 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, const 
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
  * @param[in] ValCoNextMur : La coordonnée x ou y de l'extémité du prochain mur
  * @return Vrai et la distance entre extémité_mur et extémité_fantome + vitesse -1 qui sera la nouvelle vitesse temporaire en attendant un changement de direction.
- * @fn pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
+ * @fn std::pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
 */
 std::pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
 
@@ -83,7 +83,7 @@ bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFanto
  * @param[in] SizePac : Le rayon du cercle qui compose les PacMan
  * @param[in] XCenterPac : La coordonnée x du centre du PacMan et par extension sa HitBox
  * @param[in] XPointFantome : La coordonnée x d'un point d'extémité du Fantome et par extension le carré contenant sa HitBox
- * bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
+ * @fn bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 */
 bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 
@@ -93,7 +93,7 @@ bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFanto
  * @param[in] xGFirstContact : La coordonnée x du point de collision détecté de la HitBox simple (carrée) du Ghost
  * @param[in] XGFirstContact : La coordonnée y du point de collision détecté de la HitBox simple (carrée) du Ghost
  * @param[in] Ghost : La struct contenant toutes les caractéristiques du Ghost
- * @fn bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const GhostSprite & Ghost);
+ * @fn bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const unsigned & SizeGhost);
 */
 bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const unsigned & yGFirstContact, const unsigned & SizeGhost);
 
@@ -114,7 +114,7 @@ bool CollisionPacGhost (const PacMan & Pac, std::vector<GhostSprite> & VecteurGh
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
  * @param[in] MapBP : Map contenant les coordonnées et statut de toutes les BP du plateau
  * @param[inout] MapBPPossible : Map contenant les coordonnées et statut de toutes les BP sur la trajectoire du pacman
- * @fn void CollisionBPPossible (const PacMan & Pac, const std::map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
+ * @fn void CollisionBPPossible (const PacMan & Pac, std::map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 */
 void CollisionBPPossible (const PacMan & Pac, std::map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 
@@ -123,7 +123,7 @@ void CollisionBPPossible (const PacMan & Pac, std::map<nsGraphics::Vec2D, bool> 
  * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
  * @param[in] MapBPPossible : Map contenant les coordonnées et statut de toutes les BP sur la trajectoire du pacman
- * @fn pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
+ * @fn std::pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 */
 std::pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 
