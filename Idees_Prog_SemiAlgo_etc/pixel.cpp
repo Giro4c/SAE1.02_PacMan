@@ -1,6 +1,8 @@
+"G" + string(Ghost.ID) + 
+
 unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters)
 {
-        // Si direction vers le haut
+    // Si direction vers le haut
     if (Ghost.DirectionActuelle == MapParamChar.find("KeyUp")->second){
         unsigned ValCoNextMurY (0);
         for (nsGraphics::Vec2D & Mur : VecteurMurs){

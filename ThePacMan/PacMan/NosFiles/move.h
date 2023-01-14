@@ -1,14 +1,10 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#include <string>
-#include <vector>
-
 #include "type.h"
-#include "mingl/mingl.h"
+/*#include "mingl/mingl.h"
 #include "mingl/gui/sprite.h"
-#include "mingl/graphics/vec2d.h"
-#include "mingl/shape/triangle.h"
+#include "mingl/graphics/vec2d.h" */
 
 using namespace std;
 
@@ -35,13 +31,5 @@ void ChangeDirectionVars (PacMan & Pac, const CMyParam & Parameters, const vecto
 */
 void MovePac(MinGL & Window, const CMyParam & Parameters, PacMan & Pac, const vector<nsGraphics::Vec2D> & VecteurMurs, map<string, unsigned> & MapNextMur,const unsigned & Combo);
 
-/**
- * @brief Permet de dessiner et animer pacman
- * @param[in] Window: utilisation des fonctions contenues dans le fichier MinGL, la fenêtre
- * @param[out] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
- * @param[in] Bouche: Animation de la bouche de Pacman
- * @fn void Dessiner(MinGL & Window, PacMan & Pac, nsShape::Triangle & Bouche);
-*/
-void Dessiner(MinGL & Window, PacMan & Pac, nsShape::Triangle & Bouche);
 
 #endif // MOVE_H

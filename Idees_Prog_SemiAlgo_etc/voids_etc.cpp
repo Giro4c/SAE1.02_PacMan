@@ -1,7 +1,7 @@
 /**
  * @brief Initialise les paramètres des Fantomes
- * @param[in] Parameters : 
- * @param[out] VecteurGhost :
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[out] VecteurGhost : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
  * @fn void InitGhost(const CMyParam & Parameters, vector<GhostSprite> & VecteurGhost);
 */
 void InitGhost(const CMyParam & Parameters, vector<GhostSprite> & VecteurGhost);
@@ -25,7 +25,7 @@ void InitGhost(const CMyParam & Parameters, vector<GhostSprite> & VecteurGhost)
  * @param[in] VecteurMurs : 
  * @fn void DrawMurs(MinGL & Window, const CMyParam & Parameters, const vector<nsGraphics::Vec2D> & VecteurMurs); 
 */
-void DrawMurs(MinGL & Window, const CMyParam & Parameters, const vector<nsGraphics::Vec2D> & VecteurMurs); 
+void DrawMurs(MinGL & Window, const CMyParam & Parameters, const std::vector<nsGraphics::Vec2D> & VecteurMurs); 
 
 void DrawMurs(MinGL & Window, const CMyParam & Parameters, const vector<nsGraphics::Vec2D> & VecteurMurs)
 { 

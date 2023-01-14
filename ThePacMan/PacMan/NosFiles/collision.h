@@ -8,10 +8,11 @@
  * \date 11 janvier 2023
  */
 
+#include "type.h"
 #include <utility>
 #include <map>
 #include <vector>
-#include "type.h"
+#include <algorithm>
 
 /* ************************  PacMan / Mur  ************************** */
 
@@ -81,7 +82,7 @@ bool xFInsideHitBoxPacX (const unsigned & XCenterPac, const unsigned XPointFanto
  * @param[in] SizePac : Le rayon du cercle qui compose les PacMan
  * @param[in] XCenterPac : La coordonnée x du centre du PacMan et par extension sa HitBox
  * @param[in] XPointFantome : La coordonnée x d'un point d'extémité du Fantome et par extension le carré contenant sa HitBox
- * bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
+ * @fn bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 */
 bool yFInsideHitBoxPacY (const unsigned & YCenterPac, const unsigned YPointFantome, const unsigned SizePac,const unsigned & XCenterPac, const unsigned XPointFantome);
 
@@ -100,7 +101,7 @@ bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const un
  * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
  * @param[in] VecteurGhost : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
  * @fn bool CollisionPacGhost (const PacMan & Pac, const std::vector<GhostSprite> & VecteurGhost);
-
+*/
 bool CollisionPacGhost (const PacMan & Pac, const std::vector<GhostSprite> & VecteurGhost);
 
 
