@@ -8,7 +8,6 @@
  * \date 12 janvier 2023
  */
 
-#include <iostream>
 #include <string>
 #include <vector>
 #include <map>
@@ -18,6 +17,7 @@
 #include "mingl/mingl.h"
 #include "mingl/gui/sprite.h"
 #include "mingl/graphics/vec2d.h"
+#include "mingl/shape/triangle.h"
 
 /**
  * @brief Struct contenant l'ensemble des paramètres modifiables d'une partie
@@ -71,7 +71,7 @@ struct PacMan
 {
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(0, 0);
     char DirectionActuelle = 'c';
-    char DirectionPrecedent = 'b';
+    char DirectionPred = 'b';
     unsigned Vitesse;
     unsigned Size;
     nsGraphics::Vec2D BouchePosA;

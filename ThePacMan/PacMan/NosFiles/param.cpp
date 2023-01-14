@@ -78,10 +78,10 @@ void InitMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, Pac
             // Start switch
             switch (Plateau[i][j]){
             case 'x':
-                VecteurMurs.push_back({j*(Parameters.MapParamSize.find("CaseSize")->second), i*(Parameters.MapParamSize.find("Case Size")->second)});
+                VecteurMurs.push_back( nsGraphics::Vec2D(j*(Parameters.MapParamSize.find("CaseSize")->second), i*(Parameters.MapParamSize.find("CaseSize")->second)));
                 break;
             case '.':
-                MapBP[nsGraphics::Vec2D(j*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2, i*(Parameters.MapParamSize.find("Case Size")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2)] = false;
+                MapBP[nsGraphics::Vec2D(j*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2, i*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2)] = false;
                 ++ResteBP;
                 break;
             case 'o':

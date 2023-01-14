@@ -10,12 +10,30 @@
 #include "NosFiles/collision.h"
 #include "mingl/mingl.h"
 #include "mingl/shape/rectangle.h"
-#include "mingl/shape/circle.h"
 #include "mingl/shape/triangle.h"
 #include "mingl/transition/transition.h"
 #include "mingl/transition/transition_engine.h"
+#include <algorithm>
+#include "mingl/gui/text.h"
 
 using namespace std;
+
+void DrawMurs(MinGL & Window, const CMyParam & Parameters, vector<nsGraphics::Vec2D> & VecteurMurs)
+{
+    unsigned sizeMur = Parameters.MapParamSize.find("CaseSize")->second;
+    for (size_t i (0); i < VecteurMurs.size(); ++i){
+        Window << nsShape::Rectangle(nsGraphics::Vec2D(VecteurMurs[i].getX(), VecteurMurs[i].getY()), sizeMur, sizeMur, nsGraphics::KBlue);
+    }
+}
+
+void vectmurs(vector<nsGraphics::Vec2D> & vecteurMur) {
+    for(auto & mur : vecteurMur){
+        cout << mur.getX();
+        cout << " ";
+        cout << mur.getY();
+        cout << endl;
+    }
+}
 
 int main()
 {
@@ -25,18 +43,18 @@ int main()
 
     // Initialise les paramètres et autres variables
     CMyParam params;
-    LoadParams(params, "config.yaml");
+    LoadParams(params, "../PacMan/config.yaml");
 
     PacMan pac;
     pac.Vitesse = params.MapParamSpeed.find("PacDefaultSpeed")->second;
     pac.Size = params.MapParamSize.find("PacSize")->second;
     vector<nsGraphics::Vec2D> vecteurMurs;
     vector<GhostSprite> vecteurGhost (2);
-    InitGhost(params, vecteurGhost); 
+//    InitGhost(params, vecteurGhost);
     map<nsGraphics::Vec2D, bool> mapBP;
     unsigned resteBP (0);
-    InitMursBPGhost(plateau, params, pac, vecteurMurs, mapBP, vecteurGhost);
-
+    InitMursBPGhost(plateau, params, pac, vecteurMurs, mapBP,resteBP, vecteurGhost);
+    vectmurs(vecteurMurs);
 
     bool finPartie = false;
     float score (0);
@@ -55,7 +73,7 @@ int main()
     nsTransition::TransitionEngine tst;
 
     // Initialisation de la bouche du pacman
-    nsShape::Triangle bouche({0,0}, {0,0}, {0,0}, KBlack);
+    nsShape::Triangle bouche({0,0}, {0,0}, {0,0}, nsGraphics::KBlack);
     tst.startContract(nsTransition::TransitionContract(bouche, bouche.TRANSITION_FILL_COLOR_ALPHA, chrono::milliseconds(100), {0}, chrono::milliseconds(0), nsTransition::Transition::TransitionMode::MODE_LOOP_SMOOTH));
 
 
@@ -74,7 +92,7 @@ int main()
     {
         // Récupère l'heure actuelle
         chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
-        // Récupère le temps écoulé depuis le début de la partie
+        // Récupère le temps écoulé depuixs le début de la partie
         timerEnd = chrono::steady_clock::now();
 
         // On efface la fenêtre
@@ -96,32 +114,31 @@ int main()
                 combo = 0;
 
             // Mouvement du PacMan
-            clavier(window, pac);
+            MovePac(window,params,pac,vecteurMurs,mapNextMur,combo);
 
             // Mouvement des Fantomes
-            Aaaa;
+            //Aaaa;
 
             // Vérification des collisions (sauf murs)
-            if (CollisionPacFantome(pac, vecteurGhost) == true){
+            if (CollisionPacGhost(pac, vecteurGhost) == true){
                 finPartie = true;
                 continue;
             }
             CollisionBPPossible (pac, mapBP, params, mapBPPossible);
             if (CollisionPacBP (pac, params, mapBPPossible).first == true){
                 // Modif des Map BP
-                MapBP.find(CollisionBPPossible().second) = true;
-                MapBPPossible.find(CollisionBPPossible().second) = true;
+                mapBP.find((CollisionPacBP (pac, params, mapBPPossible).second) = true);
+                mapBPPossible.find((CollisionPacBP (pac, params, mapBPPossible).second) = true);
                 // Actions et modifs des autres variables
                 ++combo;
                 --resteBP;
-                score = score + 100*(1 + ((Combo - 1)* 0.01));
+                score = score + 100*(1 + ((combo - 1)* 0.01));
                 tpBPContactStart = chrono::steady_clock::now();
             }
-
             // Affichage des Entités (sauf murs)
-            DrawBP(window, params, mapBP);
-            dessiner(window, pac, bouche);
-            DrawGhost(window, params, vecteurGhost);
+            //DrawBP(window, params, mapBP);
+            Dessiner(window, pac, bouche);
+            //DrawGhost(window, params, vecteurGhost);
 
         }
         // Fin de partie == true
@@ -130,7 +147,8 @@ int main()
             // Affiche le rectangle du score
             window << nsShape::Rectangle(nsGraphics::Vec2D(100, 100), 100, 75, nsGraphics::KWhite);
             // Affiche le score
-            window << nsGui::Text(nsGraphics::Vec2D(150, 135), string(score), nsGraphics::KBlack, nsGui::GlutFont::BITMAP_9_BY_15,
+            unsigned UIntScore = unsigned(score);
+            window << nsGui::Text(nsGraphics::Vec2D(150, 135), to_string(UIntScore), nsGraphics::KBlack, nsGui::GlutFont::BITMAP_9_BY_15,
                           nsGui::Text::HorizontalAlignment::ALIGNH_CENTER);
         }
 

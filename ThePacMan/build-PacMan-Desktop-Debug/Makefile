@@ -219,6 +219,7 @@ DIST          = ../PacMan/config.yaml \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/qt_config.prf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/linux-clang/qmake.conf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/spec_post.prf \
+		../PacMan/.qmake.stash \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/toolchain.prf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -419,6 +420,7 @@ Makefile: ../PacMan/PacMan.pro /home/jules/Qt/6.4.2/gcc_64/mkspecs/linux-clang/q
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/qt_config.prf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/linux-clang/qmake.conf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/toolchain.prf \
 		/home/jules/Qt/6.4.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -557,6 +559,7 @@ Makefile: ../PacMan/PacMan.pro /home/jules/Qt/6.4.2/gcc_64/mkspecs/linux-clang/q
 /home/jules/Qt/6.4.2/gcc_64/mkspecs/features/qt_config.prf:
 /home/jules/Qt/6.4.2/gcc_64/mkspecs/linux-clang/qmake.conf:
 /home/jules/Qt/6.4.2/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/jules/Qt/6.4.2/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/jules/Qt/6.4.2/gcc_64/mkspecs/features/toolchain.prf:
 /home/jules/Qt/6.4.2/gcc_64/mkspecs/features/default_pre.prf:
@@ -619,7 +622,6 @@ Pacman.o: ../PacMan/NosFiles/Pacman.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Pacman.o ../PacMan/NosFiles/Pacman.cpp
 
 collision.o: ../PacMan/NosFiles/collision.cpp ../PacMan/NosFiles/collision.h \
-		../PacMan/NosFiles/move.h \
 		../PacMan/NosFiles/type.h \
 		../PacMan/MinGL2/include/mingl/mingl.h \
 		../PacMan/MinGL2/include/mingl/graphics/idrawable.h \
@@ -649,7 +651,8 @@ move.o: ../PacMan/NosFiles/move.cpp ../PacMan/MinGL2/include/mingl/mingl.h \
 		../PacMan/MinGL2/include/mingl/shape/triangle.h \
 		../PacMan/NosFiles/move.h \
 		../PacMan/NosFiles/type.h \
-		../PacMan/MinGL2/include/mingl/gui/sprite.h
+		../PacMan/MinGL2/include/mingl/gui/sprite.h \
+		../PacMan/NosFiles/collision.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o move.o ../PacMan/NosFiles/move.cpp
 
 param.o: ../PacMan/NosFiles/param.cpp ../PacMan/NosFiles/param.h \
@@ -668,8 +671,7 @@ param.o: ../PacMan/NosFiles/param.cpp ../PacMan/NosFiles/param.h \
 		../PacMan/MinGL2/include/mingl/shape/shape.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o param.o ../PacMan/NosFiles/param.cpp
 
-main.o: ../PacMan/main.cpp ../PacMan/NosFiles/param.h \
-		../PacMan/NosFiles/type.h \
+main.o: ../PacMan/main.cpp ../PacMan/NosFiles/type.h \
 		../PacMan/MinGL2/include/mingl/mingl.h \
 		../PacMan/MinGL2/include/mingl/graphics/idrawable.h \
 		../PacMan/MinGL2/include/mingl/graphics/rgbacolor.h \
@@ -682,12 +684,16 @@ main.o: ../PacMan/main.cpp ../PacMan/NosFiles/param.h \
 		../PacMan/MinGL2/include/mingl/transition/itransitionable.h \
 		../PacMan/MinGL2/include/mingl/shape/triangle.h \
 		../PacMan/MinGL2/include/mingl/shape/shape.h \
+		../PacMan/NosFiles/param.h \
 		../PacMan/NosFiles/move.h \
-		../PacMan/MinGL2/include/mingl/shape/circle.h \
+		../PacMan/NosFiles/collision.h \
+		../PacMan/MinGL2/include/mingl/shape/rectangle.h \
 		../PacMan/MinGL2/include/mingl/transition/transition.h \
 		../PacMan/MinGL2/include/mingl/transition/transition_contract.h \
 		../PacMan/MinGL2/include/mingl/transition/transition_types.h \
-		../PacMan/MinGL2/include/mingl/transition/transition_engine.h
+		../PacMan/MinGL2/include/mingl/transition/transition_engine.h \
+		../PacMan/MinGL2/include/mingl/gui/text.h \
+		../PacMan/MinGL2/include/mingl/gui/glut_font.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../PacMan/main.cpp
 
 audioengine.o: ../PacMan/MinGL2/src/audio/audioengine.cpp ../PacMan/MinGL2/include/mingl/audio/audioengine.h \
