@@ -1,14 +1,13 @@
 #define FPS_LIMIT 60
 #include <iostream>
-#include <thread>
-
 // Pour les chronos
 #include <chrono>
 #include <unistd.h>
 
+#include "NosFiles/type.h"
 #include "NosFiles/param.h"
 #include "NosFiles/move.h"
-#include "NosFiles/type.h"
+#include "NosFiles/collision.h"
 #include "mingl/mingl.h"
 #include "mingl/shape/rectangle.h"
 #include "mingl/shape/circle.h"

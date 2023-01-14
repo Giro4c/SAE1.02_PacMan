@@ -4,7 +4,6 @@
 /*!
  * \file type.h
  * \brief Liste des types et struct utilisés
- * \author Camille Girodengo
  * \version 1.0
  * \date 12 janvier 2023
  */
@@ -12,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <thread>
+
 
 #include "mingl/mingl.h"
 #include "mingl/gui/sprite.h"
@@ -26,7 +27,6 @@ struct CMyParam {
     std::map <std::string, unsigned> MapParamSize;
     std::map <std::string, nsGraphics::RGBAcolor> MapParamRGBAColor;
     std::map <std::string, unsigned> MapParamSpeed;
-
 };
 
 
@@ -53,7 +53,6 @@ const AuthorizedKey KAuthorizedKey;
 /**
   * @brief KColor : Map contenant des couleurs prédéfinies pour les couleurs RGBAColor
   */
-
 const std::map <std::string, nsGraphics::RGBAcolor> KColor
 {
     {"KBlack", {0, 0, 0}},
@@ -61,7 +60,6 @@ const std::map <std::string, nsGraphics::RGBAcolor> KColor
     {"KGreen", {0, 255, 0}},
     {"KWhite", {255, 255, 255}},
     {"KBlue", {0, 0, 255}},
-
 };
 
 

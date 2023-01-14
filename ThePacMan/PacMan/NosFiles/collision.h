@@ -4,41 +4,63 @@
 /*!
  * \file collision.h
  * \brief Liste de fonctions et procédures pour la vérification de collisions
- * \author Camille Girodengo
  * \version 1.0
  * \date 11 janvier 2023
  */
 
-/*  * @param[in] LocEntities : La struct contenant toutes les positions des entités sauf le pacman */
-
 #include <utility>
 #include <map>
 #include <vector>
-#include "move.h"
+#include "type.h"
 
 /* ************************  PacMan / Mur  ************************** */
 
 /**
  * @brief Renvoie la coordonnée x ou y de l'extrémité du mur en risque de collision qui se trouve sur la trajectoire du pacman
- * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
+ * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision Pac/Mur
  * @param[in] CaseSize : La largeur et longueur d'une case du plateau
  * @param[in] VecteurMurs : Le vecteur contenant la localisation de l'extrémité en haut à gauche d'une case "Mur"
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
- * @fn unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters);
+ * @fn unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
 */
-unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const vector<Cposition> & VecteurMurs, const CMyParam & Parameters);
+unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
 
 
 /**
- * @brief 
- * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision
+ * @brief Détermine si le prochain déplacement est une collision avec un mur et renvoie la nouvelle vitesse pour l'éviter si c'est le cas
+ * @param[in] Pac : La struct contenant les caractéristiques nécessaires aux évaluations de collision Pac/Mur
  * @param[in] Vitesse : La vitesse de déplacement de PacMan (en pixels)
  * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
  * @param[in] ValCoNextMur : La coordonnée x ou y de l'extémité du prochain mur
- * @return Vrai et la distance entre extémité_mur et extémité_pacman + vitesse, -1 qui sera la nouvelle vitesse temporaire en attendant un changement de direction.
- * @fn 
+ * @return Vrai et la distance entre extémité_mur et extémité_pacman + vitesse -1 qui sera la nouvelle vitesse temporaire en attendant un changement de direction.
+ * @fn pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
 */
 pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
+
+
+/* ************************  Fantome / Mur  ************************** */
+
+/**
+ * @brief Renvoie la coordonnée x ou y de l'extrémité du mur en risque de collision qui se trouve sur la trajectoire du fantome
+ * @param[in] Ghost : La struct contenant les caractéristiques nécessaires aux évaluations de collision Ghost/Mur
+ * @param[in] CaseSize : La largeur et longueur d'une case du plateau
+ * @param[in] VecteurMurs : Le vecteur contenant la localisation de l'extrémité en haut à gauche d'une case "Mur"
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @fn unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
+*/
+unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, const std::vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters);
+
+
+/**
+ * @brief Détermine si le prochain déplacement est une collision avec un mur et renvoie la nouvelle vitesse pour l'éviter si c'est le cas
+ * @param[in] Ghost : La struct contenant les caractéristiques nécessaires aux évaluations de collision Ghost/Mur
+ * @param[in] Vitesse : La vitesse de déplacement du Fantome (en pixels)
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[in] ValCoNextMur : La coordonnée x ou y de l'extémité du prochain mur
+ * @return Vrai et la distance entre extémité_mur et extémité_fantome + vitesse -1 qui sera la nouvelle vitesse temporaire en attendant un changement de direction.
+ * @fn pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
+*/
+pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsigned & Vitesse, const CMyParam & Parameters, const unsigned & ValCoNextMur);
 
 
 /* ************************  PacMan / Fantome (Ghost) ************************** */
@@ -76,32 +98,32 @@ bool RealHitGhost (const PacMan & Pac, const unsigned & xGFirstContact, const un
 /**
  * @brief Détermine s'il y a collision entre PacMan et un des Ghost
  * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
- * @param[in] MapGhost : La map contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
+ * @param[in] VecteurGhost : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
  * @fn CollisionPacGhost (const PacMan & Pac, const vector<GhostSprite> & VecteurGhost);
 */
-bool CollisionPacGhost (const PacMan & Pac, const vector<GhostSprite> & VecteurGhost);
+bool CollisionPacGhost (const PacMan & Pac, const std::vector<GhostSprite> & VecteurGhost);
 
 
 /* ************************  PacMan / Boule-Point (BP)  ************************** */
 
 /**
  * @brief Procédure qui construit la map des BP sur la trajectoire du pacman en fonction de la direction
- * @param[in] Pac : 
- * @param[in] Parameters : 
- * @param[in] MapBP : 
- * @param[in|out] MapBPPossible : Map contenant les BP sur la trajectoire du pacman
+ * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[in] MapBP : Map contenant les coordonnées et statut de toutes les BP du plateau
+ * @param[inout] MapBPPossible : Map contenant les coordonnées et statut de toutes les BP sur la trajectoire du pacman
  * @fn void CollisionBPPossible (const PacMan & Pac, const CMyParam & Parameters, const map<nsGraphics::Vec2D, bool> & MapBP, map<nsGraphics::Vec2D, bool> & MapBPPossible);
 */
-void CollisionBPPossible (const PacMan & Pac, const map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, map<nsGraphics::Vec2D, bool> & MapBPPossible);
+void CollisionBPPossible (const PacMan & Pac, const std::map<nsGraphics::Vec2D, bool> & MapBP, const CMyParam & Parameters, std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 
 /**
  * @brief Renvoie Vrai et les coordonnées du centre de la Boule Point s'il y a collision entre pacman et une BP
- * @param[in] Pac :
- * @param[in] Parameters : 
- * @param[in] MapBPPossible : 
- * @fn pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const map <nsGraphics::Vec2D, bool> & MapBPPossible);
+ * @param[in] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[in] MapBPPossible : Map contenant les coordonnées et statut de toutes les BP sur la trajectoire du pacman
+ * @fn pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 */
-pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const map <nsGraphics::Vec2D, bool> & MapBPPossible);
+pair <bool, nsGraphics::Vec2D> CollisionPacBP (const PacMan & Pac, const CMyParam & Parameters, const std::map<nsGraphics::Vec2D, bool> & MapBPPossible);
 
 
 #endif // COLLISION_H

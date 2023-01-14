@@ -14,9 +14,9 @@ using namespace std;
 
 /**
  * @brief Suite d'instructions à effectuer près un appuis de touche de mouvement dont le passage à la nouvelle DirectionActuelle et des modifications de variables
- * @param[out] Pac : 
- * @param[in] Parameters : 
- * @param[in] VecteurMurs :
+ * @param[out] Pac : La struct contenant toutes les caractéristiques physiques du PacMan
+ * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
+ * @param[in] VecteurMurs : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
  * @param[inout] MapNextMur : La map contenant la coordonnée x ou y du prochain Mur pour chaque entité capable de se déplacer
  * @param[in] Combo : Le combo de BP "mangées" d'affilée (intervalle entre 2 BP mangées < 1 sec)
  * @param[in] Touche : Le caractère associé à la touche appuyée
