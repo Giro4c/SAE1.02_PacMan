@@ -126,8 +126,8 @@ int main()
             CollisionBPPossible (pac, mapBP, params, mapBPPossible);
             if (CollisionPacBP (pac, params, mapBPPossible).first == true){
                 // Modif des Map BP
-                mapBP.find((CollisionPacBP (pac, params, mapBPPossible).second)) = true;
-                mapBPPossible.find((CollisionPacBP (pac, params, mapBPPossible).second)) = true;
+                mapBP.find((CollisionPacBP (pac, params, mapBPPossible).second) = true);
+                mapBPPossible.find((CollisionPacBP (pac, params, mapBPPossible).second) = true);
                 // Actions et modifs des autres variables
                 ++combo;
                 --resteBP;
@@ -136,8 +136,8 @@ int main()
             }
             // Affichage des Entités (sauf murs)
             DrawBP(window, params, mapBP);
-            DrawPac(window, pac, bouche);
-            DrawGhost(window, params, vecteurGhost);
+            DrawPac(window,params, pac, bouche);
+            DrawGhost(window, vecteurGhost);
 
         }
         // Fin de partie == true

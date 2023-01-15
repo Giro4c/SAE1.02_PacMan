@@ -76,29 +76,56 @@ void MoveGhost(MinGL & window, const CMyParam & Parameters, GhostSprite & ghost,
 {
     // On vérifie si les touches de movement sont pressées, et met a jour la CenterPos, pas de diagonale
     ghost.DirectionPred = ghost.DirectionActuelle;
-    if (window.isPressed({Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyUp")->second, false})){
-        ghost.DirectionActuelle = Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyUp")->second;
-        MapNextMur["G" + string(ghost.ID) + "NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
-        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("G" + string(ghost.ID) + "NextMur")->second).first == true) break;
-        ghost.CenterPos.setY(ghost.CenterPos.getY() - ghost.Vitesse);
+    if (ghost.ID == 1)
+        if (window.isPressed({Parameters.MapParamChar.find("G1KeyUp")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G1KeyUp")->second;
+            MapNextMur["G1NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G1NextMur")->second).first == false)
+                ghost.CenterPos.setY(ghost.CenterPos.getY() - ghost.Vitesse);
 
-    }
-    else if (window.isPressed({Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyDown")->second, false})){
-        ghost.DirectionActuelle = Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyDown")->second;
-        MapNextMur["G" + string(ghost.ID) + "NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
-        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("G" + string(ghost.ID) + "NextMur")->second).first == true) break;
-        ghost.CenterPos.setY(ghost.CenterPos.getY() + ghost.Vitesse);
-    }
-    else if (window.isPressed({Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyLeft")->second, false})){
-        ghost.DirectionActuelle = Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyLeft")->second;
-        MapNextMur["G" + string(ghost.ID) + "NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
-        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("G" + string(ghost.ID) + "NextMur")->second).first == true) break;
-        ghost.CenterPos.setX(ghost.CenterPos.getX() - ghost.Vitesse);
-    }
-    else if (window.isPressed({Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyRight")->second, false})){
-        ghost.DirectionActuelle = Parameters.MapParamChar.find("G" + string(ghost.ID) + "KeyRight")->second;
-        MapNextMur["G" + string(ghost.ID) + "NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
-        if (CollisionPacMur (Pac, Pac.Vitesse, Parameters, MapNextMur.find("G" + string(ghost.ID) + "NextMur")->second).first == true) break;
-        ghost.CenterPos.setX(ghost.CenterPos.getX() + ghost.Vitesse);
-    }
+        }
+        else if (window.isPressed({Parameters.MapParamChar.find("G1KeyDown")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G1KeyDown")->second;
+            MapNextMur["G1NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G1NextMur")->second).first == false)
+                ghost.CenterPos.setY(ghost.CenterPos.getY() + ghost.Vitesse);
+        }
+        else if (window.isPressed({Parameters.MapParamChar.find("G1KeyLeft")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G1KeyLeft")->second;
+            MapNextMur["G1NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G1NextMur")->second).first == false)
+                ghost.CenterPos.setX(ghost.CenterPos.getX() - ghost.Vitesse);
+        }
+        else if (window.isPressed({Parameters.MapParamChar.find("G1KeyRight")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G1KeyLeft")->second;
+            MapNextMur["G1NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G1NextMur")->second).first == false)
+                ghost.CenterPos.setX(ghost.CenterPos.getX() + ghost.Vitesse);
+        }
+    if (ghost.ID == 2)
+        if (window.isPressed({Parameters.MapParamChar.find("G2KeyUp")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G2KeyUp")->second;
+            MapNextMur["G2NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G2NextMur")->second).first == false)
+                ghost.CenterPos.setY(ghost.CenterPos.getY() - ghost.Vitesse);
+
+        }
+        else if (window.isPressed({Parameters.MapParamChar.find("G2KeyDown")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G2KeyDown")->second;
+            MapNextMur["G2NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G2NextMur")->second).first == false)
+                ghost.CenterPos.setY(ghost.CenterPos.getY() + ghost.Vitesse);
+        }
+        else if (window.isPressed({Parameters.MapParamChar.find("G2KeyLeft")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G2KeyLeft")->second;
+            MapNextMur["G2NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G2NextMur")->second).first == false)
+                ghost.CenterPos.setX(ghost.CenterPos.getX() - ghost.Vitesse);
+        }
+        else if (window.isPressed({Parameters.MapParamChar.find("G2KeyRight")->second, false})){
+            ghost.DirectionActuelle = Parameters.MapParamChar.find("G2KeyLeft")->second;
+            MapNextMur["G2NextMur"] = CoNextMur(ghost, Parameters.MapParamSize.find("CaseSize")->second, VecteurMurs, Parameters);
+            if (CollisionGhostMur (ghost, ghost.Vitesse, Parameters, MapNextMur.find("G2NextMur")->second).first == false)
+                ghost.CenterPos.setX(ghost.CenterPos.getX() + ghost.Vitesse);
+        }
 }

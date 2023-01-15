@@ -86,10 +86,10 @@ struct GhostSprite
     unsigned ID;
     nsGraphics::Vec2D CenterPos = nsGraphics::Vec2D(0, 0);
     char DirectionActuelle = 'c';
-    char DirectionPrecedent = 'b';
+    char DirectionPred = 'b';
     unsigned Size;
     unsigned Vitesse;
-    nsGraphics::RGBAcolor GhostColor = nsGraphics::RGBAcolor(255, 255, 255);
+    nsGraphics::RGBAcolor Color = nsGraphics::RGBAcolor(255, 255, 255);
 };
 
 #endif // TYPE_H

@@ -109,8 +109,8 @@ void InitGhost(const CMyParam & Parameters, vector<GhostSprite> & VecteurGhost)
         Ghost.Vitesse = Parameters.MapParamSpeed.find("GhostSpeed")->second;
         Ghost.Size = Parameters.MapParamSize.find("GhostSize")->second;
     }
-    VecteurGhost[0].Color = Parameters.MapParamColor.find("GhostColor1")->second;
+    VecteurGhost[0].Color = Parameters.MapParamRGBAColor.find("GhostColor1")->second;
     VecteurGhost[0].ID = 1;
-    VecteurGhost[1].Color = Parameters.MapParamColor.find("GhostColor2")->second;
+    VecteurGhost[1].Color = Parameters.MapParamRGBAColor.find("GhostColor2")->second;
     VecteurGhost[1].ID = 2;
 }

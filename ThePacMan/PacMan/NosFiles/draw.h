@@ -21,11 +21,10 @@
 /**
  * @brief Procédure de dessin de tous les fantômes
  * @param[out] Window : La fenêtre d'affichage
- * @param[in] Parameters : La struct contenant tous les paramètres nécessaires à une partie
  * @param[in] VecteurGhost : Le vecteur contennant toutes les variables GhostSprite associées à chacun des Ghost d'une partie
- * @fn void DrawGhost(MinGL & Window, const CMyParam & Parameters, std::vector<GhostSprite> & VecteurGhost);
+ * @fn void DrawGhost(MinGL & Window, std::vector<GhostSprite> & VecteurGhost);
 */
-void DrawGhost(MinGL & Window, const CMyParam & Parameters, std::vector<GhostSprite> & VecteurGhost);
+void DrawGhost(MinGL & Window, std::vector<GhostSprite> & VecteurGhost);
 
 /**
  * @brief Procédure de dessin de toutes les BP non-mangées par le PacMan
@@ -34,7 +33,7 @@ void DrawGhost(MinGL & Window, const CMyParam & Parameters, std::vector<GhostSpr
  * @param[in] MapBP : Map contenant les coordonnées et statut de toutes les BP du plateau
  * @fn void DrawBP(MinGL & Window, const CMyParam & Parameters, std::map<bool, nsGraphics::Vec2D> & MapBP);
 */
-void DrawBP(MinGL & Window, const CMyParam & Parameters, std::map<bool, nsGraphics::Vec2D> & MapBP);
+void DrawBP(MinGL & Window, const CMyParam & Parameters, std::map<nsGraphics::Vec2D,bool> & MapBP);
 
 /**
  * @brief Procédure de dessin des murs du plateau

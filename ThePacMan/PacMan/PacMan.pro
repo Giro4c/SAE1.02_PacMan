@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         NosFiles/Pacman.cpp \
         NosFiles/collision.cpp \
+        NosFiles/draw.cpp \
         NosFiles/move.cpp \
         NosFiles/param.cpp \
         main.cpp
@@ -14,6 +15,7 @@ include ("MinGL2/mingl.pri")
 HEADERS += \
     NosFiles/Pacman.h \
     NosFiles/collision.h \
+    NosFiles/draw.h \
     NosFiles/move.h \
     NosFiles/param.h \
     NosFiles/type.h

@@ -163,7 +163,7 @@ pair <bool, unsigned> CollisionPacMur (const PacMan & Pac, const unsigned & Vite
 unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector<nsGraphics::Vec2D> & VecteurMurs, const CMyParam & Parameters)
 {
     // Si direction vers le haut
-    if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyUp")->second){
+    if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyUp")->second){
         unsigned ValCoNextMurY (0);
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
@@ -189,7 +189,7 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         return ValCoNextMurY;
     }
     // Si direction vers le bas
-    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyDown")->second){
+    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyDown")->second){
         unsigned ValCoNextMurY (Parameters.MapParamSize.find("WindowHeight")->second);
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
@@ -215,7 +215,7 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         return ValCoNextMurY;
     }
     // Si direction à gauche
-    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyLeft")->second){
+    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyLeft")->second){
         unsigned ValCoNextMurX (0);
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
@@ -241,7 +241,7 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         return ValCoNextMurX;
     }
     // Si direction à droite
-    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyRight")->second){
+    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyRight")->second){
         unsigned ValCoNextMurX (Parameters.MapParamSize.find("WindowWidth")->second);
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
@@ -278,7 +278,7 @@ pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsign
 
     // Vérification en fonction de la direction actuelle du Ghost
     // Haut
-    if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyUp")->second){
+    if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyUp")->second){
         yVerif = Ghost.CenterPos.getY() - Ghost.Size - Vitesse;
         if (ValCoNextMur >= yVerif)
             return {true, Vitesse - (ValCoNextMur - yVerif) - 1};
@@ -286,7 +286,7 @@ pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsign
             return {false, 0}; // Puisque pas de collision
     }
     // Bas
-    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyDown")->second){
+    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyDown")->second){
         yVerif = Ghost.CenterPos.getY() + Ghost.Size + Vitesse;
         if (ValCoNextMur <= yVerif)
             return {true, Vitesse - (yVerif - ValCoNextMur) - 1};
@@ -294,7 +294,7 @@ pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsign
             return {false, 0}; // Puisque pas de collision
     }
     // Gauche
-    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyLeft")->second){
+    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyLeft")->second){
         xVerif = Ghost.CenterPos.getX() - Ghost.Size - Vitesse;
         if (ValCoNextMur >= xVerif)
             return {true, Vitesse - (ValCoNextMur - xVerif) - 1};
@@ -302,7 +302,7 @@ pair <bool, unsigned> CollisionGhostMur (const GhostSprite & Ghost, const unsign
             return {false, 0}; // Puisque pas de collision
     }
     // Droite
-    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + string(Ghost.ID) + "KeyRight")->second){
+    else if (Ghost.DirectionActuelle == Parameters.MapParamChar.find("G" + to_string(Ghost.ID) + "KeyRight")->second){
         xVerif = Ghost.CenterPos.getX() + Ghost.Size + Vitesse;
         if (ValCoNextMur <= xVerif)
             return {true, Vitesse - (xVerif - ValCoNextMur) - 1};

@@ -2,19 +2,19 @@
 
 using namespace std;
 
-void DrawGhost(MinGL & Window, const CMyParam & Parameters, vector<GhostSprite> & VecteurGhost)
+void DrawGhost(MinGL & Window, vector<GhostSprite> & VecteurGhost)
 {
     for (auto & Ghost : VecteurGhost){
         Window << nsShape::Circle(Ghost.CenterPos, Ghost.Size, Ghost.Color);
-        Window << nsShape::Rectangle(nsGraphics::Vec2D(Ghost.CenterPos.getX() - Ghost.Size, Ghost.CenterPos.getY()), Ghost.Size*2, Ghost.Color);
+        Window << nsShape::Rectangle(nsGraphics::Vec2D(Ghost.CenterPos.getX() - Ghost.Size, Ghost.CenterPos.getY()), nsGraphics::Vec2D(Ghost.CenterPos.getX() + Ghost.Size, Ghost.CenterPos.getY() + Ghost.Size), Ghost.Color);
     }
 }
 
-void DrawBP(MinGL & Window, const CMyParam & Parameters, map<bool, nsGraphics::Vec2D> & MapBP)
+void DrawBP(MinGL & Window, const CMyParam & Parameters, map<nsGraphics::Vec2D,bool> & MapBP)
 {
     unsigned sizeBP = Parameters.MapParamSize.find("BPSize")->second;
     for (auto & BP : MapBP){
-        if (BP.first == false)
+        if (BP.second == false)
             Window << nsShape::Circle(BP.second, sizeBP, nsGraphics::KWhite);
     }
 }
@@ -46,13 +46,13 @@ void DrawPac(MinGL & Window, const CMyParam & Parameters, PacMan & Pac, nsShape:
     Bouche.setFirstPosition(Pac.CenterPos);
     Bouche.setSecondPosition(Pac.BouchePosA);
     Bouche.setThirdPosition(Pac.BouchePosB);
-    Window << bouche;
+    Window << Bouche;
     if (Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyUp")->second || Pac.DirectionActuelle == Parameters.MapParamChar.find("PacKeyDown")->second) {
         Window << nsShape::Triangle(Pac.CenterPos, {Pac.BouchePosA.getX()+10, Pac.BouchePosA.getY()},
-                                    {Pac.BouchePosB.getX()-10, Pac.BouchePosB.getY()}, KBlack);
+                                    {Pac.BouchePosB.getX()-10, Pac.BouchePosB.getY()}, nsGraphics::KBlack);
     } 
     else {
         Window << nsShape::Triangle(Pac.CenterPos, {Pac.BouchePosA.getX(), Pac.BouchePosA.getY()+10},
-                                                    {Pac.BouchePosB.getX(), Pac.BouchePosB.getY()-10}, KBlack);
+                                                    {Pac.BouchePosB.getX(), Pac.BouchePosB.getY()-10}, nsGraphics::KBlack);
     }
 }
