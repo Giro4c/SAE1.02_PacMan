@@ -1,0 +1,8 @@
+<map id="DrawPac" name="DrawPac">
+<area shape="rect" id="node1" title="Permet de dessiner et animer pacman." alt="" coords="5,115,84,141"/>
+<area shape="rect" id="node2" href="$classns_graphics_1_1_vec2_d.html#abcf3d729b05b3cd93e9eff21c74b89a1" title="Récupère la position X (abscisse)" alt="" coords="132,5,313,32"/>
+<area shape="rect" id="node3" href="$classns_graphics_1_1_vec2_d.html#ae70fbda9cca27b9dc0fe068a38ae5e5e" title="Récupère la position Y (ordonnée)" alt="" coords="133,56,313,83"/>
+<area shape="rect" id="node4" href="$classns_shape_1_1_triangle.html#a9cbdb05c4f337961adccadf1aec48b1b" title="Définit la nouvelle position du premier sommet du triangle." alt="" coords="151,107,295,149"/>
+<area shape="rect" id="node5" href="$classns_shape_1_1_triangle.html#a18f911ec00c99e29eec695a49c2e051e" title="Définit la nouvelle position du second sommet du triangle." alt="" coords="151,173,295,214"/>
+<area shape="rect" id="node6" href="$classns_shape_1_1_triangle.html#a7af3264cac9e8333ec5d7315bc931047" title="Définit la nouvelle position du troisième sommet du triangle." alt="" coords="151,238,295,279"/>
+</map>

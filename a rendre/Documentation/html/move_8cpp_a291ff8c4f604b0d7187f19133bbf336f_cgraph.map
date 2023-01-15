@@ -1,0 +1,11 @@
+<map id="MovePac" name="MovePac">
+<area shape="rect" id="node1" title=" " alt="" coords="5,158,85,185"/>
+<area shape="rect" id="node2" href="$move_8cpp.html#a0c9c592d173f26a73ad650fbf6c9810e" title=" " alt="" coords="144,57,303,84"/>
+<area shape="rect" id="node4" href="$classns_graphics_1_1_vec2_d.html#abcf3d729b05b3cd93e9eff21c74b89a1" title="Récupère la position X (abscisse)" alt="" coords="535,57,716,84"/>
+<area shape="rect" id="node5" href="$classns_graphics_1_1_vec2_d.html#ae70fbda9cca27b9dc0fe068a38ae5e5e" title="Récupère la position Y (ordonnée)" alt="" coords="535,108,715,134"/>
+<area shape="rect" id="node6" href="$collision_8cpp.html#a54b5a7e79f35d75da9d3be6ed94d7823" title="Détermine si le prochain déplacement est une collision avec un mur et renvoie la nouvelle vitesse pou..." alt="" coords="361,108,487,134"/>
+<area shape="rect" id="node7" href="$class_min_g_l.html#a8f0833403a4fb3df8010c132e81b207f" title="Renvoie l&#39;état d&#39;une touche du clavier (pressée ou non)" alt="" coords="157,209,290,236"/>
+<area shape="rect" id="node8" href="$classns_graphics_1_1_vec2_d.html#ae9d371fdd3817c6e9a3a1ae6ed3fd17d" title="Définit la nouvelle position X (abscisse)" alt="" coords="133,260,313,286"/>
+<area shape="rect" id="node9" href="$classns_graphics_1_1_vec2_d.html#ac0e752e399ab2f727fe2644540b1208f" title="Définit la nouvelle position Y (ordonnée)" alt="" coords="134,310,313,337"/>
+<area shape="rect" id="node3" href="$collision_8cpp.html#a6b13e5bd5a320b6e756288e092d7c060" title=" " alt="" coords="377,57,471,84"/>
+</map>
