@@ -1,0 +1,5 @@
+<map id="CollisionPacMur" name="CollisionPacMur">
+<area shape="rect" id="node1" title="Détermine si le prochain déplacement est une collision avec un mur et renvoie la nouvelle vitesse pou..." alt="" coords="5,31,131,57"/>
+<area shape="rect" id="node2" href="$classns_graphics_1_1_vec2_d.html#abcf3d729b05b3cd93e9eff21c74b89a1" title="Récupère la position X (abscisse)" alt="" coords="179,5,360,32"/>
+<area shape="rect" id="node3" href="$classns_graphics_1_1_vec2_d.html#ae70fbda9cca27b9dc0fe068a38ae5e5e" title="Récupère la position Y (ordonnée)" alt="" coords="179,56,359,83"/>
+</map>

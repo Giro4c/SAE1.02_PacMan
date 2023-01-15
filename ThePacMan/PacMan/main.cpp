@@ -61,7 +61,7 @@ int main()
     map<string, unsigned> mapNextMur;
 
     // Initialise le système
-    MinGL window("Pac Man", nsGraphics::Vec2D(640, 640), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
+    MinGL window("Pac Man", nsGraphics::Vec2D(1100, 640), nsGraphics::Vec2D(128, 128), nsGraphics::KBlack);
     window.initGlut();
     window.initGraphic();
 

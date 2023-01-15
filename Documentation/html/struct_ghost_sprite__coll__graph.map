@@ -1,0 +1,6 @@
+<map id="GhostSprite" name="GhostSprite">
+<area shape="rect" id="node1" title="Struct pour les fantomes." alt="" coords="132,171,231,197"/>
+<area shape="rect" id="node2" href="$classns_graphics_1_1_r_g_b_acolor.html" title="Classe représentant un couleur RGBA8888." alt="" coords="5,81,176,108"/>
+<area shape="rect" id="node3" href="$classns_util_1_1_i_editable.html" title="Interface pour un objet injectable." alt="" coords="117,5,243,32"/>
+<area shape="rect" id="node4" href="$classns_graphics_1_1_vec2_d.html" title="Classe représentant un vecteur deux&#45;dimensionnel." alt="" coords="201,81,343,108"/>
+</map>

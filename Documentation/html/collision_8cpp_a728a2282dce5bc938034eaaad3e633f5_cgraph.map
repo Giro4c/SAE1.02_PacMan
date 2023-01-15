@@ -1,0 +1,6 @@
+<map id="CollisionPacBP" name="CollisionPacBP">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,123,57"/>
+<area shape="rect" id="node2" href="$classns_graphics_1_1_vec2_d.html#aa02cee45c2d8aa2d9b7e08dfb6c1dfca" title="Retourne vrai si le vecteur actuel est compris entre deux vecteurs formant un rectangle." alt="" coords="171,23,321,65"/>
+<area shape="rect" id="node3" href="$classns_graphics_1_1_vec2_d.html#abcf3d729b05b3cd93e9eff21c74b89a1" title="Récupère la position X (abscisse)" alt="" coords="369,5,551,32"/>
+<area shape="rect" id="node4" href="$classns_graphics_1_1_vec2_d.html#ae70fbda9cca27b9dc0fe068a38ae5e5e" title="Récupère la position Y (ordonnée)" alt="" coords="370,56,550,83"/>
+</map>
