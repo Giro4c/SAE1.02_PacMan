@@ -12,19 +12,19 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, vector<nsGrap
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getY() + CaseSize <= Pac.CenterPos.getY() - Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
-                if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.Size){
+                if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
-                else if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.Size){
+                else if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
             }
             // Else if car (y + CaseSize) est forcément plus grand que (y) sachant que CaseSize >= 0
             else if (Mur.getY() <= Pac.CenterPos.getY() - Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
-                if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.Size){
+                if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, unsigned( Mur.getY()));
                 }
-                else if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.Size){
+                else if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, unsigned( Mur.getY() ));
                 }
             }
@@ -38,19 +38,19 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, vector<nsGrap
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getY() >= Pac.CenterPos.getY() + Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
-                if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.Size){
+                if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, unsigned( Mur.getY() ) );
                 }
-                else if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.Size){
+                else if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, unsigned( Mur.getY() ) );
                 }
             }
             // Else if car (y) est forcément plus petit que (y + CaseSize) sachant que CaseSize >= 0
             else if (Mur.getY() + CaseSize >= Pac.CenterPos.getY() + Pac.Size){ // Traduction sur la fenetre : point au dessus de pacman
-                if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + Pac.Size){
+                if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
-                else if (Pac.CenterPos.getX() - Pac.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.Size){
+                else if (Pac.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Pac.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
             }
@@ -64,19 +64,19 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, vector<nsGrap
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getX() + CaseSize <= Pac.CenterPos.getX() - Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
             }
             // Else if car (x + CaseSize) est forcément plus grand que (x) sachant que CaseSize >= 0
             if (Mur.getX() <= Pac.CenterPos.getX() - Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, unsigned( Mur.getX()));
                 }
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, unsigned( Mur.getX()));
                 }
             }
@@ -90,19 +90,19 @@ unsigned CoNextMur (const PacMan & Pac, const unsigned & CaseSize, vector<nsGrap
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getX() <= Pac.CenterPos.getX() + Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, unsigned( Mur.getX()));
                 }
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, unsigned( Mur.getX()));
                 }
             }
             // Else if car (x) est forcément plus petit que (x + CaseSize) sachant que CaseSize >= 0
             else if (Mur.getX() + CaseSize <= Pac.CenterPos.getX() + Pac.Size){ // Traduction sur la fenetre : point à gauche de pacman
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
-                if (Pac.CenterPos.getY() - Pac.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + Pac.Size){
+                if (Pac.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Pac.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
             }
@@ -168,19 +168,19 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getY() + CaseSize <= Ghost.CenterPos.getY() - Ghost.Size){ // Traduction sur la fenetre : point au dessus de Ghost
-                if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + Ghost.Size){
+                if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
-                else if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + Ghost.Size){
+                else if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
             }
             // Else if car (y + CaseSize) est forcément plus grand que (y) sachant que CaseSize >= 0
             else if (Mur.getY() <= Ghost.CenterPos.getY() - Ghost.Size){ // Traduction sur la fenetre : point au dessus de Ghost
-                if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + Ghost.Size){
+                if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, unsigned( Mur.getY()));
                 }
-                else if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + Ghost.Size){
+                else if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = max(ValCoNextMurY, unsigned( Mur.getY() ));
                 }
             }
@@ -194,19 +194,19 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getY() >= Ghost.CenterPos.getY() + Ghost.Size){ // Traduction sur la fenetre : point au dessus de Ghost
-                if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + Ghost.Size){
+                if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, unsigned( Mur.getY() ) );
                 }
-                else if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + Ghost.Size){
+                else if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, unsigned( Mur.getY() ) );
                 }
             }
             // Else if car (y) est forcément plus petit que (y + CaseSize) sachant que CaseSize >= 0
             else if (Mur.getY() + CaseSize >= Ghost.CenterPos.getY() + Ghost.Size){ // Traduction sur la fenetre : point au dessus de Ghost
-                if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + Ghost.Size){
+                if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() && Mur.getX() <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
-                else if (Ghost.CenterPos.getX() - Ghost.Size <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + Ghost.Size){
+                else if (Ghost.CenterPos.getX() - CaseSize/2 <= Mur.getX() + CaseSize && Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + CaseSize/2){
                     ValCoNextMurY = min(ValCoNextMurY, Mur.getY() + CaseSize);
                 }
             }
@@ -220,19 +220,19 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getX() + CaseSize <= Ghost.CenterPos.getX() - Ghost.Size){ // Traduction sur la fenetre : point à gauche de Ghost
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
             }
             // Else if car (x + CaseSize) est forcément plus grand que (x) sachant que CaseSize >= 0
             if (Mur.getX() <= Ghost.CenterPos.getX() - Ghost.Size){ // Traduction sur la fenetre : point à gauche de Ghost
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, unsigned( Mur.getX()));
                 }
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = max(ValCoNextMurX, unsigned( Mur.getX()));
                 }
             }
@@ -246,19 +246,19 @@ unsigned CoNextMur (const GhostSprite & Ghost, const unsigned & CaseSize, vector
         for (nsGraphics::Vec2D & Mur : VecteurMurs){
 
             if (Mur.getX() <= Ghost.CenterPos.getX() + Ghost.Size){ // Traduction sur la fenetre : point à gauche de Ghost
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, unsigned( Mur.getX()));
                 }
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, unsigned( Mur.getX()));
                 }
             }
             // Else if car (x) est forcément plus petit que (x + CaseSize) sachant que CaseSize >= 0
             else if (Mur.getX() + CaseSize <= Ghost.CenterPos.getX() + Ghost.Size){ // Traduction sur la fenetre : point à gauche de Ghost
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() && Mur.getY() <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
-                if (Ghost.CenterPos.getY() - Ghost.Size <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + Ghost.Size){
+                if (Ghost.CenterPos.getY() - CaseSize/2 <= Mur.getY() + CaseSize && Mur.getY() + CaseSize <= Ghost.CenterPos.getY() + CaseSize/2){
                     ValCoNextMurX = min(ValCoNextMurX, Mur.getX() + CaseSize);
                 }
             }
