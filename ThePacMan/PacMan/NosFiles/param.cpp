@@ -87,6 +87,7 @@ void InitMursBPGhost (const vector<string> & Plateau, CMyParam & Parameters, Pac
             case 'o':
                 Pac.CenterPos.setX(j*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
                 Pac.CenterPos.setY(i*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
+                break;
             case '1':
                 VecteurGhost[0].CenterPos.setX(j*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);
                 VecteurGhost[0].CenterPos.setY(i*(Parameters.MapParamSize.find("CaseSize")->second) + (Parameters.MapParamSize.find("CaseSize")->second)/2);

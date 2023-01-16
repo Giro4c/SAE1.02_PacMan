@@ -40,17 +40,17 @@ void initMap (vector<string> & vectMap)
 {
     vectMap = {
     "xxxxxxxxxxxxxxxxxxxxxx",
-    "xn...x..........x....x",
+    "xn...x..........x...ox",
     "x.xx.x.xxxxxxxx.x.xx.x",
-    "x.x................x.x",
+    "x.xo...............x.x",
     "x.x.xx.xxxnnxxx.xx.x.x",
     "x.x....xnnnnnnx....x.x",
     "x...xx.xxxxxxxx.xx...x",
-    "x.x................x.x",
+    "x.x........o.......x.x",
     "x.x.xx.xxxxxxxx.xx.x.x",
-    "x.x................x.x",
+    "x.xo...............x.x",
     "x.xx.x.xxxxxxxx.x.xx.x",
-    "x....x..........x....xx",
+    "x....x..........x...oxx",
     "xxxxxxxxxxxxxxxxxxxxxx"};
 }
 
@@ -69,6 +69,9 @@ void showMap(MinGL &window, vector<string> &vectMap) {
                 break;
             case '.':
                 window << nsShape::Circle(nsGraphics::Vec2D(j * 50 + 25, i * 50+25), 5, nsGraphics::KWhite);
+                break;
+            case 'o':
+                window << nsShape::Circle(nsGraphics::Vec2D(j * 50 + 25, i * 50+25), 10, nsGraphics::KWhite);
                 break;
             case 'n':
                 window << nsShape::Rectangle(nsGraphics::Vec2D(j * 50,i * 50), nsGraphics::Vec2D(j * 50 + 50, i * 50 + 50), nsGraphics::KBlack);
@@ -108,17 +111,18 @@ void drawGhost (MinGL & window)
     //G3
     G3.CenterPos.setX(G2.CenterPos.getX() + 50);
     G3.GhostColor = nsGraphics::RGBAcolor(95,158,160);
-    nsShape::Circle head3 = {nsGraphics::Vec2D(G2.CenterPos), largeur_Rayon, G3.GhostColor};
+    nsShape::Circle head3 = {nsGraphics::Vec2D(G3.CenterPos), largeur_Rayon, G3.GhostColor};
     nsShape::Rectangle body3 = {nsGraphics::Vec2D(G3.CenterPos.getX() - largeur_Rayon, G3.CenterPos.getY()), nsGraphics::Vec2D(G3.CenterPos.getX() + largeur_Rayon, G3.CenterPos.getY() + longueur - largeur_Rayon), G3.GhostColor};
     window << head3;
     window << body3;
     //G4
     G4.CenterPos.setX(G3.CenterPos.getX() + 50);
     G4.GhostColor = nsGraphics::RGBAcolor(255,192,203);
-    nsShape::Circle head4 = {nsGraphics::Vec2D(G3.CenterPos), largeur_Rayon, G4.GhostColor};
+    nsShape::Circle head4 = {nsGraphics::Vec2D(G4.CenterPos), largeur_Rayon, G4.GhostColor};
     nsShape::Rectangle body4 = {nsGraphics::Vec2D(G4.CenterPos.getX() - largeur_Rayon, G4.CenterPos.getY()), nsGraphics::Vec2D(G4.CenterPos.getX() + largeur_Rayon, G4.CenterPos.getY() + longueur - largeur_Rayon), G4.GhostColor};
     window << head4;
     window << body4;
+
 }
 /**
  * @brief dessiner

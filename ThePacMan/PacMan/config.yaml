@@ -13,10 +13,10 @@ G2KeyRight : m
 ColorWall : 0 0 255
 ColorGhost1 : 150 150 150
 ColorGhost2 : 255 0 255
-CaseSize : 49
+CaseSize : 50
 PacSize : 16
-BPSize : 7
-GhostSize : 20
+BPSize : 5
+GhostSize : 15
 PacDefaultSpeed : 2
 PacMaxSpeed : 5
 GhostSpeed : 3

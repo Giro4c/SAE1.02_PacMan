@@ -15,7 +15,7 @@ void DrawBP(MinGL & Window, const CMyParam & Parameters, map<nsGraphics::Vec2D,b
     unsigned sizeBP = Parameters.MapParamSize.find("BPSize")->second;
     for (auto & BP : MapBP){
         if (BP.second == false)
-            Window << nsShape::Circle(BP.second, sizeBP, nsGraphics::KWhite);
+            Window << nsShape::Circle((BP.first), sizeBP, nsGraphics::KWhite);
     }
 }
 
