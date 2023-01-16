@@ -1,5 +1,0 @@
-<map id="PacMan" name="PacMan">
-<area shape="rect" id="node1" title="PacMan : Struct contenant les informations sur le pacman." alt="" coords="41,200,113,227"/>
-<area shape="rect" id="node2" href="$classns_graphics_1_1_vec2_d.html" title="Classe représentant un vecteur deux&#45;dimensionnel." alt="" coords="5,81,148,108"/>
-<area shape="rect" id="node3" href="$classns_util_1_1_i_editable.html" title="Interface pour un objet injectable." alt="" coords="14,5,139,32"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="MovePac" name="MovePac">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,85,57"/>
-<area shape="rect" id="node2" href="$move_8cpp.html#a0c9c592d173f26a73ad650fbf6c9810e" title="Suite d&#39;instructions à effectuer près un appuis de touche de mouvement dont le passage à la nouvelle ..." alt="" coords="133,5,292,32"/>
-<area shape="rect" id="node4" href="$collision_8cpp.html#a54b5a7e79f35d75da9d3be6ed94d7823" title="Détermine si le prochain déplacement est une collision avec un mur et renvoie la nouvelle vitesse pou..." alt="" coords="150,56,275,83"/>
-<area shape="rect" id="node3" href="$collision_8cpp.html#a6b13e5bd5a320b6e756288e092d7c060" title=" " alt="" coords="340,5,435,32"/>
-</map>

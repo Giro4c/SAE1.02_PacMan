@@ -1,5 +1,0 @@
-<map id="nsGraphics::Vec2D::isColliding" name="nsGraphics::Vec2D::isColliding">
-<area shape="rect" id="node1" title="Retourne vrai si le vecteur actuel est compris entre deux vecteurs formant un rectangle." alt="" coords="273,5,424,47"/>
-<area shape="rect" id="node2" href="$collision_8cpp.html#a728a2282dce5bc938034eaaad3e633f5" title=" " alt="" coords="108,13,225,39"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
-</map>

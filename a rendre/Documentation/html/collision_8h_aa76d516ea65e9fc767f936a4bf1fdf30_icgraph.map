@@ -1,6 +1,0 @@
-<map id="yFInsideHitBoxPacY" name="yFInsideHitBoxPacY">
-<area shape="rect" id="node1" title="Détermine si la coordonnée YPointFantome du possible point de collision se trouve dans de l&#39;intervall..." alt="" coords="451,5,601,32"/>
-<area shape="rect" id="node2" href="$collision_8cpp.html#a8b09801914f6bba58e1b58a4a48b449a" title=" " alt="" coords="108,5,247,32"/>
-<area shape="rect" id="node4" href="$collision_8cpp.html#a2cab7e1ad6593ebd8bff6cdfe8413cd1" title="Détermine s&#39;il y a réel contact entre la hitbox PacMan et celle (complexe) du Fantome pour sa partie ..." alt="" coords="295,31,403,57"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
-</map>

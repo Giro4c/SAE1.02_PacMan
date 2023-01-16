@@ -1,8 +1,0 @@
-<map id="CollisionPacGhost" name="CollisionPacGhost">
-<area shape="rect" id="node1" title=" " alt="" coords="5,100,144,127"/>
-<area shape="rect" id="node2" href="$classns_graphics_1_1_vec2_d.html#abcf3d729b05b3cd93e9eff21c74b89a1" title="Récupère la position X (abscisse)" alt="" coords="348,5,529,32"/>
-<area shape="rect" id="node3" href="$classns_graphics_1_1_vec2_d.html#ae70fbda9cca27b9dc0fe068a38ae5e5e" title="Récupère la position Y (ordonnée)" alt="" coords="349,63,529,89"/>
-<area shape="rect" id="node4" href="$collision_8cpp.html#a2cab7e1ad6593ebd8bff6cdfe8413cd1" title="Détermine s&#39;il y a réel contact entre la hitbox PacMan et celle (complexe) du Fantome pour sa partie ..." alt="" coords="192,100,300,127"/>
-<area shape="rect" id="node5" href="$collision_8cpp.html#a89a05d414bcffb03a7f23ca069bb8163" title="Détermine si la coordonnée XPointFantome du possible point de collision se trouve dans de l&#39;intervall..." alt="" coords="363,125,515,152"/>
-<area shape="rect" id="node6" href="$collision_8cpp.html#aa76d516ea65e9fc767f936a4bf1fdf30" title="Détermine si la coordonnée YPointFantome du possible point de collision se trouve dans de l&#39;intervall..." alt="" coords="363,188,514,215"/>
-</map>

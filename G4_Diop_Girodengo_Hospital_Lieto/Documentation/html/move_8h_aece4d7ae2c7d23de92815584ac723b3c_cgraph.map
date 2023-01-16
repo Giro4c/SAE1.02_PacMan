@@ -1,0 +1,5 @@
+<map id="MoveGhost" name="MoveGhost">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,101,57"/>
+<area shape="rect" id="node2" href="$collision_8cpp.html#a944a0fb992ae689d55b190b68d48af25" title="Détermine si le prochain déplacement est une collision avec un mur et renvoie la nouvelle vitesse pou..." alt="" coords="149,5,291,32"/>
+<area shape="rect" id="node3" href="$collision_8cpp.html#a6b13e5bd5a320b6e756288e092d7c060" title=" " alt="" coords="173,56,267,83"/>
+</map>

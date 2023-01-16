@@ -1,0 +1,12 @@
+<map id="/home/sokhna/Documents/Programmation/SAE1.02_PacMan/ThePacMan/PacMan/MinGL2/include/mingl/transition/transition_engine.h" name="/home/sokhna/Documents/Programmation/SAE1.02_PacMan/ThePacMan/PacMan/MinGL2/include/mingl/transition/transition_engine.h">
+<area shape="rect" id="node1" title="Gestionnaire de transition de minGL." alt="" coords="6,5,239,91"/>
+<area shape="rect" id="node2" title=" " alt="" coords="81,363,148,389"/>
+<area shape="rect" id="node3" title=" " alt="" coords="43,139,120,165"/>
+<area shape="rect" id="node4" title=" " alt="" coords="144,139,187,165"/>
+<area shape="rect" id="node5" href="$transition_8h.html" title="Definition d&#39;une transition." alt="" coords="211,139,307,165"/>
+<area shape="rect" id="node6" href="$transition__contract_8h.html" title="Création de la transition." alt="" coords="181,213,337,240"/>
+<area shape="rect" id="node7" title=" " alt="" coords="43,288,130,315"/>
+<area shape="rect" id="node8" title=" " alt="" coords="350,363,413,389"/>
+<area shape="rect" id="node9" href="$itransitionable_8h.html" title="Interface pour objet &quot;transitionable&quot;." alt="" coords="368,288,496,315"/>
+<area shape="rect" id="node10" href="$transition__types_8h.html" title="Définit quelques types pour les transitions." alt="" coords="155,288,293,315"/>
+</map>

@@ -1,0 +1,22 @@
+PacKeyUp : z
+PacKeyDown : s
+PacKeyLeft : q
+PacKeyRight : d
+G1KeyUp : y
+G1KeyDown : h
+G1KeyLeft : g
+G1KeyRight : j
+G2KeyUp : o
+G2KeyDown : l
+G2KeyLeft : k
+G2KeyRight : m
+ColorWall : 0 0 255
+ColorGhost1 : 150 150 150
+ColorGhost2 : 255 0 255
+CaseSize : 49
+PacSize : 16
+BPSize : 7
+GhostSize : 20
+PacDefaultSpeed : 2
+PacMaxSpeed : 5
+GhostSpeed : 3
